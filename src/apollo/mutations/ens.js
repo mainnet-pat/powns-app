@@ -1,5 +1,6 @@
-import { setupENS } from '@ensdomains/ui'
+import { setupENS, setupRegistrar } from '@ensdomains/ui'
 import { isENSReadyReactive } from '../reactiveVars'
+import { topLevelDomainReactive } from '../reactiveVars'
 
 const INFURA_ID =
   window.location.host === 'app.ens.domains'
@@ -34,12 +35,21 @@ export async function setup({
   } = await setupENS(option)
   ens = ensInstance
   registrar = registrarInstance
-  ensRegistryAddress = ensAddress
+  ensRegistryAddress = ens.registryAddress || ensAddress
   isENSReadyReactive(true)
   return { ens, registrar, providerObject }
 }
 
-export function getRegistrar() {
+export async function getRegistrar() {
+  const topLevelDomain = topLevelDomainReactive()
+
+  if (
+    registrar.topLevelDomain !== topLevelDomain &&
+    ensRegistryAddress !== undefined
+  ) {
+    registrar = await setupRegistrar(ensRegistryAddress, topLevelDomain)
+  }
+
   return registrar
 }
 

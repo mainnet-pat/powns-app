@@ -3,7 +3,12 @@ import getEtherPrice from 'api/price'
 import { loggedIn, logout } from './IPFS/auth'
 
 import { getBlock, getProvider, ethers } from '@ensdomains/ui'
-import { isCID, networkName, supportedAvatarProtocols } from 'utils/utils'
+import {
+  isCID,
+  metadataURI,
+  networkName,
+  supportedAvatarProtocols
+} from 'utils/utils'
 
 export function useDocumentTitle(title) {
   useEffect(() => {
@@ -233,7 +238,7 @@ export function useAvatar(textKey, name, network, uri) {
       const _network = networkName[network?.toLowerCase()]
       const run = async () => {
         const result = await fetch(
-          `https://metadata.ens.domains/${_network}/avatar/${name}/meta`
+          `${metadataURI(_network)}/avatar/${name}/meta`
         )
         const data = await result.json()
         if ('image' in data && data.image) {

@@ -108,9 +108,9 @@ function Faq() {
         <Section question="How much does it cost to register a .eth name?">
           Currently, registration costs are set at the following prices:
           <ul>
-            <li>5+ character .eth names: $5 in ETH per year.</li>
-            <li>4 character .eth names: $160 in ETH per year.</li>
-            <li>3 character .eth names $640 in ETH per year.</li>
+            <li>5+ character .eth names: 0.01 BCH per year.</li>
+            <li>4 character .eth names: 0.1 BCH per year.</li>
+            <li>3 character .eth names 1 BCH per year.</li>
           </ul>
           3 and 4 character names have 'premium' pricing to reflect the small
           number of these names available.
@@ -135,13 +135,13 @@ function Faq() {
           relatively expensive.
         </Section>
 
-        <Section question="Can I register names other than .eth?">
+        {/* <Section question="Can I register names other than .eth?">
           Yes, you can import into ENS any DNS name with the required DNSSEC.
           <br />
           Please refer to our{' '}
           <a href="https://docs.ens.domains/dns-registrar-guide">guide</a> for
           more detail.
-        </Section>
+        </Section> */}
 
         <H2>When you register</H2>
 
@@ -281,14 +281,14 @@ function Faq() {
           owner overwrites it.
         </Section>
 
-        <Section question="Where can I see the list of names to be released">
+        {/* <Section question="Where can I see the list of names to be released">
           You can see the list at the "ENS Names to be released" section of{' '}
           <a href="https://dune.xyz/makoto/ens-released-to-be-released-names">
             {' '}
             the Dune Analytics dashboard
           </a>{' '}
           .
-        </Section>
+        </Section> */}
 
         <Section question="I lost access to the Ethereum account that owns a name I registered. Can I still extend its registration period?">
           Any Ethereum account can pay to extend the registration of any ENS
@@ -297,7 +297,7 @@ function Faq() {
           "Extend".
         </Section>
 
-        <Section question="I registered names before 2019 May. Can I have my deposit back?">
+        {/* <Section question="I registered names before 2019 May. Can I have my deposit back?">
           Yes, you can get your deposit back from
           <a href="https://reclaim.ens.domains"> reclaim.ens.domains </a>{' '}
           whether you extended the registration of the name or not.
@@ -313,7 +313,7 @@ function Faq() {
             the initial guide back in 2017{' '}
           </a>{' '}
           for more detail.
-        </Section>
+        </Section> */}
       </FaqContainer>
     </>
   )

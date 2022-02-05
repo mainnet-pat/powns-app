@@ -7,9 +7,10 @@ import { useQuery, useMutation } from '@apollo/client'
 
 import UnstyledBlockies from '../Blockies'
 import NoAccountsModal from '../NoAccounts/NoAccountsModal'
-import { GET_REVERSE_RECORD } from '../../graphql/queries'
+import { GET_REVERSE_RECORD, GET_BALANCE } from '../../graphql/queries'
 import { connectProvider, disconnectProvider } from '../../utils/providerUtils'
 import { imageUrl } from '../../utils/utils'
+import EthVal from 'ethval'
 
 const NetworkInformationContainer = styled('div')`
   position: relative;
@@ -123,6 +124,11 @@ function NetworkInformation() {
     skip: !accounts?.length
   })
 
+  const { data: { getBalance } = {} } = useQuery(GET_BALANCE, {
+    variables: { address: accounts?.[0] },
+    fetchPolicy: 'no-cache'
+  })
+
   return (
     <NetworkInformationContainer hasAccount={accounts && accounts.length > 0}>
       {!isReadOnly ? (
@@ -138,6 +144,7 @@ function NetworkInformation() {
           )}
           <Account data-testid="account" className="account">
             <span>{displayName}</span>
+            {/* {getBalance && (<div>{new EthVal(getBalance.toString()).toEth().toFixed(3)} BCH</div>)} */}
           </Account>
           <NetworkStatus>
             {network} {t('c.network')}

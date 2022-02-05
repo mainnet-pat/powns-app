@@ -12,6 +12,7 @@ import {
   NonMainPageBannerContainerWithMarginBottom,
   DAOBannerContent
 } from '../components/Banner/DAOBanner'
+import { topLevelDomainReactive } from 'apollo/reactiveVars'
 
 const SINGLE_NAME = gql`
   query singleNameQuery @client {
@@ -76,7 +77,13 @@ function SingleName({
   if (valid) {
     if (loading) return <Loader large center />
     if (error) return <div>{(console.log(error), JSON.stringify(error))}</div>
-    if (data?.singleName)
+    if (data?.singleName) {
+      if (name !== '[root]') {
+        const nameArray = name.split('.').reverse()
+        const topLevelDomain = nameArray[0]
+        console.warn(topLevelDomain)
+        topLevelDomainReactive(topLevelDomain)
+      }
       return (
         <>
           <NonMainPageBannerContainerWithMarginBottom>
@@ -91,6 +98,7 @@ function SingleName({
           />
         </>
       )
+    }
   }
 
   if (valid === false) {

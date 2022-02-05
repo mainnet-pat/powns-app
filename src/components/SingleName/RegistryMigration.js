@@ -10,6 +10,8 @@ import { ExternalButtonLink } from '../Forms/Button'
 
 import { useEditable } from '../hooks'
 
+import { topLevelDomainSupported } from '@ensdomains/ui'
+
 const WarningBox = styled('div')`
   display: flex;
   justify-content: space-between;
@@ -100,7 +102,7 @@ export default function RegistryMigration({
           : dnssecmode
           ? dnssecMigrateMessage
           : defaultMessage}
-        {domain.parent !== 'eth' && !dnssecmode && (
+        {!topLevelDomainSupported(domain.parent) && !dnssecmode && (
           <SubWarning>{t('registrymigration.donotaccept')}</SubWarning>
         )}
       </WarningContent>

@@ -29,6 +29,7 @@ import DefaultButton from '../Forms/Button'
 import DefaultAddressLink from '../Links/AddressLink'
 
 import { ReactComponent as DefaultOrangeExclamation } from '../Icons/OrangeExclamation.svg'
+import { topLevelDomainSupported } from '@ensdomains/ui'
 
 const Details = styled('section')`
   padding: 20px;
@@ -213,7 +214,7 @@ function DetailsContainer({
   const showUnclaimableWarning =
     is2ld &&
     parseInt(domain.owner) === 0 &&
-    domain.parent !== 'eth' &&
+    !topLevelDomainSupported(domain.parent) &&
     !domain.isDNSRegistrar
 
   return (
@@ -260,7 +261,7 @@ function DetailsContainer({
         </GracePeriodWarningContainer>
       )}
       <OwnerFields outOfSync={outOfSync}>
-        {domain.parent === 'eth' && domain.isNewRegistrar ? (
+        {topLevelDomainSupported(domain.parent) && domain.isNewRegistrar ? (
           <>
             <DetailsItemEditable
               domain={domain}
@@ -292,7 +293,7 @@ function DetailsContainer({
               copyToClipboard={true}
             />
           </>
-        ) : domain.parent === 'eth' && !domain.isNewRegistrar ? (
+        ) : topLevelDomainSupported(domain.parent) && !domain.isNewRegistrar ? (
           <>
             <DetailsItem uneditable>
               <DetailsKey>{t('c.registrant')}</DetailsKey>

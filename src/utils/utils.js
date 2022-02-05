@@ -97,6 +97,12 @@ export async function getEtherScanAddr() {
     case 4:
     case '4':
       return 'https://rinkeby.etherscan.io/'
+    case 10000:
+    case '10000':
+      return 'https://www.smartscan.cash/'
+    case 10001:
+    case '10001':
+      return 'https://www.smartscan.cash/'
     default:
       return 'https://etherscan.io/'
   }
@@ -195,7 +201,7 @@ export function isElementInViewport(el) {
 export const emptyAddress = _emptyAddress
 
 export function isShortName(term) {
-  return [...term].length < 3
+  return [...term].length < 1
 }
 
 export const aboutPageURL = () => {
@@ -294,6 +300,16 @@ export function prependUrl(url) {
   }
 }
 
+export function metadataURI(_network) {
+  if (['smartbch', 'smartbch-amber'].indexOf(_network)) {
+    return `https://metadata.bch.domains/${_network}`
+  } else if (_network === 'localhost') {
+    return `http://localhost/${_network}`
+  }
+
+  return `https://metadata.ens.domains/${_network}`
+}
+
 export function imageUrl(url, name, network) {
   const _network = networkName[network?.toLowerCase()]
   const _protocol = supportedAvatarProtocols.find(proto =>
@@ -303,7 +319,7 @@ export function imageUrl(url, name, network) {
   // provided network name is valid,
   // domain name is available
   if (_protocol && _network && name) {
-    return `https://metadata.ens.domains/${_network}/avatar/${name}`
+    return `${metadataURI(_network)}/avatar/${name}`
   }
   console.warn('Unsupported avatar', network, name, url)
 }

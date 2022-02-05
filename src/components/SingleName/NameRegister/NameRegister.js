@@ -34,6 +34,7 @@ import Premium from './Premium'
 import ProgressRecorder from './ProgressRecorder'
 import useNetworkInfo from '../../NetworkInformation/useNetworkInfo'
 import { sendNotification } from './notification'
+import { topLevelDomainReactive } from 'apollo/reactiveVars'
 
 const NameRegisterContainer = styled('div')`
   padding: 20px 40px;

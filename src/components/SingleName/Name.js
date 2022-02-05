@@ -16,7 +16,7 @@ import Tabs from './Tabs'
 import NameContainer from '../Basic/MainContainer'
 import Copy from '../CopyToClipboard/'
 import { isOwnerOfParentDomain } from '../../utils/utils'
-
+import { topLevelDomainSupported } from '@ensdomains/ui'
 const Owner = styled('div')`
   color: #ccd4da;
   margin-right: 20px;
@@ -30,12 +30,12 @@ const RightBar = styled('div')`
 const Favourite = styled(DefaultFavourite)``
 
 function isRegistrationOpen(available, parent) {
-  return parent === 'eth' && available
+  return topLevelDomainSupported(parent) && available
 }
 
 function isDNSRegistrationOpen(domain) {
   const nameArray = domain.name?.split('.')
-  if (nameArray?.length !== 2 || nameArray?.[1] === 'eth') {
+  if (nameArray?.length !== 2 || topLevelDomainSupported(nameArray?.[1])) {
     return false
   }
   return domain.isDNSRegistrar && domain.owner === EMPTY_ADDRESS

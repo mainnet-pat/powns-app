@@ -70,7 +70,7 @@ const Price = ({
   return (
     <PriceContainer>
       <Value>
-        {ethPrice} ETH
+        {ethPrice} BCH
         {ethVal && ethUsdPrice && (
           <USD>
             {withPremium}${usdPremium}

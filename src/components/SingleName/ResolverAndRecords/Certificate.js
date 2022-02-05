@@ -1,3 +1,5 @@
+import { topLevelDomainSupported } from '@ensdomains/ui'
+
 const TLD = 'link'
 function createFetchUrl(name) {
   return `https://eth.${TLD}/names/${name}.${TLD}`
@@ -33,5 +35,5 @@ export function checkCertificate(name) {
 export function isEthSubdomain(name) {
   let labels = name.split('.')
   let suffix = labels[labels.length - 1]
-  return suffix === 'eth' && name !== 'eth'
+  return topLevelDomainSupported(suffix) && !topLevelDomainSupported(name)
 }

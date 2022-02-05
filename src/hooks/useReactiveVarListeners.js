@@ -16,12 +16,13 @@ const REACT_VAR_LISTENERS = gql`
     accounts
     networkId
     isENSReady
+    topLevelDomain
   }
 `
 
 export default () => {
   const {
-    data: { accounts, networkId, isENSReady }
+    data: { accounts, networkId, isENSReady, topLevelDomain }
   } = useQuery(REACT_VAR_LISTENERS)
 
   const previousNetworkId = usePrevious(networkId)
@@ -50,4 +51,17 @@ export default () => {
         .catch(e => console.error('refetch error: ', e))
     }
   }, [networkId])
+
+  useEffect(() => {
+    const client = getClient()
+
+    client
+      .refetchQueries({
+        include: ['singleName'],
+        onQueryUpdated() {
+          return true
+        }
+      })
+      .catch(e => console.error('refetch error: ', e))
+  }, [topLevelDomain])
 }

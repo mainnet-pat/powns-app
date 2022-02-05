@@ -10,7 +10,8 @@ import {
   getWeb3,
   isDecrypted,
   labelhash,
-  utils
+  utils,
+  topLevelDomainSupported
 } from '@ensdomains/ui'
 import { formatsByName } from '@ensdomains/address-encoder'
 import isEqual from 'lodash/isEqual'
@@ -169,11 +170,12 @@ export const handleMultipleTransactions = async (
 }
 
 async function getRegistrarEntry(name) {
-  const registrar = getRegistrar()
+  const registrar = await getRegistrar()
   const nameArray = name.split('.')
-  if (nameArray.length > 3 || nameArray[1] !== 'eth') {
+  if (nameArray.length > 3 || !topLevelDomainSupported(nameArray[1])) {
     return {}
   }
+  console.log(registrar, nameArray[1])
 
   const entry = await registrar.getEntry(nameArray[0])
   const {
@@ -266,10 +268,10 @@ async function setDNSSECTldOwner(ens, tld, networkId) {
 
 async function getDNSEntryDetails(name) {
   const ens = getENS()
-  const registrar = getRegistrar()
+  const registrar = await getRegistrar()
   const nameArray = name.split('.')
   const networkId = await getNetworkId()
-  if (nameArray.length !== 2 || nameArray[1] === 'eth') return {}
+  if (nameArray.length !== 2 || topLevelDomainSupported(nameArray[1])) return {}
 
   let tld = nameArray[1]
   let owner
@@ -296,7 +298,7 @@ async function getDNSEntryDetails(name) {
 }
 
 async function getTestEntry(name) {
-  const registrar = getRegistrar()
+  const registrar = await getRegistrar()
   const nameArray = name.split('.')
   if (nameArray.length < 3 && nameArray[1] === 'test') {
     const expiryTime = await registrar.expiryTimes(nameArray[0])
@@ -310,7 +312,12 @@ function adjustForShortNames(node) {
   const { label, parent } = node
 
   // return original node if is subdomain or not eth
-  if (nameArray.length > 2 || parent !== 'eth' || label.length > 6) return node
+  if (
+    nameArray.length > 2 ||
+    !topLevelDomainSupported(parent) ||
+    label.length > 6
+  )
+    return node
 
   //if the auctions are over
   if (new Date() > new Date(1570924800000)) {
@@ -644,7 +651,7 @@ const resolvers = {
   },
   Mutation: {
     registerTestdomain: async (_, { label }) => {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.registerTestdomain(label)
       return sendHelper(tx)
     },

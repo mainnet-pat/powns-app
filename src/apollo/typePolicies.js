@@ -10,7 +10,8 @@ import {
   globalErrorReactive,
   transactionHistoryReactive,
   namesReactive,
-  delegatesReactive
+  delegatesReactive,
+  topLevelDomainReactive
 } from './reactiveVars'
 import { hasValidReverseRecord } from '../utils/utils'
 
@@ -92,6 +93,11 @@ export default {
               invalidCharacter: null
             }
           )
+        }
+      },
+      topLevelDomain: {
+        read() {
+          return topLevelDomainReactive()
         }
       }
     }

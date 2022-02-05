@@ -10,25 +10,25 @@ const defaults = {}
 const resolvers = {
   Query: {
     async getRentPrice(_, { label, duration }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       return registrar.getRentPrice(label, duration)
     },
     async getRentPrices(_, { labels, duration }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       return labels.length && registrar.getRentPrices(labels, duration)
     },
     async getPremium(_, { name, expires, duration }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       return registrar.getPremium(name, expires, duration)
     },
     async getTimeUntilPremium(_, { expires, amount }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       return registrar.getTimeUntilPremium(expires, amount)
     },
 
     async getMinimumCommitmentAge() {
       try {
-        const registrar = getRegistrar()
+        const registrar = await getRegistrar()
         const minCommitmentAge = await registrar.getMinimumCommitmentAge()
         return parseInt(minCommitmentAge)
       } catch (e) {
@@ -37,7 +37,7 @@ const resolvers = {
     },
     async getMaximumCommitmentAge() {
       try {
-        const registrar = getRegistrar()
+        const registrar = await getRegistrar()
         const maximumCommitmentAge = await registrar.getMaximumCommitmentAge()
         return parseInt(maximumCommitmentAge)
       } catch (e) {
@@ -46,7 +46,7 @@ const resolvers = {
     },
     async checkCommitment(_, { label, secret }) {
       try {
-        const registrar = getRegistrar()
+        const registrar = await getRegistrar()
         const commitment = await registrar.checkCommitment(label, secret)
         return parseInt(commitment)
       } catch (e) {
@@ -56,28 +56,28 @@ const resolvers = {
   },
   Mutation: {
     async commit(_, { label, secret }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.commit(label, secret)
       return sendHelper(tx)
     },
     async register(_, { label, duration, secret }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.register(label, duration, secret)
 
       return sendHelper(tx)
     },
     async reclaim(_, { name, address }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.reclaim(name, address)
       return sendHelper(tx)
     },
     async renew(_, { label, duration }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.renew(label, duration)
       return sendHelper(tx)
     },
     async getDomainAvailability(_, { name }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const ens = getENS()
       try {
         const {
@@ -120,17 +120,17 @@ const resolvers = {
       }
     },
     async setRegistrant(_, { name, address }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.transferOwner(name, address)
       return sendHelper(tx)
     },
     async submitProof(_, { name, parentOwner }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.submitProof(name, parentOwner)
       return sendHelper(tx)
     },
     async renewDomains(_, { labels, duration }) {
-      const registrar = getRegistrar()
+      const registrar = await getRegistrar()
       const tx = await registrar.renewAll(labels, duration)
       return sendHelper(tx)
     }

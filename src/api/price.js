@@ -36,7 +36,14 @@ export default async function getEtherPrice() {
       ChainLinkABI,
       provider
     )
-    const price = (await ethUsdContract.latestAnswer()).toNumber() / 100000000
+    // const price = (await ethUsdContract.latestAnswer()).toNumber() / 100000000
+    const response = await fetch(
+      'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin-cash&vs_currencies=usd'
+    )
+    const json = await response.json()
+
+    const price = json?.['bitcoin-cash']?.usd || 0
+
     return price
   } catch (e) {
     console.log(e, 'error getting usd price oracle')

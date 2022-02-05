@@ -10,6 +10,7 @@ import NameRegister from './NameRegister'
 import SubDomains from './SubDomains'
 import dnssecmodes from '../../api/dnssecmodes'
 import DetailsContainer from './DetailsContainer'
+import { topLevelDomainSupported } from '@ensdomains/ui'
 
 function NameDetails({
   domain,
@@ -63,15 +64,19 @@ function NameDetails({
   const outOfSync = dnssecmode && dnssecmode.outOfSync
   const isAnAbsolutePath = pathname.split('/').length > 3
 
-  if (domain.parent === 'eth' && tab === 'register' && !isAnAbsolutePath) {
+  if (
+    topLevelDomainSupported(domain.parent) &&
+    tab === 'register' &&
+    !isAnAbsolutePath
+  ) {
     return <Redirect to={`${pathname}/register`} />
   } else if (
-    domain.parent === 'eth' &&
+    topLevelDomainSupported(domain.parent) &&
     tab === 'details' &&
     !isAnAbsolutePath
   ) {
     return <Redirect to={`${pathname}/details`} />
-  } else if (domain.parent !== 'eth' && !isAnAbsolutePath) {
+  } else if (!topLevelDomainSupported(domain.parent) && !isAnAbsolutePath) {
     //subdomain or dns
     return <Redirect to={`${pathname}/subdomains`} />
   }

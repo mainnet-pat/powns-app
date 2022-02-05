@@ -44,6 +44,7 @@ import DefaultPricer from './Pricer'
 import DefaultAddressInput from '@ensdomains/react-ens-address'
 import CopyToClipboard from '../CopyToClipboard/'
 import { isOwnerOfParentDomain } from '../../utils/utils'
+import { topLevelDomainSupported } from '@ensdomains/ui'
 
 const AddressInput = styled(DefaultAddressInput)`
   margin-bottom: 10px;
@@ -174,7 +175,7 @@ function getMessages({ keyName, parent, deedOwner, isDeedOwner, t }) {
   let [newValue, newType] = getDefaultMessage(keyName, t)
   if (
     keyName === 'Owner' &&
-    parent === 'eth' &&
+    topLevelDomainSupported(parent) &&
     parseInt(deedOwner, 16) !== 0
   ) {
     newValue = t('singleName.messages.noresolver')

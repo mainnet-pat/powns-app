@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 
 import mq from 'mediaQuery'
 
+import { topLevelDomainSupported } from '@ensdomains/ui'
+
 const TabLink = styled(Link)`
   font-size: 14px;
   background: ${({ active }) => (active ? '#2C46A6' : 'transparent')};
@@ -44,7 +46,7 @@ const TabContainer = styled('div')`
 `
 function getDetailsActive(domain, pathname, tab) {
   const { name } = domain
-  if (domain.parent !== 'eth') {
+  if (!topLevelDomainSupported(domain.parent)) {
     return (
       pathname !== `/name/${name}/register` &&
       pathname !== `/name/${name}/subdomains`
@@ -63,7 +65,7 @@ const Tabs = ({ domain, pathname, parent, tab }) => {
   return (
     (state !== 'Auction' || state !== 'Reveal') && (
       <TabContainer>
-        {parent === 'eth' && (
+        {topLevelDomainSupported(parent) && (
           <TabLink
             active={
               (tab === 'register' || pathname === `/name/${name}/register`) &&

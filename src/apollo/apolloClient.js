@@ -21,18 +21,20 @@ const endpoints = {
   '1': 'https://api.thegraph.com/subgraphs/name/ensdomains/ens',
   '3': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensropsten',
   '4': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensrinkeby',
-  '5': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensgoerli'
+  '5': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensgoerli',
+  '10000': 'http://localhost:8000/subgraphs/name/graphprotocol/ens',
+  '10001': 'http://localhost:8000/subgraphs/name/graphprotocol/ens'
 }
 
 function getGraphQLAPI() {
   const network = networkIdReactive()
 
-  if (network > 100 && process.env.REACT_APP_GRAPH_NODE_URI) {
-    return process.env.REACT_APP_GRAPH_NODE_URI
-  }
-
   if (endpoints[network]) {
     return endpoints[network]
+  }
+
+  if (network > 100 && process.env.REACT_APP_GRAPH_NODE_URI) {
+    return process.env.REACT_APP_GRAPH_NODE_URI
   }
 
   return endpoints['1']
