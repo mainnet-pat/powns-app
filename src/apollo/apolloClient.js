@@ -23,7 +23,7 @@ const endpoints = {
   '4': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensrinkeby',
   '5': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensgoerli',
   '10000': 'http://localhost:8000/subgraphs/name/graphprotocol/ens',
-  '10001': 'http://localhost:8000/subgraphs/name/graphprotocol/ens'
+  '10001': 'https://graph-amber.bch.domains/subgraphs/name/graphprotocol/ens'
 }
 
 function getGraphQLAPI() {
