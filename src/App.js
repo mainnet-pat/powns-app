@@ -89,7 +89,7 @@ const Route = ({
   layout: Layout = DefaultLayout,
   ...rest
 }) => {
-  pageview()
+  // pageview()
   return (
     <DefaultRoute
       {...rest}
@@ -108,9 +108,9 @@ const App = () => {
     data: { globalError }
   } = useQuery(GET_ERRORS)
 
-  useEffect(() => {
-    setupAnalytics()
-  }, [])
+  // useEffect(() => {
+  //   setupAnalytics()
+  // }, [])
 
   if (globalError.network) {
     return <NetworkError message={globalError.network} />

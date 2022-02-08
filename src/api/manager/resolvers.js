@@ -175,7 +175,6 @@ async function getRegistrarEntry(name) {
   if (nameArray.length > 3 || !topLevelDomainSupported(nameArray[1])) {
     return {}
   }
-  console.log(registrar, nameArray[1])
 
   const entry = await registrar.getEntry(nameArray[0])
   const {

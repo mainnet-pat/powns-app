@@ -1,5 +1,5 @@
 import { setupENS, setupRegistrar } from '@ensdomains/ui'
-import { isENSReadyReactive } from '../reactiveVars'
+import { isENSReadyReactive, networkIdReactive } from '../reactiveVars'
 import { topLevelDomainReactive } from '../reactiveVars'
 
 const INFURA_ID =
@@ -25,7 +25,8 @@ export async function setup({
     customProvider,
     ensAddress
   }
-  if (enforceReadOnly) {
+  const networkId = networkIdReactive()
+  if (enforceReadOnly && networkId < 10000) {
     option.infura = INFURA_ID
   }
   const {

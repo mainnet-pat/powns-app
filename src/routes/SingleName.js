@@ -81,7 +81,6 @@ function SingleName({
       if (name !== '[root]') {
         const nameArray = name.split('.').reverse()
         const topLevelDomain = nameArray[0]
-        console.warn(topLevelDomain)
         topLevelDomainReactive(topLevelDomain)
       }
       return (

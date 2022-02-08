@@ -185,7 +185,7 @@ export default async reconnect => {
 
     isReadOnlyReactive(isReadOnly())
 
-    setupAnalytics()
+    // setupAnalytics()
 
     isAppReadyReactive(true)
   } catch (e) {
