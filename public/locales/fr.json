@@ -1,6 +1,6 @@
 {
   "address": {
-    "etherscanButton": "Voir sur Etherscan",
+    "etherscanButton": "Voir sur Smartscan",
     "filter": {
       "controller": "Contrôleur ",
       "registrant": "Titulaire"
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your Ethereum account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your SmartBCH account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -320,7 +320,7 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "La résolution inverse traduit une adresse en un nom. Il permet aux Dapps d'afficher dans leurs interfaces '{{name}}' plutôt que l'adresse longue '{{account}}'. Si vous souhaitez configurer votre reverse pour un autre compte, veuillez changer de compte dans votre navigateur.",
-        "explanation2": "You can only select names you set this Ethereum Address as.",
+        "explanation2": "You can only select names you set this SmartBCH Address as.",
         "noForwardRecordAavilable": "You either do not own any ENS names, or your ENS names have no ETH records set to this address.",
         "notSet": "Enregistrement inverse : non définit",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",

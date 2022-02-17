@@ -293,7 +293,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your Ethereum account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your SmartBCH account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -318,7 +318,7 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "리버스 리졸루션은 주소를 도메인 이름으로 변환합니다. 이를 통하여 댑의 인터페이스에 긴 주소인 '{{account}}' 대신에 '{{name}}'을(를) 표시할 수 있습니다. 만약 다른 계정에 대한 리버스를 설정하고 싶다면, 댑 브라우저에서 계정을 변경하세요.",
-        "explanation2": "You can only select names you set this Ethereum Address as.",
+        "explanation2": "You can only select names you set this SmartBCH Address as.",
         "noForwardRecordAavilable": "You either do not own any ENS names, or your ENS names have no ETH records set to this address.",
         "notSet": "리버스 레코드: 설정되지 않음",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",

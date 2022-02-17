@@ -1,6 +1,6 @@
 {
   "address": {
-    "etherscanButton": "Ver no Etherscan",
+    "etherscanButton": "Ver no Smartscan",
     "filter": {
       "controller": "Controlador",
       "registrant": "Registrando"

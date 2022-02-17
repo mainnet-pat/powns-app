@@ -1,6 +1,6 @@
 {
   "address": {
-    "etherscanButton": "Посмотреть на Etherscan",
+    "etherscanButton": "Посмотреть на Smartscan",
     "filter": {
       "controller": "Контроллер",
       "registrant": "Регистратор"
@@ -297,7 +297,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your Ethereum account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ENS name when you connect to them with your SmartBCH account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -322,7 +322,7 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "Обратная Резолюция преобразовывает адрес в имя. Это позволяет Dapps показывать в их интерфейсах '{{имя}}' вместо длинного адреса '{{аккаунт}}'. Если вы хотите установить преобразование для другого аккаунта, пожалуйста, переключитите аккаунты в браузере dapp.",
-        "explanation2": "You can only select names you set this Ethereum Address as.",
+        "explanation2": "You can only select names you set this SmartBCH Address as.",
         "noForwardRecordAavilable": "You either do not own any ENS names, or your ENS names have no ETH records set to this address.",
         "notSet": "Обратная запись: не установлена",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",

@@ -1,6 +1,6 @@
 {
   "address": {
-    "etherscanButton": "View on Etherscan",
+    "etherscanButton": "View on Smartscan",
     "filter": {
       "controller": "Controller",
       "registrant": "Registrant"
@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Click 'learn more' to read about the process.",
-        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your Ethereum address in the form:"
+        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your SmartBCH address in the form:"
       },
       "enable": {
         "text": "Click 'learn more' to read about the process.",
@@ -101,7 +101,7 @@
       },
       "proof": {
         "text1": "The address that appears in the DNS txt record is your same address.",
-        "text2": "If you know you own this domain, change it's TXT record to contain your Ethereum Address and refresh this page to perform the DNSSEC verification again.",
+        "text2": "If you know you own this domain, change it's TXT record to contain your SmartBCH Address and refresh this page to perform the DNSSEC verification again.",
         "title1": "You are the owner of this address. Add your domain to the ENS Registry now.",
         "title2": "You don't appear to be the DNS Owner of this domain, but anyone can add this domain to the ENS Registry."
       }
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set your Primary ENS Name record. This allows dapps to find and display your ENS name when you connect to them with your Ethereum account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set your Primary ENS Name record. This allows dapps to find and display your ENS name when you connect to them with your SmartBCH account. ",
         "title": "1. Set your Primary ENS Name record"
       },
       "step2": {
@@ -319,8 +319,8 @@
       "cantEdit": "You can’t edit or add records until you migrate to the new resolver.",
       "closeEdit": "Close Add/Edit Records",
       "messages": {
-        "explanation": "This designates one of your ENS names to represent your Ethereum account and act as your cross-platform web3 username and profile. You can only have one Primary ENS Name per Ethereum account and can change it at any time.",
-        "explanation2": "Only ENS names that point to your Ethereum account can be set as your Primary ENS Name.",
+        "explanation": "This designates one of your ENS names to represent your SmartBCH account and act as your cross-platform web3 username and profile. You can only have one Primary ENS Name per SmartBCH account and can change it at any time.",
+        "explanation2": "Only ENS names that point to your SmartBCH account can be set as your Primary ENS Name.",
         "noForwardRecordAavilable": "No ENS names have their ETH Address records set to this address.",
         "notSet": "Primary ENS Name (reverse record): not set",
         "reverseRecordRemoval": "Are you sure you want to delete your Primary ENS Name record?",
