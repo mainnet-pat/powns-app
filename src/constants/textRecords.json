@@ -7,8 +7,8 @@
   "keywords",
   "com.discord",
   "com.github",
+  "com.gitlab",
   "com.reddit",
   "com.twitter",
-  "org.telegram",
-  "eth.ens.delegate"
+  "org.telegram"
 ]

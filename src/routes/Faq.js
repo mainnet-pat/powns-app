@@ -80,7 +80,7 @@ function Faq() {
           and Twitter handle, and more.
         </Section>
 
-        <Section question="Can I use an ENS name to point to my website?">
+        {/* <Section question="Can I use an ENS name to point to my website?">
           Though ENS can technically store anything, there aren't many third
           party tools and applications which resolve IP addresses attached to
           ENS.
@@ -97,7 +97,7 @@ function Faq() {
           <a href="https://pinata.cloud/">IPFS Pinata</a>, then set the CID to
           your contenthash. See the source code of depositcontract.eth.link as
           an example.
-        </Section>
+        </Section> */}
 
         <Section question="What is the maximum length of a name I can register?">
           There is no limit on the name length.
@@ -105,22 +105,24 @@ function Faq() {
 
         <Section question="Can you have names with emojis?">Yes.</Section>
 
-        <Section question="How much does it cost to register a .eth name?">
+        <Section question="How much does it cost to register a .bch name?">
           Currently, registration costs are set at the following prices:
           <ul>
-            <li>5+ character .eth names: 0.01 BCH per year.</li>
-            <li>4 character .eth names: 0.1 BCH per year.</li>
-            <li>3 character .eth names 1 BCH per year.</li>
+            <li>5+ character .bch names: 0.01 BCH per year.</li>
+            <li>4 character .bch names: 0.1 BCH per year.</li>
+            <li>3 character .bch names 1 BCH per year.</li>
+            <li>2 character .bch names 10 BCH per year.</li>
+            <li>1 character .bch names 100 BCH per year.</li>
           </ul>
-          3 and 4 character names have 'premium' pricing to reflect the small
-          number of these names available.
+          1, 2, 3 and 4 character names have 'premium' pricing to reflect the
+          small number of these names available.
           <br />
           Also, if the name was previously owned by someone but recently
           released, it has a temporary decreasing premium to prevent squatters
           snatching up names.
         </Section>
 
-        <Section question="How much gas does it cost to register and extend registration?">
+        {/* <Section question="How much gas does it cost to register and extend registration?">
           It depends on the gas price. You can check the historical registration
           and extending transaction costs
           <a href="https://explore.duneanalytics.com/public/dashboards/48pBVvSxRNVjSE8Ing1uOrCtjD4r3WmV0v5KpS05">
@@ -133,7 +135,7 @@ function Faq() {
           Please bear in mind that "registerWithConfig" combines 3 transactions
           (register, set resolver and set eth address) hence the gas cost is
           relatively expensive.
-        </Section>
+        </Section> */}
 
         {/* <Section question="Can I register names other than .eth?">
           Yes, you can import into ENS any DNS name with the required DNSSEC.
@@ -145,10 +147,10 @@ function Faq() {
 
         <H2>When you register</H2>
 
-        <Section question="At step 1, the transaction was slow so I speeded up">
+        {/* <Section question="At step 1, the transaction was slow so I speeded up">
           Our app cannot currently detect that you sped up the transaction.
           Please refresh the page and start from step 1 again.
-        </Section>
+        </Section> */}
 
         <Section question="I am stuck at step 2">
           At times, the counter waits for up to a minute at the end of step 2 to
@@ -161,9 +163,9 @@ function Faq() {
         </Section>
 
         <Section question="My transaction at step 3 failed">
-          This happens occasionally when the USD price changes and you haven't
+          {/* This happens occasionally when the USD price changes and you haven't
           registered with enough ETH. Please try again from step 3.
-          <br />
+          <br /> */}
           Please also be noted that the registration step will expire if you
           don't complete within 24 hrs and you have to start from step 1 again.
         </Section>
@@ -174,7 +176,7 @@ function Faq() {
           wallets fetch metadata from OpenSea.
           <br />
           As long as you can see your registered name under "My Account" on our
-          site or your ETH address under the name section, your name is
+          site or your SmartBCH address under the name section, your name is
           registered successfully.
         </Section>
 
@@ -189,12 +191,12 @@ function Faq() {
         <H2>After you register</H2>
 
         <Section question="What is the difference between the Registrant and Controller?">
-          If your Ethereum address is set as the Controller you can change the
+          If your SmartBCH address is set as the Controller you can change the
           resolver and add/edit records. Some dapps (eg: Fleek, OpenSea) set
           themselves as the Controller so they can update records on your
           behalf.
           <br />
-          The Registrant only exists on ".eth" names and it allows you to change
+          The Registrant only exists on ".bch" names and it allows you to change
           the Controller. If you transfer the Registrant to an address you don't
           own, you lose the ownership of the name.
         </Section>
@@ -208,8 +210,8 @@ function Faq() {
 
         <Section question="What is a Primary ENS Name record?">
           A Primary ENS Name record (formerly Reverse Record) makes your
-          Ethereum address point to an ENS name. This allows dapps to find and
-          display your ENS name when you connect to them with your Ethereum
+          SmartBCH address point to an ENS name. This allows dapps to find and
+          display your ENS name when you connect to them with your SmartBCH
           account. This can only be set by you so it is not set automatically
           upon registration.
           <br />
@@ -221,7 +223,7 @@ function Faq() {
           If you click the "trash bin" icon on the address record, it will unset
           your address so that people can no longer look up your address with
           the name. You can also unset ownership of subdomains in this way, but
-          you cannot do so on ".eth" addresses. Because ".eth" names are
+          you cannot do so on ".bch" addresses. Because ".bch" names are
           ERC721-compliant NFTs, you cannot transfer them to an empty address
           (0x00000...). You can transfer it to a burn address (eg: 0x00001), but
           that does not erase the fact that you used to own the name. Also, the
@@ -230,8 +232,8 @@ function Faq() {
         </Section>
 
         <Section question="How do I transfer my name?">
-          For a ".eth" name, transfer both the Registrant and the Controller to
-          the new Ethereum account. Since ".eth" names are ERC721 compliant
+          For a ".bch" name, transfer both the Registrant and the Controller to
+          the new SmartBCH account. Since ".bch" names are ERC721 compliant
           NFTs, you can change the Registrant by simply transferring the NFT
           from any NFT compliant wallet/marketplace as well.
           <br />
@@ -239,8 +241,9 @@ function Faq() {
           does not change the controller nor records, so the recipient may need
           to update them once received. If the recipient is not experienced or
           you prefer your address not to be associated to the transferring
-          names, it may be a good idea for you to set the ETH Address record to
-          their Ethereum address, set the controller, then transfer the name.
+          names, it may be a good idea for you to set the SmartBCH Address
+          record to their SmartBCH address, set the controller, then transfer
+          the name.
           <br />
           For subdomains, there are no registrants unless the subdomain is
           customised to be ERC721 compliant. Simply set the controller to the
@@ -277,7 +280,7 @@ function Faq() {
           owner can't edit the records but can still re-register the name. After
           the grace period, the name is released for registration by anyone with
           a temporary premium which decreases over a 28 days period. The
-          released name continues to resolve your ETH address until the new
+          released name continues to resolve your SmartBCH address until the new
           owner overwrites it.
         </Section>
 
@@ -290,8 +293,8 @@ function Faq() {
           .
         </Section> */}
 
-        <Section question="I lost access to the Ethereum account that owns a name I registered. Can I still extend its registration period?">
-          Any Ethereum account can pay to extend the registration of any ENS
+        <Section question="I lost access to the SmartBCH account that owns a name I registered. Can I still extend its registration period?">
+          Any SmartBCH account can pay to extend the registration of any ENS
           name, though doing so from an account that's not the owner will not
           change ownership of the name. Just go to the name's page and click
           "Extend".

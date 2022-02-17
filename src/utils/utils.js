@@ -99,10 +99,10 @@ export async function getEtherScanAddr() {
       return 'https://rinkeby.etherscan.io/'
     case 10000:
     case '10000':
-      return 'https://www.smartscan.cash/'
+      return 'https://smartscan.cash/'
     case 10001:
     case '10001':
-      return 'https://www.smartscan.cash/'
+      return 'https://smartscan.cash/'
     default:
       return 'https://etherscan.io/'
   }

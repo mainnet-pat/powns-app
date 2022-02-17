@@ -18,7 +18,7 @@ const TypeLogo = ({ color }) => (
   // </SVG>
   <div style={{ paddingLeft: '10px' }}>
     <div>ENS on</div>
-    <div>smartBCH</div>
+    <div>SmartBCH</div>
   </div>
 )
 

@@ -339,7 +339,7 @@ export default ({ match }) => {
             </NavLink>
           )}
           <NavLink to="/favourites">{t('c.favourites')}</NavLink>
-          <ExternalLink href={aboutPageURL()}>{t('c.about')}</ExternalLink>
+          {/* <ExternalLink href={aboutPageURL()}>{t('c.about')}</ExternalLink> */}
         </Nav>
         <MainPageBannerContainer>
           <DAOBannerContent />
@@ -353,6 +353,11 @@ export default ({ match }) => {
             src={ENSLogo}
             alt="ENS logo"
           />
+          <Section
+            style={{ padding: 10, color: 'white', 'font-size': 'x-large' }}
+          >
+            on SmartBCH
+          </Section>
           <PermanentRegistrarLogo
             initial={animation.initial}
             animate={animation.animate}

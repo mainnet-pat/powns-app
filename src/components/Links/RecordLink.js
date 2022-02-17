@@ -73,6 +73,9 @@ const RecordLink = ({ textKey, value, name }) => {
     case 'com.github':
       url = `github.com/${value}`
       break
+    case 'com.gitlab':
+      url = `gitlab.com/${value}`
+      break
     default:
   }
   url = prependUrl(url)

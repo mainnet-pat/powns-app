@@ -76,7 +76,11 @@ import { validateRecord } from '../../../utils/records'
 import { asyncThrottle, usePrevious } from '../../../utils/utils'
 import { isEthSubdomain, requestCertificate } from './Certificate'
 
-const COIN_PLACEHOLDER_RECORDS = ['ETH', 'BCH', 'XMR'] // ...COIN_LIST.slice(0, 3)]
+const COIN_PLACEHOLDER_RECORDS = ['SMARTBCH', 'BCH', 'ETH'] // ...COIN_LIST.slice(0, 3)]
+const sortOrder = COIN_PLACEHOLDER_RECORDS.reduce((result, item, index) => {
+  result[item] = index
+  return result
+}, {})
 
 function isEmpty(record) {
   if (parseInt(record, 16) === 0) {
@@ -233,7 +237,7 @@ const getInitialRecords = (domain, dataAddresses, dataTextRecords) => {
 const getCoins = updatedRecords =>
   updatedRecords
     .filter(record => record.contractFn === 'setAddr(bytes32,uint256,bytes)')
-    .sort(record => (record.key === 'ETH' ? -1 : 1))
+    .sort(record => sortOrder[record.key] || 1000)
 
 const getContent = updatedRecords => {
   const content = updatedRecords.filter(
