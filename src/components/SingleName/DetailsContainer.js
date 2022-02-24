@@ -29,7 +29,7 @@ import DefaultButton from '../Forms/Button'
 import DefaultAddressLink from '../Links/AddressLink'
 
 import { ReactComponent as DefaultOrangeExclamation } from '../Icons/OrangeExclamation.svg'
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const Details = styled('section')`
   padding: 20px;

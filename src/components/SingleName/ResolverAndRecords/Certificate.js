@@ -1,4 +1,4 @@
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const TLD = 'link'
 function createFetchUrl(name) {

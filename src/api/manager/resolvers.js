@@ -12,8 +12,8 @@ import {
   labelhash,
   utils,
   topLevelDomainSupported
-} from '@ensdomains/ui'
-import { formatsByName } from '@ensdomains/address-encoder'
+} from '@bchdomains/ui'
+import { formatsByName } from '@bchdomains/address-encoder'
 import isEqual from 'lodash/isEqual'
 import modeNames from '../modes'
 import { sendHelper, sendHelperArray } from '../resolverUtils'

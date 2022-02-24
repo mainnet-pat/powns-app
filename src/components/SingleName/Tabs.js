@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import mq from 'mediaQuery'
 
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const TabLink = styled(Link)`
   font-size: 14px;

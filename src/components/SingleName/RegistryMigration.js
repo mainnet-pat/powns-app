@@ -10,7 +10,7 @@ import { ExternalButtonLink } from '../Forms/Button'
 
 import { useEditable } from '../hooks'
 
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const WarningBox = styled('div')`
   display: flex;

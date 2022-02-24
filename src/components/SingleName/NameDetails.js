@@ -10,7 +10,7 @@ import NameRegister from './NameRegister'
 import SubDomains from './SubDomains'
 import dnssecmodes from '../../api/dnssecmodes'
 import DetailsContainer from './DetailsContainer'
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 function NameDetails({
   domain,

@@ -16,7 +16,7 @@ import Tabs from './Tabs'
 import NameContainer from '../Basic/MainContainer'
 import Copy from '../CopyToClipboard/'
 import { isOwnerOfParentDomain } from '../../utils/utils'
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 const Owner = styled('div')`
   color: #ccd4da;
   margin-right: 20px;

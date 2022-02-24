@@ -41,10 +41,10 @@ import Pencil from '../Forms/Pencil'
 import DefaultInfo from '../Icons/Info'
 import DefaultPendingTx from '../PendingTx'
 import DefaultPricer from './Pricer'
-import DefaultAddressInput from '@ensdomains/react-ens-address'
+import DefaultAddressInput from '@bchdomains/react-ens-address'
 import CopyToClipboard from '../CopyToClipboard/'
 import { isOwnerOfParentDomain } from '../../utils/utils'
-import { topLevelDomainSupported } from '@ensdomains/ui'
+import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const AddressInput = styled(DefaultAddressInput)`
   margin-bottom: 10px;

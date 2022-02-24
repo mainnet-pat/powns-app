@@ -1,4 +1,4 @@
-import { setupENS, setupRegistrar } from '@ensdomains/ui'
+import { setupENS, setupRegistrar } from '@bchdomains/ui'
 import { isENSReadyReactive, networkIdReactive } from '../reactiveVars'
 import { topLevelDomainReactive } from '../reactiveVars'
 
