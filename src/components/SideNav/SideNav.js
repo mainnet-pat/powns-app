@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client'
 
 import NetworkInformation from '../NetworkInformation/NetworkInformation'
 import Heart from '../Icons/Heart'
+import Stake from '../Icons/Stake'
 import File from '../Icons/File'
 import { aboutPageURL, hasNonAscii } from '../../utils/utils'
 import SpeechBubble from '../Icons/SpeechBubble'
@@ -163,6 +164,16 @@ function SideNav({ match, isMenuOpen, toggleMenu }) {
             </NavLink>
           </li>
         ) : null}
+        <li>
+          <NavLink
+            onClick={toggleMenu}
+            active={url === '/stake' ? 1 : 0}
+            to="/stake"
+          >
+            <Stake active={url === '/stake'} />
+            <span>{t('c.stake')}</span>
+          </NavLink>
+        </li>
         <li>
           <NavLink
             onClick={toggleMenu}
