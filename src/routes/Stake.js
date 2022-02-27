@@ -183,9 +183,9 @@ export default function Stake(props) {
         barContract.balanceOf(account),
         tokenContract.allowance(account, barToken)
       ])
-      const ratio = totalXSushi
+      const ratio = totalSushi
         .mul(1e12)
-        .div(totalSushi)
+        .div(totalXSushi)
         .div(1e8)
       setxSushiPerSushi(ratio.toNumber() / 1e4)
       console.log(
@@ -339,157 +339,206 @@ export default function Stake(props) {
   }
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-
-      <Tabs className={'className'}>
-        <Tab
-          active={activeTab === 0}
-          onClick={() => {
-            setActiveTab(0)
-          }}
-        >
-          {t('address.filter.stake')}
-        </Tab>
-        <Tab
-          active={activeTab === 1}
-          onClick={() => {
-            setActiveTab(1)
-          }}
-        >
-          {t('address.filter.unstake')}
-        </Tab>
-      </Tabs>
-
-      <div className="flex items-center justify-between w-full mt-6">
-        <p className="font-bold text-large md:text-2xl text-high-emphesis">
-          {activeTab === 0 ? `Stake MIST` : `Unstake`}
-        </p>
-        <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
-          {`1 xMIST = ${xSushiPerSushi.toFixed(4)} MIST`}
+    <div className="flex flex-col w-full min-h-full">
+      <div className="flex justify-center mb-6">
+        <div className="flex flex-col w-full max-w-xl mt-auto mb-2">
+          <div className="flex max-w-lg">
+            <div className="self-end mb-3 text-lg font-bold md:text-2xl text-high-emphesis md:mb-7">
+              {/* {t("stake.header")} */}
+              {`Maximize yield by staking MIST for xMIST`}
+            </div>
+          </div>
+          <div className="max-w-lg pr-3 mb-2 text-sm leading-5 text-gray-500 md:text-base md:mb-4 md:pr-0">
+            {/* {t("stake.explanation")} */}
+            {`For every swap on the exchange on every chain, 0.05% of the swap fees are distributed as MIST
+                              proportional to your share of the MistBar. When your MIST is staked into the MistBar, you receive
+                              xMIST in return.
+                              Your xMIST is continuously compounding, when you unstake you will receive all the originally deposited
+                              MIST and any additional from fees.`}
+          </div>
         </div>
-      </div>
-
-      <InputWrapper>
-        <TextInput
-          onChange={handleInput}
-          value={input}
-          className={`w-full h-14 px-3 md:px-5 mt-5 rounded bg-dark-800 text-sm md:text-lg font-bold text-dark-800 whitespace-nowrap${
-            inputError ? ' pl-9 md:pl-12' : ''
-          }`}
-          placeholder={activeTab === 0 ? 'MIST' : 'xMIST'}
-        />
-        <Button type={'hollow-primary'} onClick={handleClickMax}>
-          MAX
-        </Button>
-      </InputWrapper>
-
-      <div className="flex" style={{ width: '100%' }}>
-        {(approvalState === ApprovalState.NOT_APPROVED ||
-          approvalState === ApprovalState.PENDING) &&
-        activeTab === 0 ? (
-          <Button
-            className={`${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`}
-            style={{ width: '100%' }}
-            onClick={approve}
-            disabled={approvalState === ApprovalState.PENDING}
-          >
-            {approvalState === ApprovalState.PENDING ? 'Approving' : 'Approve'}
-          </Button>
-        ) : (
-          <Button
-            style={{ width: '100%' }}
-            className={
-              buttonDisabled
-                ? buttonStyleDisabled
-                : !walletConnected
-                ? buttonStyleConnectWallet
-                : insufficientFunds
-                ? buttonStyleInsufficientFunds
-                : buttonStyleEnabled
-            }
-            onClick={handleClickButton}
-            disabled={buttonDisabled || inputError}
-            type={
-              buttonDisabled || !walletConnected || insufficientFunds
-                ? 'hollow-primary-disabled'
-                : 'primary'
-            }
-          >
-            {!walletConnected
-              ? `Connect Wallet`
-              : !input
-              ? `Enter Amount`
-              : insufficientFunds
-              ? `Insufficient Balance`
-              : activeTab === 0
-              ? `Confirm Staking`
-              : `Confirm Withdrawal`}
-          </Button>
-        )}
-      </div>
-      <pre>{JSON.stringify([pending, !confirmed, txHash])}</pre>
-      {pending && !confirmed && txHash && (
-        <div className="flex" style={{ width: '100%', marginTop: '5px' }}>
-          <PendingTx
-            txHash={txHash}
-            onConfirmed={() => {
-              setConfirmed()
-              resetPending()
-              setApprovalState(ApprovalState.APPROVED)
-              refetch()
-            }}
+        <div className="hidden px-8 ml-6 md:block w-64">
+          <img
+            src="https://app.mistswap.fi/xmist-sign.png"
+            alt="xMIST sign"
+            width="100%"
+            height="100%"
+            layout="responsive"
           />
         </div>
-      )}
+      </div>
 
-      <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-6 md:block md:w-72">
-        <div className="flex flex-col w-full px-4 pt-6 pb-5 rounded bg-dark-900 md:px-8 md:pt-7 md:pb-9">
-          <div className="flex flex-wrap">
-            <div className="flex flex-col flex-grow md:mb-14">
-              <p className="mb-3 text-lg font-bold md:text-2xl md:font-medium text-high-emphesis">
-                {`Balance`}
-              </p>
-              <div className="flex items-center space-x-4">
-                <div className="flex flex-col justify-center">
-                  <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                    {xSushiBalance ? xSushiBalance.toSignificant(8) : '-'}
-                  </p>
-                  <p className="text-sm md:text-base text-primary">xMIST</p>
-                </div>
-              </div>
-              {xSushiBalance && xSushiPerSushi ? (
-                <div className="mt-3">
-                  ~{' '}
-                  {xSushiBalance
-                    .multiply(Math.round(xSushiPerSushi * 1e8))
-                    .divide(1e8)
-                    .toSignificant(8)}{' '}
-                  MIST
-                </div>
-              ) : (
-                <></>
-              )}
+      <div className="flex flex-col justify-center md:flex-row">
+        <div className="flex flex-col w-full max-w-xl mx-auto md:m-0">
+          <Tabs className={''}>
+            <Tab
+              active={activeTab === 0}
+              onClick={() => {
+                setActiveTab(0)
+              }}
+            >
+              {t('stake.filter.stake')}
+            </Tab>
+            <Tab
+              active={activeTab === 1}
+              onClick={() => {
+                setActiveTab(1)
+              }}
+            >
+              {t('stake.filter.unstake')}
+            </Tab>
+          </Tabs>
+
+          <div className="flex items-center justify-between w-full mt-6">
+            <p className="font-bold text-large md:text-2xl text-high-emphesis">
+              {activeTab === 0 ? `Stake MIST` : `Unstake`}
+            </p>
+            <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
+              {`1 xMIST = ${xSushiPerSushi.toFixed(4)} MIST`}
             </div>
+          </div>
 
-            <div className="flex flex-col flex-grow">
-              <div className="flex mb-3 ml-8 flex-nowrap md:ml-0">
-                <p className="text-lg font-bold md:text-2xl md:font-medium text-high-emphesis">
-                  {`Unstaked`}
-                </p>
-              </div>
-              <div className="flex items-center ml-8 space-x-4 md:ml-0">
-                <div className="flex flex-col justify-center">
-                  <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                    {sushiBalance ? sushiBalance.toSignificant(8) : '-'}
+          <InputWrapper>
+            <TextInput
+              onChange={handleInput}
+              value={input}
+              className={`w-full h-10 px-3 md:px-5 rounded bg-dark-800 text-sm md:text-lg font-bold text-dark-800 whitespace-nowrap${
+                inputError ? ' pl-9 md:pl-12' : ''
+              }`}
+              placeholder={activeTab === 0 ? 'MIST' : 'xMIST'}
+            />
+            <Button
+              type={'hollow-primary'}
+              onClick={handleClickMax}
+              className={`h-10`}
+            >
+              {t('MAX')}
+            </Button>
+          </InputWrapper>
+
+          <div className="flex" style={{ width: '100%' }}>
+            {(approvalState === ApprovalState.NOT_APPROVED ||
+              approvalState === ApprovalState.PENDING) &&
+            activeTab === 0 ? (
+              <Button
+                className={`${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`}
+                style={{ width: '100%' }}
+                onClick={approve}
+                disabled={approvalState === ApprovalState.PENDING}
+              >
+                {approvalState === ApprovalState.PENDING
+                  ? t('stake.approving')
+                  : t('stake.approve')}
+              </Button>
+            ) : (
+              <Button
+                style={{ width: '100%' }}
+                className={
+                  buttonDisabled
+                    ? buttonStyleDisabled
+                    : !walletConnected
+                    ? buttonStyleConnectWallet
+                    : insufficientFunds
+                    ? buttonStyleInsufficientFunds
+                    : buttonStyleEnabled
+                }
+                onClick={handleClickButton}
+                disabled={buttonDisabled || inputError}
+                type={
+                  buttonDisabled || !walletConnected || insufficientFunds
+                    ? 'danger'
+                    : 'primary'
+                }
+              >
+                {!walletConnected
+                  ? t('stake.connectWallet')
+                  : !input
+                  ? t('stake.enterAmount')
+                  : insufficientFunds
+                  ? t('stake.insufficientBalance')
+                  : activeTab === 0
+                  ? t('stale.confirmStaking')
+                  : t('stake.confirmWithdrawal')}
+              </Button>
+            )}
+          </div>
+          {pending && !confirmed && txHash && (
+            <div className="flex" style={{ width: '100%', marginTop: '5px' }}>
+              <PendingTx
+                txHash={txHash}
+                onConfirmed={() => {
+                  setConfirmed()
+                  resetPending()
+                  setApprovalState(ApprovalState.APPROVED)
+                  refetch()
+                }}
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="w-full max-w-xl mx-auto md:mx-0 md:ml-6 md:block md:w-64">
+          <div className="flex flex-col w-full px-4 pt-6 pb-5 rounded bg-dark-900 md:px-8 md:pt-7 md:pb-9">
+            <div className="flex flex-wrap">
+              <div className="flex flex-col flex-grow">
+                <div className="flex mb-3 ml-8 flex-nowrap md:ml-0">
+                  <p className="text-lg font-bold md:text-2xl md:font-medium text-high-emphesis">
+                    {t('stake.balance')}
                   </p>
-                  <p className="text-sm md:text-base text-primary">MIST</p>
+                </div>
+                <div className="flex items-center ml-8 space-x-4 md:ml-0">
+                  <img
+                    className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
+                    src="https://app.mistswap.fi/images/tokens/xmist-square.jpg"
+                    alt="xMIST"
+                    width={64}
+                    height={64}
+                  />
+                  <div className="flex flex-col justify-center">
+                    <p className="text-sm font-bold md:text-lg text-high-emphesis">
+                      {xSushiBalance ? xSushiBalance.toSignificant(8) : '-'}
+                    </p>
+                    <p className="text-sm md:text-base text-primary">xMIST</p>
+                    {xSushiBalance && xSushiPerSushi && (
+                      <p className="text-xs whitespace-no-wrap">
+                        ~{' '}
+                        {xSushiBalance
+                          .multiply(Math.round(xSushiPerSushi * 1e8))
+                          .divide(1e8)
+                          .toSignificant(8)}{' '}
+                        MIST
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col flex-grow md:mt-10">
+                <div className="flex mb-3 ml-8 flex-nowrap md:ml-0">
+                  <p className="text-lg font-bold md:text-2xl md:font-medium text-high-emphesis">
+                    {`Unstaked`}
+                  </p>
+                </div>
+                <div className="flex items-center ml-8 space-x-4 md:ml-0">
+                  <img
+                    className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
+                    src="https://app.mistswap.fi/images/tokens/mist-square.jpg"
+                    alt="MIST"
+                    width={64}
+                    height={64}
+                  />
+                  <div className="flex flex-col justify-center">
+                    <p className="text-sm font-bold md:text-lg text-high-emphesis">
+                      {sushiBalance ? sushiBalance.toSignificant(8) : '-'}
+                    </p>
+                    <p className="text-sm md:text-base text-primary">MIST</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

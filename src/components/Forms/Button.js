@@ -17,6 +17,18 @@ function getButtonStyles({ type }) {
           border-radius: 23px;
         }
       `
+    case 'danger':
+      return `
+          background: transparent;
+          color: #F5A623;
+          border: 2px solid #F5A623;
+          &:hover {
+            cursor: pointer;
+            border: 2px solid #F5A623;
+            background: antiquewhite;
+            box-shadow: 0 10px 21px 0 rgba(161, 175, 184, 0.89);
+          }
+        `
     case 'hollow':
       return `
         background: transparent;
@@ -79,7 +91,6 @@ function getButtonStyles({ type }) {
         &:hover {
           cursor: default
         }
-        
       `
     default:
       return ''

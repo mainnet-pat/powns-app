@@ -1,3 +1,4 @@
+import './tailwind.generated.css'
 import React, { Fragment, lazy, useEffect } from 'react'
 import {
   HashRouter,

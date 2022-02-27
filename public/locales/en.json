@@ -63,6 +63,7 @@
     "save": "Save",
     "search": "Search",
     "set": "Set",
+    "stake": "Stake",
     "sync": "Sync",
     "textrecord": "Text Record",
     "transfer": "Transfer",
@@ -371,5 +372,23 @@
       "link": "Wikipedia article",
       "title": "ATTENTION"
     }
+  },
+  "stake": {
+    "filter": {
+      "stake": "Stake",
+      "unstake": "Unstake"
+    },
+    "balance": "Balance",
+    "unstaked": "Unstaked",
+    "enterAmount": "Enter Amount",
+    "confirmStaking": "Confirm Staking",
+    "confirmWithdrawal": "Confirm Withdrawal",
+    "insufficientBalance": "Insufficient Balance",
+    "header": "",
+    "explanation": "",
+    "max": "MAX",
+    "approving": "Approving",
+    "approve": "Approve",
+    "connectWallet": "Connect Wallet"
   }
 }
