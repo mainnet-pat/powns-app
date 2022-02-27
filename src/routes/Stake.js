@@ -1,11 +1,8 @@
 import { useTranslation } from 'react-i18next'
 
 import React, { useEffect, useState } from 'react'
-import { Redirect } from 'react-router-dom'
 
 import { useAccount } from '../components/QueryAccount'
-import Banner from '../components/Banner'
-import { emptyAddress } from '../utils/utils'
 
 import { getProvider, getSigner, ethers } from '@bchdomains/ui'
 
@@ -14,14 +11,7 @@ import Loader from '../components/Loader'
 import Button from '../components/Forms/Button'
 import { Tab, Tabs } from '../components/Tabs'
 import styled from '@emotion/styled/macro'
-import {
-  BAR_ADDRESS,
-  ChainId,
-  CurrencyAmount,
-  Token,
-  ZERO,
-  JSBI
-} from '@mistswapdex/sdk'
+import { ChainId, CurrencyAmount, Token, ZERO, JSBI } from '@mistswapdex/sdk'
 import { sendHelper } from '../api/resolverUtils'
 import { useEditable } from '../components/hooks'
 import PendingTx from '../components/PendingTx'
@@ -81,19 +71,19 @@ const ApprovalState = {
   APPROVED: 'APPROVED'
 }
 
-const TOKEN = new Token(
+const SUSHI = new Token(
   ChainId.SMARTBCH,
   '0xE854905B3166417Ad5ecce90D64378C4B1c1a15E',
   18,
-  'TOKEN',
-  'TOKEN'
+  'SUSHI',
+  'SUSHI'
 )
-const XTOKEN = new Token(
+const XSUSHI = new Token(
   ChainId.SMARTBCH,
   '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6',
   18,
-  'XTOKEN',
-  'XTOKEN'
+  'XSUSHI',
+  'XSUSHI'
 )
 
 // try to parse a user entered amount for a given token
@@ -132,10 +122,10 @@ export default function Stake(props) {
     account !== '0x0000000000000000000000000000000000000000'
 
   const [sushiBalance, setSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(TOKEN, 0)
+    CurrencyAmount.fromRawAmount(SUSHI, 0)
   )
   const [xSushiBalance, setXSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(XTOKEN, 0)
+    CurrencyAmount.fromRawAmount(XSUSHI, 0)
   )
 
   const [activeTab, setActiveTab] = useState(0)
@@ -162,13 +152,12 @@ export default function Stake(props) {
         'function approve(address spender, uint256 amount) external returns (bool)'
       ]
 
-      const token = '0xE854905B3166417Ad5ecce90D64378C4B1c1a15E'
       const barToken = '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6'
 
       const provider = await getProvider()
 
-      const tokenContract = new ethers.Contract(token, abi, provider)
-      const barContract = new ethers.Contract(barToken, abi, provider)
+      const tokenContract = new ethers.Contract(SUSHI.address, abi, provider)
+      const barContract = new ethers.Contract(XSUSHI.address, abi, provider)
 
       const [
         totalSushi,
@@ -188,22 +177,12 @@ export default function Stake(props) {
         .div(totalXSushi)
         .div(1e8)
       setxSushiPerSushi(ratio.toNumber() / 1e4)
-      console.log(
-        ethers.utils.formatUnits(totalSushi),
-        totalXSushi,
-        ratio.toNumber(),
-        userSushi,
-        userXSushi,
-        sushiBarAllowance
-      )
 
-      setSushiBalance(CurrencyAmount.fromRawAmount(TOKEN, userSushi.toString()))
-      // setSushiBalance(CurrencyAmount.fromRawAmount(TOKEN, '1234567891234567'))
-
+      setSushiBalance(CurrencyAmount.fromRawAmount(SUSHI, userSushi.toString()))
       setXSushiBalance(
-        CurrencyAmount.fromRawAmount(XTOKEN, userXSushi.toString())
+        CurrencyAmount.fromRawAmount(XSUSHI, userXSushi.toString())
       )
-      console.log(sushiBarAllowance.toString(), sushiBarAllowance.eq(0))
+
       if (sushiBarAllowance.eq(0)) {
         setApprovalState(ApprovalState.NOT_APPROVED)
       } else {
@@ -221,13 +200,13 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(TOKEN.address, abi, provider).connect(
+    const contract = new ethers.Contract(SUSHI.address, abi, provider).connect(
       signer
     )
 
     const txHash = await sendTx(() =>
       contract.approve(
-        XTOKEN.address,
+        XSUSHI.address,
         // reset ? ethers.constants.Zero : ethers.constants.MaxUint256
         ethers.constants.MaxUint256
       )
@@ -244,7 +223,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(XTOKEN.address, abi, provider).connect(
+    const contract = new ethers.Contract(XSUSHI.address, abi, provider).connect(
       signer
     )
 
@@ -262,7 +241,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(XTOKEN.address, abi, provider).connect(
+    const contract = new ethers.Contract(XSUSHI.address, abi, provider).connect(
       signer
     )
 
@@ -275,7 +254,6 @@ export default function Stake(props) {
   }
 
   const handleClickMax = () => {
-    // setInput(balance ? balance.toSignificant(balance.currency.decimals).substring(0, INPUT_CHAR_LIMIT) : '')
     setInput(
       balance
         .toSignificant(balance.currency.decimals)
@@ -391,7 +369,9 @@ export default function Stake(props) {
 
           <div className="flex items-center justify-between w-full mt-6">
             <p className="font-bold text-large md:text-2xl text-high-emphesis">
-              {activeTab === 0 ? `Stake MIST` : `Unstake`}
+              {activeTab === 0
+                ? `${t('stake.filter.stake')} MIST`
+                : t('stake.filter.unstake')}
             </p>
             <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
               {`1 xMIST = ${xSushiPerSushi.toFixed(4)} MIST`}
@@ -457,7 +437,7 @@ export default function Stake(props) {
                   : insufficientFunds
                   ? t('stake.insufficientBalance')
                   : activeTab === 0
-                  ? t('stale.confirmStaking')
+                  ? t('stake.confirmStaking')
                   : t('stake.confirmWithdrawal')}
               </Button>
             )}
