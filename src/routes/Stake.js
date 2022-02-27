@@ -263,7 +263,7 @@ export default function Stake(props) {
   }
 
   const handleInput = event => {
-    const { value } = event.target
+    const value = event?.target?.value || ''
     if (value.length <= INPUT_CHAR_LIMIT) {
       setInput(value)
       setUsingBalance(false)
@@ -311,7 +311,7 @@ export default function Stake(props) {
         }
       }
 
-      handleInput({ target: { value: '' } })
+      handleInput()
       setPendingTx(false)
     }
   }
@@ -353,6 +353,7 @@ export default function Stake(props) {
               active={activeTab === 0}
               onClick={() => {
                 setActiveTab(0)
+                handleInput()
               }}
             >
               {t('stake.filter.stake')}
@@ -361,6 +362,7 @@ export default function Stake(props) {
               active={activeTab === 1}
               onClick={() => {
                 setActiveTab(1)
+                handleInput()
               }}
             >
               {t('stake.filter.unstake')}
