@@ -9,6 +9,8 @@ import Loader from './Loader'
 
 const PendingContainer = styled('div')`
   display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const Text = styled('span')`
