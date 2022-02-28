@@ -259,7 +259,7 @@ function Faq() {
 
         <Section question="How do I find the labelhash/namehash of a name?">
           Please refer to our{' '}
-          <a href="https://docs.ens.domains/contract-api-reference/name-processing#how-do-i-find-the-labelhash-namehash-of-a-name">
+          <a href="https://docs.bch.domains/contract-api-reference/name-processing#how-do-i-find-the-labelhash-namehash-of-a-name">
             developer documentation page.
           </a>
         </Section>
