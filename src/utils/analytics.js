@@ -19,7 +19,7 @@ function isDev() {
 
 async function isMainnet() {
   const id = await getNetworkId()
-  return id === 1
+  return id === 10000
 }
 
 export function setUtm() {
