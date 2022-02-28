@@ -1,17 +1,20 @@
 import ReactGA from 'react-ga'
 import { getNetworkId } from '@bchdomains/ui'
 
+// TODO remove this spyware completely and replace with matomo
 const TrackingID = {
-  live: 'UA-138903307-1',
-  dev: 'UA-138903307-2'
+  //   live: 'UA-138903307-1',
+  //   dev: 'UA-138903307-2'
 }
 
 function isProduction() {
-  return window.location.host === 'app.bch.domains'
+  // return window.location.host === 'app.bch.domains'
+  return false
 }
 
 function isDev() {
-  return window.location.host === 'ensappdev.surge.sh'
+  // return window.location.host === 'ensappdev.surge.sh'
+  return false
 }
 
 async function isMainnet() {
@@ -32,14 +35,14 @@ export function getUtm() {
 }
 
 export const setupAnalytics = () => {
-  if (isProduction()) {
-    ReactGA.initialize(TrackingID.live)
-    ReactGA.plugin.require('ecommerce')
-  } else {
-    ReactGA.initialize(TrackingID.dev)
-    ReactGA.plugin.require('ecommerce', { debug: true })
-    console.log('Analytics setup for dev with ', TrackingID.dev)
-  }
+  // if (isProduction()) {
+  //   ReactGA.initialize(TrackingID.live)
+  //   ReactGA.plugin.require('ecommerce')
+  // } else {
+  //   ReactGA.initialize(TrackingID.dev)
+  //   ReactGA.plugin.require('ecommerce', { debug: true })
+  //   console.log('Analytics setup for dev with ', TrackingID.dev)
+  // }
 
   setUtm()
 }
