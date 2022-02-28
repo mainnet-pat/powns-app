@@ -1,3 +1,4 @@
+import './tailwind.generated.css'
 import React, { Fragment, lazy, useEffect } from 'react'
 import {
   HashRouter,
@@ -60,6 +61,13 @@ const Renew = lazy(() =>
   import(
     /* webpackChunkName: "Renew", webpackPrefetch:true */
     './routes/Renew'
+  )
+)
+
+const Stake = lazy(() =>
+  import(
+    /* webpackChunkName: "Stake", webpackPrefetch:true */
+    './routes/Stake'
   )
 )
 
@@ -130,6 +138,7 @@ const App = () => {
         <Route path="/address/:address/:domainType" component={Address} />
         <Route path="/address/:address" component={Address} />
         <Route path="/renew" component={Renew} />
+        <Route path="/stake" component={Stake} />
         <Route path="*" component={Error404} />
       </Switch>
     </Router>

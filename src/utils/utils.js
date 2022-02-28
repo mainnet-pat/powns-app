@@ -322,6 +322,7 @@ export function imageUrl(url, name, network) {
     return `${metadataURI(_network)}/avatar/${name}`
   }
   console.warn('Unsupported avatar', network, name, url)
+  return url
 }
 
 export function isCID(hash) {

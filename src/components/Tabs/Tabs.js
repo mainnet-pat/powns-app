@@ -25,7 +25,7 @@ export const TabsContainer = styled('div')`
 
 export const Tabs = props => {
   return (
-    <div>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <TabsContainer>{props.children}</TabsContainer>
     </div>
   )
