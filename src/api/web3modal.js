@@ -25,7 +25,8 @@ const option = {
       options: {
         infuraId: INFURA_ID
       }
-    },
+    }
+    /*
     walletlink: {
       package: () => import('walletlink'),
       packageFactory: true,
@@ -53,6 +54,7 @@ const option = {
       package: () => import('@toruslabs/torus-embed'),
       packageFactory: true
     }
+    */
   }
 }
 
