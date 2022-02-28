@@ -1212,10 +1212,10 @@
     ripemd160 "^2.0.2"
     sha3 "^2.1.3"
 
-"@bchdomains/react-ens-address@^0.0.29":
-  version "0.0.29"
-  resolved "https://registry.yarnpkg.com/@bchdomains/react-ens-address/-/react-ens-address-0.0.29.tgz#cb1e4dee41087e9460b4c83579d515ee34b80d96"
-  integrity sha512-Q0cOx1YLDoXrO0bLs5XNCJobVnxtMCaa2dt+rHSTOtfRdDr0HD2TXuqZrqYlrq3+LUumyvonn9de3FsuHala2A==
+"@bchdomains/react-lns-address@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@bchdomains/react-lns-address/-/react-lns-address-0.0.31.tgz#231e3fa0bddfa489144b19fd2a08efff73448674"
+  integrity sha512-LUE+r84aJSYqggdJ+cdcSY5cDZu3uLs9x5hfgz7YxjRv0opmEk8WsZy9AHk70Q5dClqARuRJ8lQlgxvZLgXtXg==
   dependencies:
     "@bchdomains/ui" "^3.3.12"
     "@emotion/core" "^10.0.14"
