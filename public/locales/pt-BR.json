@@ -230,7 +230,7 @@
   "reminder": {
     "everywhere": "em todos os lugares",
     "release": {
-      "description": "Registro {{name}} em https://app.ens.domains/name/{{name}}/register",
+      "description": "Registro {{name}} em https://app.bch.domains/name/{{name}}/register",
       "title": "Registro {{name}}"
     },
     "renewal": {
