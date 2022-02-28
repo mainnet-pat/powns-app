@@ -146,7 +146,7 @@
       "title": "Namen verwalten"
     },
     "register": {
-      "text": "Registrieren Sie .eth-Namen für $5/Jahr. Sie können Ihre Namensregistrierung jederzeit verlängern oder beenden.",
+      "text": "Registrieren Sie .bch-Namen für $5/Jahr. Sie können Ihre Namensregistrierung jederzeit verlängern oder beenden.",
       "title": "Namen registrieren"
     },
     "search": {
@@ -244,7 +244,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "You have either added a domain without a TLD such as .eth or you have added unsupported characters.",
+      "long": "You have either added a domain without a TLD such as .bch or you have added unsupported characters.",
       "short": "Domain malformed. {{searchTerm}} is not a valid domain."
     },
     "tooShort": {

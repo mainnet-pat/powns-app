@@ -142,7 +142,7 @@
       "title": "管理域名"
     },
     "register": {
-      "text": "以每年 5 美元的价格注册 .eth 域名，随时更新或弃用你的域名",
+      "text": "以每年 5 美元的价格注册 .bch 域名，随时更新或弃用你的域名",
       "title": "注册域名"
     },
     "search": {
@@ -240,7 +240,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "您添加了一个不带 TLD（比如 .eth）的域名，或是使用了不支持的字符。",
+      "long": "您添加了一个不带 TLD（比如 .bch）的域名，或是使用了不支持的字符。",
       "short": "域名异常。 {{searchTerm}} 不是一个有效的域名。"
     },
     "tooShort": {

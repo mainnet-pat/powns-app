@@ -146,7 +146,7 @@
       "title": "Gerencie nomes"
     },
     "register": {
-      "text": "Registre .eth nomes por $5 (Dolares)/ano. Estenda seus nomes registrados a qualquer momento.",
+      "text": "Registre .bch nomes por $5 (Dolares)/ano. Estenda seus nomes registrados a qualquer momento.",
       "title": "Nomes de Registro"
     },
     "search": {
@@ -244,7 +244,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "Você adicionou um domínio sem TLD, como o .eth, ou adicionou caracteres não suportados.",
+      "long": "Você adicionou um domínio sem TLD, como o .bch, ou adicionou caracteres não suportados.",
       "short": "Domínio mal formatado. {{searchTerm}} não é um domínio válido."
     },
     "tooShort": {

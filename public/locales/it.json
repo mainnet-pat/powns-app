@@ -146,7 +146,7 @@
       "title": "Gestisci domini"
     },
     "register": {
-      "text": "Registra domini .eth per $5/anno. Rinnova o annulla una registrazione di dominio in qualsiasi momento.",
+      "text": "Registra domini .bch per $5/anno. Rinnova o annulla una registrazione di dominio in qualsiasi momento.",
       "title": "Registra nomi di dominio"
     },
     "search": {
@@ -244,7 +244,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "Hai aggiunto un dominio senza estensione TLD come .eth oppure hai aggiunto caratteri non supportati.",
+      "long": "Hai aggiunto un dominio senza estensione TLD come .bch oppure hai aggiunto caratteri non supportati.",
       "short": "Dominio non valido. {{searchTerm}} non è un nome di dominio valido."
     },
     "tooShort": {

@@ -148,7 +148,7 @@
       "title": "Zarządzaj nazwami"
     },
     "register": {
-      "text": "Zarejestruj nazwę .eth za $5/rok. Odnów lub anuluj twoją rejestrację nazwy w dowolnym momencie.",
+      "text": "Zarejestruj nazwę .bch za $5/rok. Odnów lub anuluj twoją rejestrację nazwy w dowolnym momencie.",
       "title": "Zarejestruj nazwy"
     },
     "search": {
@@ -246,7 +246,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "You have either added a domain without a TLD such as .eth or you have added unsupported characters.",
+      "long": "You have either added a domain without a TLD such as .bch or you have added unsupported characters.",
       "short": "Domain malformed. {{searchTerm}} is not a valid domain."
     },
     "tooShort": {
