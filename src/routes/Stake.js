@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import React, { useEffect, useState } from 'react'
 
 import { useAccount } from '../components/QueryAccount'
-
+import { isReadOnlyReactive } from '../apollo/reactiveVars'
 import { getProvider, getSigner, ethers } from '@bchdomains/ui'
 
 import { isENSReadyReactive } from '../apollo/reactiveVars'
@@ -118,8 +118,9 @@ export default function Stake(props) {
   const [refresh, setRefresh] = useState(0)
 
   const account = useAccount()
+  const isReadOnly = isReadOnlyReactive()
   const walletConnected =
-    account !== '0x0000000000000000000000000000000000000000'
+    account !== ethers.constants.AddressZero && !isReadOnly
 
   const [sushiBalance, setSushiBalance] = useState(
     CurrencyAmount.fromRawAmount(SUSHI, 0)
@@ -148,11 +149,8 @@ export default function Stake(props) {
       const abi = [
         'function totalSupply() external view returns (uint256)',
         'function balanceOf(address account) external view returns (uint256)',
-        'function allowance(address owner, address spender) external view returns (uint256)',
-        'function approve(address spender, uint256 amount) external returns (bool)'
+        'function allowance(address owner, address spender) external view returns (uint256)'
       ]
-
-      const barToken = '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6'
 
       const provider = await getProvider()
 
@@ -166,17 +164,20 @@ export default function Stake(props) {
         userXSushi,
         sushiBarAllowance
       ] = await Promise.all([
-        tokenContract.balanceOf(barToken),
+        tokenContract.balanceOf(XSUSHI.address),
         barContract.totalSupply(),
-        tokenContract.balanceOf(account),
-        barContract.balanceOf(account),
-        tokenContract.allowance(account, barToken)
+        walletConnected
+          ? tokenContract.balanceOf(account)
+          : ethers.constants.Zero,
+        walletConnected
+          ? barContract.balanceOf(account)
+          : ethers.constants.Zero,
+        walletConnected
+          ? tokenContract.allowance(account, XSUSHI.address)
+          : ethers.constants.Zero
       ])
-      const ratio = totalSushi
-        .mul(1e12)
-        .div(totalXSushi)
-        .div(1e8)
-      setxSushiPerSushi(ratio.toNumber() / 1e4)
+      const ratio = totalSushi.mul(1e12).div(totalXSushi)
+      setxSushiPerSushi(ratio.toNumber() / 1e12)
 
       setSushiBalance(CurrencyAmount.fromRawAmount(SUSHI, userSushi.toString()))
       setXSushiBalance(
@@ -394,17 +395,17 @@ export default function Stake(props) {
               onClick={handleClickMax}
               className={`h-10`}
             >
-              {t('MAX')}
+              {t('stake.max')}
             </Button>
           </InputWrapper>
 
-          <div className="flex" style={{ width: '100%' }}>
+          <div className="flex">
             {(approvalState === ApprovalState.NOT_APPROVED ||
               approvalState === ApprovalState.PENDING) &&
-            activeTab === 0 ? (
+            activeTab === 0 &&
+            walletConnected ? (
               <Button
                 className={`${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`}
-                style={{ width: '100%' }}
                 onClick={approve}
                 disabled={approvalState === ApprovalState.PENDING}
               >
@@ -414,7 +415,6 @@ export default function Stake(props) {
               </Button>
             ) : (
               <Button
-                style={{ width: '100%' }}
                 className={
                   buttonDisabled
                     ? buttonStyleDisabled
@@ -445,7 +445,7 @@ export default function Stake(props) {
             )}
           </div>
           {pending && !confirmed && txHash && (
-            <div className="flex" style={{ width: '100%', marginTop: '5px' }}>
+            <div className="flex justify-center mt-3">
               <PendingTx
                 txHash={txHash}
                 onConfirmed={() => {
@@ -478,19 +478,23 @@ export default function Stake(props) {
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                      {xSushiBalance ? xSushiBalance.toSignificant(8) : '-'}
+                      {walletConnected && xSushiBalance
+                        ? xSushiBalance.toSignificant(8)
+                        : '-'}
                     </p>
                     <p className="text-sm md:text-base text-primary">xMIST</p>
-                    {xSushiBalance && xSushiPerSushi && (
-                      <p className="text-xs whitespace-no-wrap">
-                        ~{' '}
-                        {xSushiBalance
-                          .multiply(Math.round(xSushiPerSushi * 1e8))
-                          .divide(1e8)
-                          .toSignificant(8)}{' '}
-                        MIST
-                      </p>
-                    )}
+                    {walletConnected &&
+                      xSushiBalance.greaterThan(0) &&
+                      xSushiPerSushi && (
+                        <p className="text-xs whitespace-no-wrap">
+                          ~{' '}
+                          {xSushiBalance
+                            .multiply(Math.round(xSushiPerSushi * 1e8))
+                            .divide(1e8)
+                            .toSignificant(8)}{' '}
+                          MIST
+                        </p>
+                      )}
                   </div>
                 </div>
               </div>
@@ -511,7 +515,9 @@ export default function Stake(props) {
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                      {sushiBalance ? sushiBalance.toSignificant(8) : '-'}
+                      {walletConnected && sushiBalance
+                        ? sushiBalance.toSignificant(8)
+                        : '-'}
                     </p>
                     <p className="text-sm md:text-base text-primary">MIST</p>
                   </div>
