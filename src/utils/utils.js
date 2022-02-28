@@ -139,8 +139,8 @@ export const parseSearchTerm = async term => {
   } catch (e) {
     return 'invalid'
   }
-  console.log('** parseSearchTerm', { ens })
-  const address = await ens.getOwner(tld)
+  // console.log('** parseSearchTerm', { ens })
+  // const address = await ens.getOwner(tld)
   return _parseSearchTerm(term, true)
 }
 
@@ -321,7 +321,7 @@ export function imageUrl(url, name, network) {
   if (_protocol && _network && name) {
     return `${metadataURI(_network)}/avatar/${name}`
   }
-  console.warn('Unsupported avatar', network, name, url)
+  // console.warn('Unsupported avatar', network, name, url)
   return url
 }
 

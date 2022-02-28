@@ -76,7 +76,7 @@ const NAME_QUERY = gql`
 function Name({ details: domain, name, pathname, type, refetch }) {
   const { t } = useTranslation()
   const smallBP = useMediaMin('small')
-  const percentDone = 0
+  const percentdone = 0
 
   const {
     data: { accounts }
@@ -109,7 +109,7 @@ function Name({ details: domain, name, pathname, type, refetch }) {
 
   return (
     <NameContainer state={containerState} key={key}>
-      <TopBar percentDone={percentDone}>
+      <TopBar percentdone={percentdone}>
         <Title>
           {domain?.decrypted
             ? name
