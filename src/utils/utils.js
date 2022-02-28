@@ -207,7 +207,7 @@ export function isShortName(term) {
 export const aboutPageURL = () => {
   const lang = window.localStorage.getItem('language') || ''
 
-  return `https://ens.domains/${lang === 'en' ? '' : lang}`
+  return `https://bch.domains/${lang === 'en' ? '' : lang}`
 }
 
 export function isRecordEmpty(value) {
@@ -307,7 +307,7 @@ export function metadataURI(_network) {
     return `http://localhost/${_network}`
   }
 
-  return `https://metadata.ens.domains/${_network}`
+  return `https://metadata.bch.domains/${_network}`
 }
 
 export function imageUrl(url, name, network) {
