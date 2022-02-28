@@ -1,12 +1,12 @@
 import { topLevelDomainSupported } from '@bchdomains/ui'
 
-const TLD = 'link'
+const TLD = 'is'
 function createFetchUrl(name) {
-  return `https://eth.${TLD}/names/${name}.${TLD}`
+  return `https://bch.${TLD}/names/${name}.${TLD}`
 }
 
 function whitelisted() {
-  return ['app.ens.domains', 'ens.eth', 'ens.eth.link'].includes(
+  return ['app.bch.domains', 'lns.bch', 'lns.bch.is'].includes(
     window.location.host
   )
 }
