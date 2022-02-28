@@ -7,7 +7,7 @@ const TrackingID = {
 }
 
 function isProduction() {
-  return window.location.host === 'app.ens.domains'
+  return window.location.host === 'app.bch.domains'
 }
 
 function isDev() {
