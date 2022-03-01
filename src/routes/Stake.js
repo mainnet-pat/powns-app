@@ -319,17 +319,18 @@ export default function Stake(props) {
             </div>
           </div>
           <div className="max-w-lg pr-3 mb-2 text-sm leading-5 text-gray-500 md:text-base md:mb-4 md:pr-0">
-            {t('stake.explanation1')}
+            {t('stake.explanation')}
+            <br />
+            <br />
+            {t('stake.buylns')}
             <a
               target="_blank"
               href={`https://app.mistswap.fi/swap?inputCurrency=&outputCurrency=${
-                xLNS.address
+                LNS.address
               }`}
             >
               MistSwap
             </a>
-            .&nbsp;
-            {t('stake.explanation2')}
           </div>
         </div>
         <div className="hidden px-8 ml-6 md:block w-64">
