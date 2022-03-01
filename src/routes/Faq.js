@@ -24,6 +24,7 @@ const Question = styled('h3')`
   font-size: 15px;
   margin-right: 0.5em;
   display: inline;
+  font-weight: bold;
 `
 
 const Answer = styled('p')``

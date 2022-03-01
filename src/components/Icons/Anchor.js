@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro'
 import Icon from './IconBase'
 
 const SVG = styled(Icon)`
+  display: inline;
   transform: scale(${p => (p.scale ? p.scale : 1)});
   path {
     width: 50px;
