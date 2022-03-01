@@ -124,10 +124,10 @@ function NetworkInformation() {
     skip: !accounts?.length
   })
 
-  const { data: { getBalance } = {} } = useQuery(GET_BALANCE, {
-    variables: { address: accounts?.[0] },
-    fetchPolicy: 'no-cache'
-  })
+  // const { data: { getBalance } = {} } = useQuery(GET_BALANCE, {
+  //   variables: { address: accounts?.[0] },
+  //   fetchPolicy: 'no-cache'
+  // })
 
   return (
     <NetworkInformationContainer hasAccount={accounts && accounts.length > 0}>

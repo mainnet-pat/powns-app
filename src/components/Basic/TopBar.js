@@ -9,10 +9,10 @@ const TopBar = styled('div')`
   border-bottom: 1px solid #ededed;
   box-shadow: 0 2px 4px 0 rgba(181, 177, 177, 0.2);
 
-  background: ${({ percentDone }) =>
-    percentDone
+  background: ${({ percentdone }) =>
+    percentdone
       ? `
-  linear-gradient(to right, rgba(128, 255, 128, 0.1) 0%, rgba(82,229,255, 0.1) ${percentDone}%,#ffffff ${percentDone}%)`
+  linear-gradient(to right, rgba(128, 255, 128, 0.1) 0%, rgba(82,229,255, 0.1) ${percentdone}%,#ffffff ${percentdone}%)`
       : 'white'};
 
   ${mq.small`

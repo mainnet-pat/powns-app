@@ -62,10 +62,10 @@ const DomainContainer = styled(Link)`
   color: #2b2b2b;
   overflow: hidden;
   position: relative;
-  background: ${({ percentDone }) =>
-    percentDone
+  background: ${({ percentdone }) =>
+    percentdone
       ? `
-  linear-gradient(to right, rgba(128, 255, 128, 0.1) 0%, rgba(82,229,255, 0.1) ${percentDone}%,#ffffff ${percentDone}%)`
+  linear-gradient(to right, rgba(128, 255, 128, 0.1) 0%, rgba(82,229,255, 0.1) ${percentdone}%,#ffffff ${percentdone}%)`
       : 'white'};
   height: 65px;
   display: grid;
@@ -191,7 +191,7 @@ const Domain = ({
   setSelectAll,
   hasInvalidCharacter
 }) => {
-  console.log('DomainItem: ', Array.from(domain.name))
+  // console.log('DomainItem: ', Array.from(domain.name))
   if (loading) {
     return (
       <DomainContainer state={'Owned'} className={className} to="">
@@ -207,7 +207,7 @@ const Domain = ({
       domain.owner &&
       domain.owner.toLowerCase() === account.toLowerCase()
   }
-  const percentDone = 0
+  const percentdone = 0
   let expiryDate = domain.expiryDate
   if (domain.expiryTime) {
     expiryDate = parseInt(domain.expiryTime.getTime() / 1000)
@@ -233,7 +233,7 @@ const Domain = ({
       <DomainContainer
         to={`/name/${domain.name}`}
         className={className}
-        percentDone={percentDone}
+        percentdone={percentdone}
         data-testid={`domain-${domain.name}`}
       >
         <DomainName state={isOwner ? 'Yours' : domain.state}>

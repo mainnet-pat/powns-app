@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import React, { useEffect, useState } from 'react'
 
 import { useAccount } from '../components/QueryAccount'
-
+import { isReadOnlyReactive } from '../apollo/reactiveVars'
 import { getProvider, getSigner, ethers } from '@bchdomains/ui'
 
 import { isENSReadyReactive } from '../apollo/reactiveVars'
@@ -71,19 +71,19 @@ const ApprovalState = {
   APPROVED: 'APPROVED'
 }
 
-const SUSHI = new Token(
+const LNS = new Token(
   ChainId.SMARTBCH,
   '0xE854905B3166417Ad5ecce90D64378C4B1c1a15E',
   18,
-  'SUSHI',
-  'SUSHI'
+  'LNS',
+  'LNS'
 )
-const XSUSHI = new Token(
+const xLNS = new Token(
   ChainId.SMARTBCH,
   '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6',
   18,
-  'XSUSHI',
-  'XSUSHI'
+  'xLNS',
+  'xLNS'
 )
 
 // try to parse a user entered amount for a given token
@@ -99,7 +99,7 @@ export function tryParseAmount(value, currency) {
     return CurrencyAmount.fromRawAmount(currency, JSBI.BigInt(typedValueParsed))
   } catch (error) {
     // should fail if the user specifies too many decimal places of precision (or maybe exceed max uint?)
-    console.debug(`Failed to parse input amount: "${value}"`, error)
+    // console.debug(`Failed to parse input amount: "${value}"`, error)
   }
   // necessary for all paths to return a value
   return undefined
@@ -118,14 +118,15 @@ export default function Stake(props) {
   const [refresh, setRefresh] = useState(0)
 
   const account = useAccount()
+  const isReadOnly = isReadOnlyReactive()
   const walletConnected =
-    account !== '0x0000000000000000000000000000000000000000'
+    account !== ethers.constants.AddressZero && !isReadOnly
 
   const [sushiBalance, setSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(SUSHI, 0)
+    CurrencyAmount.fromRawAmount(LNS, 0)
   )
   const [xSushiBalance, setXSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(XSUSHI, 0)
+    CurrencyAmount.fromRawAmount(xLNS, 0)
   )
 
   const [activeTab, setActiveTab] = useState(0)
@@ -133,7 +134,6 @@ export default function Stake(props) {
   const [input, setInput] = useState('')
   const [usingBalance, setUsingBalance] = useState(false)
   const balance = activeTab === 0 ? sushiBalance : xSushiBalance
-  const formattedBalance = balance?.toSignificant(4)
 
   const parsedAmount = usingBalance
     ? balance
@@ -148,16 +148,13 @@ export default function Stake(props) {
       const abi = [
         'function totalSupply() external view returns (uint256)',
         'function balanceOf(address account) external view returns (uint256)',
-        'function allowance(address owner, address spender) external view returns (uint256)',
-        'function approve(address spender, uint256 amount) external returns (bool)'
+        'function allowance(address owner, address spender) external view returns (uint256)'
       ]
-
-      const barToken = '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6'
 
       const provider = await getProvider()
 
-      const tokenContract = new ethers.Contract(SUSHI.address, abi, provider)
-      const barContract = new ethers.Contract(XSUSHI.address, abi, provider)
+      const tokenContract = new ethers.Contract(LNS.address, abi, provider)
+      const barContract = new ethers.Contract(xLNS.address, abi, provider)
 
       const [
         totalSushi,
@@ -166,21 +163,24 @@ export default function Stake(props) {
         userXSushi,
         sushiBarAllowance
       ] = await Promise.all([
-        tokenContract.balanceOf(barToken),
+        tokenContract.balanceOf(xLNS.address),
         barContract.totalSupply(),
-        tokenContract.balanceOf(account),
-        barContract.balanceOf(account),
-        tokenContract.allowance(account, barToken)
+        walletConnected
+          ? tokenContract.balanceOf(account)
+          : ethers.constants.Zero,
+        walletConnected
+          ? barContract.balanceOf(account)
+          : ethers.constants.Zero,
+        walletConnected
+          ? tokenContract.allowance(account, xLNS.address)
+          : ethers.constants.Zero
       ])
-      const ratio = totalSushi
-        .mul(1e12)
-        .div(totalXSushi)
-        .div(1e8)
-      setxSushiPerSushi(ratio.toNumber() / 1e4)
+      const ratio = totalSushi.mul(1e12).div(totalXSushi)
+      setxSushiPerSushi(ratio.toNumber() / 1e12)
 
-      setSushiBalance(CurrencyAmount.fromRawAmount(SUSHI, userSushi.toString()))
+      setSushiBalance(CurrencyAmount.fromRawAmount(LNS, userSushi.toString()))
       setXSushiBalance(
-        CurrencyAmount.fromRawAmount(XSUSHI, userXSushi.toString())
+        CurrencyAmount.fromRawAmount(xLNS, userXSushi.toString())
       )
 
       if (sushiBarAllowance.eq(0)) {
@@ -192,7 +192,7 @@ export default function Stake(props) {
     fetch()
   }, [account, refresh])
 
-  const approve = async (reset = false) => {
+  const approve = async () => {
     const abi = [
       'function approve(address spender, uint256 amount) external returns (bool)'
     ]
@@ -200,16 +200,12 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(SUSHI.address, abi, provider).connect(
+    const contract = new ethers.Contract(LNS.address, abi, provider).connect(
       signer
     )
 
     const txHash = await sendTx(() =>
-      contract.approve(
-        XSUSHI.address,
-        // reset ? ethers.constants.Zero : ethers.constants.MaxUint256
-        ethers.constants.MaxUint256
-      )
+      contract.approve(xLNS.address, ethers.constants.MaxUint256)
     )
     startPending(txHash)
     setApprovalState(ApprovalState.PENDING)
@@ -223,7 +219,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(XSUSHI.address, abi, provider).connect(
+    const contract = new ethers.Contract(xLNS.address, abi, provider).connect(
       signer
     )
 
@@ -241,7 +237,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(XSUSHI.address, abi, provider).connect(
+    const contract = new ethers.Contract(xLNS.address, abi, provider).connect(
       signer
     )
 
@@ -292,21 +288,18 @@ export default function Stake(props) {
           const success = await approve()
           if (!success) {
             setPendingTx(false)
-            // setModalOpen(true)
             return
           }
         }
         const success = await enter(parsedAmount)
         if (!success) {
           setPendingTx(false)
-          // setModalOpen(true)
           return
         }
       } else if (activeTab === 1) {
         const success = await leave(parsedAmount)
         if (!success) {
           setPendingTx(false)
-          // setModalOpen(true)
           return
         }
       }
@@ -322,23 +315,27 @@ export default function Stake(props) {
         <div className="flex flex-col w-full max-w-xl mt-auto mb-2">
           <div className="flex max-w-lg">
             <div className="self-end mb-3 text-lg font-bold md:text-2xl text-high-emphesis md:mb-7">
-              {/* {t("stake.header")} */}
-              {`Maximize yield by staking MIST for xMIST`}
+              {t('stake.header')}
             </div>
           </div>
           <div className="max-w-lg pr-3 mb-2 text-sm leading-5 text-gray-500 md:text-base md:mb-4 md:pr-0">
-            {/* {t("stake.explanation")} */}
-            {`For every swap on the exchange on every chain, 0.05% of the swap fees are distributed as MIST
-                              proportional to your share of the MistBar. When your MIST is staked into the MistBar, you receive
-                              xMIST in return.
-                              Your xMIST is continuously compounding, when you unstake you will receive all the originally deposited
-                              MIST and any additional from fees.`}
+            {t('stake.explanation1')}
+            <a
+              target="_blank"
+              href={`https://app.mistswap.fi/swap?inputCurrency=&outputCurrency=${
+                xLNS.address
+              }`}
+            >
+              MistSwap
+            </a>
+            .&nbsp;
+            {t('stake.explanation2')}
           </div>
         </div>
         <div className="hidden px-8 ml-6 md:block w-64">
           <img
             src="https://app.mistswap.fi/xmist-sign.png"
-            alt="xMIST sign"
+            alt="xLNS sign"
             width="100%"
             height="100%"
             layout="responsive"
@@ -372,11 +369,11 @@ export default function Stake(props) {
           <div className="flex items-center justify-between w-full mt-6">
             <p className="font-bold text-large md:text-2xl text-high-emphesis">
               {activeTab === 0
-                ? `${t('stake.filter.stake')} MIST`
+                ? `${t('stake.filter.stake')} LNS`
                 : t('stake.filter.unstake')}
             </p>
             <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
-              {`1 xMIST = ${xSushiPerSushi.toFixed(4)} MIST`}
+              {`1 xLNS = ${xSushiPerSushi.toFixed(4)} LNS`}
             </div>
           </div>
 
@@ -387,24 +384,24 @@ export default function Stake(props) {
               className={`w-full h-10 px-3 md:px-5 rounded bg-dark-800 text-sm md:text-lg font-bold text-dark-800 whitespace-nowrap${
                 inputError ? ' pl-9 md:pl-12' : ''
               }`}
-              placeholder={activeTab === 0 ? 'MIST' : 'xMIST'}
+              placeholder={activeTab === 0 ? 'LNS' : 'xLNS'}
             />
             <Button
               type={'hollow-primary'}
               onClick={handleClickMax}
               className={`h-10`}
             >
-              {t('MAX')}
+              {t('stake.max')}
             </Button>
           </InputWrapper>
 
-          <div className="flex" style={{ width: '100%' }}>
+          <div className="flex">
             {(approvalState === ApprovalState.NOT_APPROVED ||
               approvalState === ApprovalState.PENDING) &&
-            activeTab === 0 ? (
+            activeTab === 0 &&
+            walletConnected ? (
               <Button
                 className={`${buttonStyle} text-high-emphesis bg-cyan-blue hover:bg-opacity-90`}
-                style={{ width: '100%' }}
                 onClick={approve}
                 disabled={approvalState === ApprovalState.PENDING}
               >
@@ -414,7 +411,6 @@ export default function Stake(props) {
               </Button>
             ) : (
               <Button
-                style={{ width: '100%' }}
                 className={
                   buttonDisabled
                     ? buttonStyleDisabled
@@ -445,7 +441,7 @@ export default function Stake(props) {
             )}
           </div>
           {pending && !confirmed && txHash && (
-            <div className="flex" style={{ width: '100%', marginTop: '5px' }}>
+            <div className="flex justify-center mt-3">
               <PendingTx
                 txHash={txHash}
                 onConfirmed={() => {
@@ -472,25 +468,29 @@ export default function Stake(props) {
                   <img
                     className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
                     src="https://app.mistswap.fi/images/tokens/xmist-square.jpg"
-                    alt="xMIST"
+                    alt="xLNS"
                     width={64}
                     height={64}
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                      {xSushiBalance ? xSushiBalance.toSignificant(8) : '-'}
+                      {walletConnected && xSushiBalance
+                        ? xSushiBalance.toSignificant(8)
+                        : '-'}
                     </p>
-                    <p className="text-sm md:text-base text-primary">xMIST</p>
-                    {xSushiBalance && xSushiPerSushi && (
-                      <p className="text-xs whitespace-no-wrap">
-                        ~{' '}
-                        {xSushiBalance
-                          .multiply(Math.round(xSushiPerSushi * 1e8))
-                          .divide(1e8)
-                          .toSignificant(8)}{' '}
-                        MIST
-                      </p>
-                    )}
+                    <p className="text-sm md:text-base text-primary">xLNS</p>
+                    {walletConnected &&
+                      xSushiBalance.greaterThan(0) &&
+                      xSushiPerSushi && (
+                        <p className="text-xs whitespace-no-wrap">
+                          ~{' '}
+                          {xSushiBalance
+                            .multiply(Math.round(xSushiPerSushi * 1e8))
+                            .divide(1e8)
+                            .toSignificant(8)}{' '}
+                          LNS
+                        </p>
+                      )}
                   </div>
                 </div>
               </div>
@@ -505,15 +505,17 @@ export default function Stake(props) {
                   <img
                     className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
                     src="https://app.mistswap.fi/images/tokens/mist-square.jpg"
-                    alt="MIST"
+                    alt="LNS"
                     width={64}
                     height={64}
                   />
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
-                      {sushiBalance ? sushiBalance.toSignificant(8) : '-'}
+                      {walletConnected && sushiBalance
+                        ? sushiBalance.toSignificant(8)
+                        : '-'}
                     </p>
-                    <p className="text-sm md:text-base text-primary">MIST</p>
+                    <p className="text-sm md:text-base text-primary">LNS</p>
                   </div>
                 </div>
               </div>

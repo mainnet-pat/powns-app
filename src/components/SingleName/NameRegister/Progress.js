@@ -25,10 +25,10 @@ const ProgressBar = styled('div')`
   width: 100%;
   border-radius: 10px;
   margin-bottom: 20px;
-  background: ${({ percentDone }) =>
-      percentDone &&
+  background: ${({ percentdone }) =>
+      percentdone &&
       `
-        linear-gradient(to right, #AFFF8C 0%, #42E068 ${percentDone}%, transparent ${percentDone}%),`}
+        linear-gradient(to right, #AFFF8C 0%, #42E068 ${percentdone}%, transparent ${percentdone}%),`}
     rgba(66, 224, 104, 0.1);
 `
 
@@ -112,11 +112,11 @@ function Progress({ step, waitPercentComplete }) {
 
   const waitMin = states['COMMIT_CONFIRMED']
   const waitMax = states['AWAITING_REGISTER']
-  const percentDone = waitPercentComplete / (100 / (waitMax - waitMin)) + 25
+  const percentdone = waitPercentComplete / (100 / (waitMax - waitMin)) + 25
   return (
     <ProgressContainer>
       <ProgressBar
-        percentDone={step !== 'COMMIT_CONFIRMED' ? states[step] : percentDone}
+        percentdone={step !== 'COMMIT_CONFIRMED' ? states[step] : percentdone}
       />
       <Steps>
         <Tooltip

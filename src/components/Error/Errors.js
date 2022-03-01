@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
+import { switchEthereumChain } from '../../utils/utils'
 
 import warningImage from '../../assets/warning.svg'
 
@@ -28,7 +29,11 @@ const H2 = styled('h2')`
   text-align: center;
 `
 
-const Message = styled('div')``
+const Message = styled('div')`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
 
 export const NetworkError = ({ message }) => (
   <ErrorContainer data-testid="network-error">
@@ -36,7 +41,24 @@ export const NetworkError = ({ message }) => (
       <Warning src={warningImage} />
       <H2>{message}</H2>
       <br />
-      Please change your dapp browser to Mainnet, Ropsten, Rinkeby or Goerli
+      Please change your dapp browser to{' '}
+      <a
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          switchEthereumChain(10000).then(() => window.location.reload())
+        }}
+      >
+        SmartBCH Mainnet
+      </a>{' '}
+      or{' '}
+      <a
+        style={{ cursor: 'pointer' }}
+        onClick={() => {
+          switchEthereumChain(10001).then(() => window.location.reload())
+        }}
+      >
+        SmartBCH Amber Testnet
+      </a>
     </Message>
   </ErrorContainer>
 )
