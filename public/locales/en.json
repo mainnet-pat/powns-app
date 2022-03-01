@@ -73,7 +73,7 @@
   },
   "certificate": {
     "button": "Request SSL certificate",
-    "warning": "SSL certificate for {{ name }}.link is not created yet"
+    "warning": "SSL certificate for {{ name }}.is is not created yet"
   },
   "childDomainItem": {
     "notmigrated": "not migrated"

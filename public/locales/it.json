@@ -72,7 +72,7 @@
   },
   "certificate": {
     "button": "Richiedi certificato SSL",
-    "warning": "Il certificato SSL per {{ name }}.link non è stato ancora creato"
+    "warning": "Il certificato SSL per {{ name }}.is non è stato ancora creato"
   },
   "childDomainItem": {
     "notmigrated": "non migrato"
@@ -303,7 +303,7 @@
         "title": "2. Imposta altri record"
       },
       "step3": {
-        "text": "Puoi ospitare i tuoi file statici html/css/images su IPFS e inserire l'hash sul Content record del dominio LNS. Dopo potrà essere risolto dai browser che supportano LNS (es. Opera), dalle estensioni browser (Metamask), o da qualsiasi browser con estensione '.link' alla fine (es. lns.bch.is).",
+        "text": "Puoi ospitare i tuoi file statici html/css/images su IPFS e inserire l'hash sul Content record del dominio LNS. Dopo potrà essere risolto dai browser che supportano LNS (es. Opera), dalle estensioni browser (Metamask), o da qualsiasi browser con estensione '.is' alla fine (es. lns.bch.is).",
         "title": "3. Imposta un content hash di un sito web decentralizzato"
       },
       "title": "Impara come gestire il tuo dominio."
