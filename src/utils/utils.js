@@ -348,3 +348,57 @@ export function asyncThrottle(func, wait) {
       throttled(resolve, reject, args)
     })
 }
+
+export const switchEthereumChain = async chainId => {
+  const SUPPORTED_NETWORKS = {
+    [10000]: {
+      chainId: '0x2710',
+      chainName: 'SmartBCH',
+      nativeCurrency: {
+        name: 'Bitcoin Cash',
+        symbol: 'BCH',
+        decimals: 18
+      },
+      rpcUrls: ['https://smartbch.fountainhead.cash/mainnet'],
+      blockExplorerUrls: ['https://smartscan.cash']
+    },
+    [10001]: {
+      chainId: '0x2711',
+      chainName: 'SmartBCH Amber Testnet',
+      nativeCurrency: {
+        name: 'Bitcoin Cash',
+        symbol: 'BCH',
+        decimals: 18
+      },
+      rpcUrls: ['https://moeing.tech:9545'],
+      blockExplorerUrls: ['https://smartscan.cash']
+    }
+  }
+
+  const params = SUPPORTED_NETWORKS[chainId]
+  const ethereum = window.ethereum
+  try {
+    await ethereum.request({
+      method: 'wallet_switchEthereumChain',
+      params: [{ chainId: params.chainId }]
+    })
+  } catch (switchError) {
+    console.log(switchError)
+    // This error code indicates that the chain has not been added to MetaMask.
+    if (switchError.code === 4902) {
+      try {
+        await ethereum.request({
+          method: 'wallet_addEthereumChain',
+          params: [params]
+        })
+      } catch (addError) {
+        console.log(addError)
+        // handle adding network error
+        throw addError
+      }
+    } else {
+      // handle other "switch" errors
+      throw switchError
+    }
+  }
+}
