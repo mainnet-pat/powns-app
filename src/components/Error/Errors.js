@@ -41,7 +41,8 @@ export const NetworkError = ({ message }) => (
       <Warning src={warningImage} />
       <H2>{message}</H2>
       <br />
-      Please change your dapp browser to /*
+      Please change your dapp browser to{' '}
+      {/*
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
@@ -50,7 +51,7 @@ export const NetworkError = ({ message }) => (
       >
         SmartBCH Mainnet
       </a>{' '}
-      or */
+      or */}
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
