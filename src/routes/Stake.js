@@ -6,6 +6,9 @@ import { useAccount } from '../components/QueryAccount'
 import { isReadOnlyReactive } from '../apollo/reactiveVars'
 import { getProvider, getSigner, ethers } from '@bchdomains/ui'
 
+import xLNSSquare from '../assets/xlns.png'
+import xLNSSign from '../assets/xlns-sign.png'
+import LNSSquare from '../assets/lns.png'
 import { isENSReadyReactive } from '../apollo/reactiveVars'
 import Loader from '../components/Loader'
 import Button from '../components/Forms/Button'
@@ -335,7 +338,7 @@ export default function Stake(props) {
         </div>
         <div className="hidden px-8 ml-6 md:block w-64">
           <img
-            src="https://app.mistswap.fi/xmist-sign.png"
+            src={xLNSSign}
             alt="xLNS sign"
             width="100%"
             height="100%"
@@ -468,7 +471,7 @@ export default function Stake(props) {
                 <div className="flex items-center ml-8 space-x-4 md:ml-0">
                   <img
                     className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
-                    src="https://app.mistswap.fi/images/tokens/xmist-square.jpg"
+                    src={xLNSSquare}
                     alt="xLNS"
                     width={64}
                     height={64}
@@ -505,7 +508,7 @@ export default function Stake(props) {
                 <div className="flex items-center ml-8 space-x-4 md:ml-0">
                   <img
                     className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
-                    src="https://app.mistswap.fi/images/tokens/mist-square.jpg"
+                    src={LNSSquare}
                     alt="LNS"
                     width={64}
                     height={64}
