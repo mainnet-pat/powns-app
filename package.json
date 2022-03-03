@@ -10,6 +10,7 @@
     "@bchdomains/react-lns-address": "^0.0.31",
     "@bchdomains/ui": "^3.3.15",
     "@buidlhub/buidlhub-ens-notifications": "^1.0.3",
+    "@datapunt/matomo-tracker-react": "^0.5.1",
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9",
     "@ensdomains/ens-validation": "0.0.0",

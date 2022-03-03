@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
+import { MatomoProvider, createInstance } from '@datapunt/matomo-tracker-react'
 import { ApolloProvider } from '@apollo/client'
 
 import App from 'App'
@@ -12,12 +13,18 @@ import Loader from './components/Loader'
 
 setup(false)
 window.addEventListener('load', async () => {
+  const instance = createInstance({
+    urlBase: 'https://matomo.mistswap.fi',
+    siteId: 4
+  })
   const client = clientReactive(setupClient(networkIdReactive()))
   ReactDOM.render(
     <Suspense fallback={<Loader withWrap large />}>
-      <ApolloProvider {...{ client }}>
-        <App />
-      </ApolloProvider>
+      <MatomoProvider value={instance}>
+        <ApolloProvider {...{ client }}>
+          <App />
+        </ApolloProvider>
+      </MatomoProvider>
     </Suspense>,
     document.getElementById('root')
   )
