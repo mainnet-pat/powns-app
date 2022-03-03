@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
@@ -298,6 +299,11 @@ const animation = {
 }
 
 export default ({ match }) => {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { url } = match
   const { t } = useTranslation()
 

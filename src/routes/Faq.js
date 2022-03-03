@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useTranslation } from 'react-i18next'
 import styled from '@emotion/styled/macro'
 import mq from 'mediaQuery'
@@ -62,6 +63,11 @@ const Section = ({ question, children }) => {
 }
 
 function Faq() {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { t } = useTranslation()
   useEffect(() => {
     document.title = 'LNS Faq'

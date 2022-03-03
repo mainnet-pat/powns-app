@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import Address from '../components/Address'
 
 const stripTrailingSlash = str => {
@@ -6,6 +7,11 @@ const stripTrailingSlash = str => {
 }
 
 const AddressContainer = ({ match, location }) => {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const address = match.params.address.toLowerCase()
   const domainType = match.params.domainType?.toLowerCase()
   const queryParams = new URLSearchParams(location.search)

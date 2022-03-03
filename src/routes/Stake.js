@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import React, { useEffect, useState } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 
 import { useAccount } from '../components/QueryAccount'
 import { isReadOnlyReactive } from '../apollo/reactiveVars'
@@ -109,6 +110,11 @@ export function tryParseAmount(value, currency) {
 }
 
 export default function Stake(props) {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   if (!isENSReadyReactive()) {
     return <Loader withWrap large />
   }
