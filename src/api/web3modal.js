@@ -7,11 +7,6 @@ import {
 } from '../apollo/reactiveVars'
 import { getNetwork, getNetworkId, isReadOnly } from '@bchdomains/ui'
 
-const INFURA_ID =
-  window.location.host === 'app.bch.domains'
-    ? '90f210707d3c450f847659dc9a3436ea'
-    : '58a380d3ecd545b2b5b3dad5d2b18bf0'
-
 const PORTIS_ID = '57e5d6ca-e408-4925-99c4-e7da3bdb8bf5'
 
 let provider
@@ -23,7 +18,11 @@ const option = {
       package: () => import('@walletconnect/web3-provider'),
       packageFactory: true,
       options: {
-        infuraId: INFURA_ID
+        bridge: 'https://bridge.walletconnect.org',
+        qrcode: true,
+        rpc: {
+          10000: 'https://smartbch.fountainhead.cash/mainnet'
+        }
       }
     }
     /*
@@ -31,7 +30,7 @@ const option = {
       package: () => import('walletlink'),
       packageFactory: true,
       options: {
-        appName: 'Ethereum name service',
+        appName: 'Bitcoin Cash name service',
         jsonRpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`
       }
     },
