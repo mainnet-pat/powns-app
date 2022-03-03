@@ -40,7 +40,7 @@ const useCheckValidity = (_searchTerm, isENSReady) => {
         _parsed = validateName(searchTerm)
         setParsed(_parsed)
       }
-      document.title = `ENS Search: ${searchTerm}`
+      document.title = `LNS Search: ${searchTerm}`
 
       if (type === 'unsupported') {
         setErrors(['unsupported'])
