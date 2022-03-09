@@ -76,15 +76,15 @@ const ApprovalState = {
 }
 
 const LNS = new Token(
-  ChainId.SMARTBCH,
-  '0xE854905B3166417Ad5ecce90D64378C4B1c1a15E',
+  ChainId.SMARTBCH_AMBER,
+  '0x0d5d28C1beC2f1Ca184765eEA30416b17D262C25',
   18,
   'LNS',
   'LNS'
 )
 const xLNS = new Token(
-  ChainId.SMARTBCH,
-  '0x8EE123e1FC1C01EE306113CCac9BC5F151fB47a6',
+  ChainId.SMARTBCH_AMBER,
+  '0x829cDc339EeF4dAA9CA0A7018cB991d94c6f821D',
   18,
   'xLNS',
   'xLNS'
