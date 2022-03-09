@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useQuery } from '@apollo/client'
 import { gql } from '@apollo/client'
 
@@ -27,6 +28,11 @@ function SingleName({
   },
   location: { pathname }
 }) {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   useScrollTo(0)
 
   const [valid, setValid] = useState(undefined)

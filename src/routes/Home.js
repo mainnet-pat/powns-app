@@ -1,4 +1,5 @@
 import React from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useQuery } from '@apollo/client'
 import { Link } from 'react-router-dom'
 import styled from '@emotion/styled/macro'
@@ -8,11 +9,11 @@ import mq from 'mediaQuery'
 
 import SearchDefault from '../components/SearchName/Search'
 import NoAccountsDefault from '../components/NoAccounts/NoAccountsModal'
-import bg from '../assets/heroBG.jpg'
+import bg from '../assets/background-2.jpg'
 import TextBubbleDefault from '../components/Icons/TextBubble'
 import QuestionMarkDefault from '../components/Icons/QuestionMark'
 import HowToUseDefault from '../components/HowToUse/HowToUse'
-import ENSLogo from '../components/HomePage/images/ENSLogo.svg'
+import ENSLogo from '../components/HomePage/images/logo-darkbg-1024x1024.png'
 import { aboutPageURL } from '../utils/utils'
 import { connectProvider, disconnectProvider } from '../utils/providerUtils'
 import { gql } from '@apollo/client'
@@ -249,7 +250,7 @@ const LogoLarge = styled(motion.img)`
   width: 50%;
   margin: 0 auto 0;
   ${mq.medium`
-    width: 223px;
+    width: 323px;
   `}
 `
 
@@ -298,6 +299,11 @@ const animation = {
 }
 
 export default ({ match }) => {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { url } = match
   const { t } = useTranslation()
 
@@ -351,13 +357,8 @@ export default ({ match }) => {
             initial={animation.initial}
             animate={animation.animate}
             src={ENSLogo}
-            alt="ENS logo"
+            alt="LNS logo"
           />
-          <Section
-            style={{ padding: 10, color: 'white', 'font-size': 'x-large' }}
-          >
-            on SmartBCH
-          </Section>
           <PermanentRegistrarLogo
             initial={animation.initial}
             animate={animation.animate}

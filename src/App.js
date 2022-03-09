@@ -8,13 +8,6 @@ import {
 } from 'react-router-dom'
 import { useQuery } from '@apollo/client'
 
-const TestRegistrar = lazy(() =>
-  import(
-    /* webpackChunkName: "TestRegistrar", webpackPrefetch:true */
-    './routes/TestRegistrar'
-  )
-)
-
 const Home = lazy(() =>
   import(
     /* webpackChunkName: "Home", webpackPrefetch:true */
@@ -71,7 +64,6 @@ const Stake = lazy(() =>
   )
 )
 
-// import TestRegistrar from './routes/TestRegistrar'
 // import Home from './routes/Home'
 // import SearchResults from './routes/SearchResults'
 // import SingleName from './routes/SingleName'
@@ -116,10 +108,6 @@ const App = () => {
     data: { globalError }
   } = useQuery(GET_ERRORS)
 
-  // useEffect(() => {
-  //   setupAnalytics()
-  // }, [])
-
   if (globalError.network) {
     return <NetworkError message={globalError.network} />
   }
@@ -128,7 +116,6 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} layout={HomePageLayout} />
-        <Route path="/test-registrar" component={TestRegistrar} />
         <Route path="/favourites" component={Favourites} />
         <Route path="/faq" component={Faq} />
         <Route path="/my-bids" component={SearchResults} />

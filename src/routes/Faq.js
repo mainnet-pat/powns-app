@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useTranslation } from 'react-i18next'
 import styled from '@emotion/styled/macro'
 import mq from 'mediaQuery'
@@ -24,6 +25,7 @@ const Question = styled('h3')`
   font-size: 15px;
   margin-right: 0.5em;
   display: inline;
+  font-weight: bold;
 `
 
 const Answer = styled('p')``
@@ -61,9 +63,14 @@ const Section = ({ question, children }) => {
 }
 
 function Faq() {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { t } = useTranslation()
   useEffect(() => {
-    document.title = 'ENS Faq'
+    document.title = 'LNS Faq'
   }, [])
 
   return (
@@ -74,24 +81,24 @@ function Faq() {
       <FaqContainer>
         <Title>FAQ</Title>
         <H2>Before You register</H2>
-        <Section question="Is ENS only for storing an Ethereum address?">
+        <Section question="Is LNS only for storing a SmartBCH address?">
           No, you can store the addresses of over 100 blockchains, a content
           hash of a decentralized website, profile information such as an avatar
           and Twitter handle, and more.
         </Section>
 
-        {/* <Section question="Can I use an ENS name to point to my website?">
-          Though ENS can technically store anything, there aren't many third
+        {/* <Section question="Can I use an LNS name to point to my website?">
+          Though LNS can technically store anything, there aren't many third
           party tools and applications which resolve IP addresses attached to
-          ENS.
+          LNS.
           <br />
           Instead, we suggest hosting your static html/css/images on IPFS and
-          put the hash in your ENS name's Content record. Then it can be
-          resolved by ENS-aware browsers (e.g. Opera), browser extensions
+          put the hash in your LNS name's Content record. Then it can be
+          resolved by LNS-aware browsers (e.g. Opera), browser extensions
           (Metamask), or any browser with ".link" or ".limo" appended to the end
           (e.g. matoken.eth.link or matoken.eth.limo).
           <br />
-          If you want to redirect your ENS name to an existing website, you
+          If you want to redirect your LNS name to an existing website, you
           could write a html file containing JavaScript logic to redirect to
           your website, upload the file into ipfs using services like{' '}
           <a href="https://pinata.cloud/">IPFS Pinata</a>, then set the CID to
@@ -138,7 +145,7 @@ function Faq() {
         </Section> */}
 
         {/* <Section question="Can I register names other than .eth?">
-          Yes, you can import into ENS any DNS name with the required DNSSEC.
+          Yes, you can import into LNS any DNS name with the required DNSSEC.
           <br />
           Please refer to our{' '}
           <a href="https://docs.ens.domains/dns-registrar-guide">guide</a> for
@@ -154,7 +161,7 @@ function Faq() {
 
         <Section question="I am stuck at step 2">
           At times, the counter waits for up to a minute at the end of step 2 to
-          make sure that the Ethereum blockchain has progressed. If this
+          make sure that the SmartBCH blockchain has progressed. If this
           continues for more than 5 min after moving to step 2, please contact
           us on Discord.
           <br />
@@ -170,11 +177,7 @@ function Faq() {
           don't complete within 24 hrs and you have to start from step 1 again.
         </Section>
 
-        <Section question="I cannot see the names I registered on OpenSea nor on my wallet">
-          This occasionally happens when OpenSea is under a heavy load. You may
-          also not find your name under the NFT section of your wallet, as many
-          wallets fetch metadata from OpenSea.
-          <br />
+        <Section question="I cannot see the names I registered on other apps nor on my wallet">
           As long as you can see your registered name under "My Account" on our
           site or your SmartBCH address under the name section, your name is
           registered successfully.
@@ -192,9 +195,8 @@ function Faq() {
 
         <Section question="What is the difference between the Registrant and Controller?">
           If your SmartBCH address is set as the Controller you can change the
-          resolver and add/edit records. Some dapps (eg: Fleek, OpenSea) set
-          themselves as the Controller so they can update records on your
-          behalf.
+          resolver and add/edit records. Some dapps set themselves as the
+          Controller so they can update records on your behalf.
           <br />
           The Registrant only exists on ".bch" names and it allows you to change
           the Controller. If you transfer the Registrant to an address you don't
@@ -203,20 +205,20 @@ function Faq() {
 
         <Section question="What is a Resolver?">
           A Resolver is a smart contract that holds records. Names are set by
-          default to the Public Resolver managed by the ENS team and has all the
-          standard ENS record types. You can set your Resolver to a custom
+          default to the Public Resolver managed by the LNS team and has all the
+          standard LNS record types. You can set your Resolver to a custom
           resolver contract if you,d like.
         </Section>
 
-        <Section question="What is a Primary ENS Name record?">
-          A Primary ENS Name record (formerly Reverse Record) makes your
-          SmartBCH address point to an ENS name. This allows dapps to find and
-          display your ENS name when you connect to them with your SmartBCH
+        <Section question="What is a Primary LNS Name record?">
+          A Primary LNS Name record (formerly Reverse Record) makes your
+          SmartBCH address point to an LNS name. This allows dapps to find and
+          display your LNS name when you connect to them with your SmartBCH
           account. This can only be set by you so it is not set automatically
           upon registration.
           <br />
-          To set the Primary ENS Name record, please click "My account", and
-          select "Primary ENS Name".
+          To set the Primary LNS Name record, please click "My account", and
+          select "Primary LNS Name".
         </Section>
 
         <Section question="How do I unregister my name?">
@@ -251,7 +253,7 @@ function Faq() {
         </Section>
 
         <Section question="Why are some of my subdomains shown as a jumble of characters?">
-          ENS names are stored as a hash on-chain so we have to decode the name
+          LNS names are stored as a hash on-chain so we have to decode the name
           using a list of possible names, and it shows in the hashed format if
           we don't have it on our list. You can still access and manage the name
           if you search for the name directly in the search bar.
@@ -285,7 +287,7 @@ function Faq() {
         </Section>
 
         {/* <Section question="Where can I see the list of names to be released">
-          You can see the list at the "ENS Names to be released" section of{' '}
+          You can see the list at the "LNS Names to be released" section of{' '}
           <a href="https://dune.xyz/makoto/ens-released-to-be-released-names">
             {' '}
             the Dune Analytics dashboard
@@ -294,7 +296,7 @@ function Faq() {
         </Section> */}
 
         <Section question="I lost access to the SmartBCH account that owns a name I registered. Can I still extend its registration period?">
-          Any SmartBCH account can pay to extend the registration of any ENS
+          Any SmartBCH account can pay to extend the registration of any LNS
           name, though doing so from an account that's not the owner will not
           change ownership of the name. Just go to the name's page and click
           "Extend".

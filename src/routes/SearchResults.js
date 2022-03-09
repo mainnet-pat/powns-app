@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useQuery } from '@apollo/client'
 import { gql } from '@apollo/client'
 import { Trans } from 'react-i18next'
@@ -40,7 +41,7 @@ const useCheckValidity = (_searchTerm, isENSReady) => {
         _parsed = validateName(searchTerm)
         setParsed(_parsed)
       }
-      document.title = `ENS Search: ${searchTerm}`
+      document.title = `LNS Search: ${searchTerm}`
 
       if (type === 'unsupported') {
         setErrors(['unsupported'])
@@ -59,6 +60,11 @@ const useCheckValidity = (_searchTerm, isENSReady) => {
 }
 
 const ResultsContainer = ({ searchDomain, match }) => {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const {
     data: { isENSReady }
   } = useQuery(RESULTS_CONTAINER)

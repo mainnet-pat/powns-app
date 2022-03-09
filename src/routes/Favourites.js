@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { useMatomo } from '@datapunt/matomo-tracker-react'
 import { useTranslation } from 'react-i18next'
 import styled from '@emotion/styled/macro'
 import { Query } from '@apollo/client/react/components'
@@ -117,9 +118,14 @@ export const useResetState = (setYears, setCheckedBoxes, setSelectAll) => {
 }
 
 function Favourites() {
+  const { trackPageView, trackEvent } = useMatomo()
+  React.useEffect(() => {
+    trackPageView()
+  }, [])
+
   const { t } = useTranslation()
   useEffect(() => {
-    document.title = 'ENS Favourites'
+    document.title = 'LNS Favourites'
   }, [])
 
   let [years, setYears] = useState(1)
@@ -133,7 +139,7 @@ function Favourites() {
     GET_FAVOURITES
   )
   useEffect(() => {
-    document.title = 'ENS Favourites'
+    document.title = 'LNS Favourites'
   }, [])
 
   const { data: { subDomainFavourites } = [] } = useQuery(

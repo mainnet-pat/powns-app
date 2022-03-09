@@ -72,7 +72,7 @@
   },
   "certificate": {
     "button": "Rquisitar certificado SSL",
-    "warning": "O certificado para {{ name }}.link ainda não foi criado."
+    "warning": "O certificado para {{ name }}.is ainda não foi criado."
   },
   "childDomainItem": {
     "notmigrated": "Não foi migrado"
@@ -303,7 +303,7 @@
         "title": "2. Defina outros registros"
       },
       "step3": {
-        "text": "Você pode hospedar seu html/css/images estáticos no IPFS e colocar o hash no registro de conteúdo do seu nome LNS. Em seguida, ele pode ser resolvido por navegadores compatíveis com LNS (por exemplo, Opera), extensões de navegador (Metamask) ou qualquer navegador com '.link' anexado ao final (por exemplo, lns.bch.is)",
+        "text": "Você pode hospedar seu html/css/images estáticos no IPFS e colocar o hash no registro de conteúdo do seu nome LNS. Em seguida, ele pode ser resolvido por navegadores compatíveis com LNS (por exemplo, Opera), extensões de navegador (Metamask) ou qualquer navegador com '.is' anexado ao final (por exemplo, lns.bch.is)",
         "title": "3. Definir um hash de conteúdo de um site descentralizado."
       },
       "title": "Aprenda como administrar seu nome."

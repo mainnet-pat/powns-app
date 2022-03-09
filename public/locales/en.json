@@ -73,7 +73,7 @@
   },
   "certificate": {
     "button": "Request SSL certificate",
-    "warning": "SSL certificate for {{ name }}.link is not created yet"
+    "warning": "SSL certificate for {{ name }}.is is not created yet"
   },
   "childDomainItem": {
     "notmigrated": "not migrated"
@@ -384,9 +384,9 @@
     "confirmStaking": "Confirm Staking",
     "confirmWithdrawal": "Confirm Withdrawal",
     "insufficientBalance": "Insufficient Balance",
-    "header": "Stake LNS, the governance token of smartBCH Name System",
-    "explanation1": "For every domain purchase on the LNS the BCH revenue is sent to a special contract which constantly buys LNS token from ",
-    "explanation2": "When your LNS is staked you receive xLNS in return. Your xLNS is continuously compounding, when you unstake you will receive all the originally deposited LNS and any additional from domain sales.",
+    "header": "Earn yield by staking LNS for xLNS",
+    "explanation": "For every domain purchase on bch.domains, the entire BCH revenue is distributed as LNS proportional to your share of staked LNS. When your LNS is staked you receive xLNS in return. Your xLNS is continuously compounding, when you unstake you will receive all the originally deposited LNS and any additional from domain sales.",
+    "buylns": "Purchase LNS: ",
     "max": "MAX",
     "approving": "Approving",
     "approve": "Approve",
