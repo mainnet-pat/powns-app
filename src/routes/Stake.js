@@ -19,6 +19,8 @@ import { ChainId, CurrencyAmount, Token, ZERO, JSBI } from '@mistswapdex/sdk'
 import { sendHelper } from '../api/resolverUtils'
 import { useEditable } from '../components/hooks'
 import PendingTx from '../components/PendingTx'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import { ReactComponent as ExternalLinkIcon } from '../components/Icons/externalLink.svg'
 
 const buttonStyle =
   'flex justify-center items-center w-full h-14 rounded font-bold md:font-medium md:text-lg mt-5 text-sm focus:outline-none focus:ring'
@@ -80,7 +82,7 @@ const LNS = new Token(
   '0x0d5d28C1beC2f1Ca184765eEA30416b17D262C25',
   18,
   'LNS',
-  'LNS'
+  'Bitcoin Cash Name Service'
 )
 const xLNS = new Token(
   ChainId.SMARTBCH_AMBER,
@@ -89,6 +91,21 @@ const xLNS = new Token(
   'xLNS',
   'xLNS'
 )
+
+const lnsProps = {
+  address: LNS.address,
+  symbol: LNS.symbol,
+  decimals: LNS.decimals,
+  image: 'https://github.com/bchdomains/art/blob/master/assets/lns.png?raw=true'
+}
+
+const xlnsProps = {
+  address: xLNS.address,
+  symbol: xLNS.symbol,
+  decimals: xLNS.decimals,
+  image:
+    'https://github.com/bchdomains/art/blob/master/assets/xlns.png?raw=true'
+}
 
 // try to parse a user entered amount for a given token
 export function tryParseAmount(value, currency) {
@@ -318,6 +335,16 @@ export default function Stake(props) {
     }
   }
 
+  const addToken = async props => {
+    await window.ethereum?.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: props
+      }
+    })
+  }
+
   return (
     <div className="flex flex-col w-full min-h-full">
       <div className="flex justify-center mb-6">
@@ -475,13 +502,28 @@ export default function Stake(props) {
                   </p>
                 </div>
                 <div className="flex items-center ml-8 space-x-4 md:ml-0">
-                  <img
-                    className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
-                    src={xLNSSquare}
-                    alt="xLNS"
-                    width={64}
-                    height={64}
-                  />
+                  <div className="flex flex-col justify-center">
+                    <img
+                      className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
+                      src={xLNSSquare}
+                      alt="xLNS"
+                      width={64}
+                      height={64}
+                    />
+                    <div className="flex flex-row items-center mt-1 gap-x-2">
+                      <img
+                        src="https://www.marketcap.cash/metamask.svg"
+                        className="w-5 cursor-pointer"
+                        onClick={() => addToken(xlnsProps)}
+                      />
+                      <a
+                        target="_blank"
+                        href={`https://smartscan.cash/address/${xLNS.address}`}
+                      >
+                        <ExternalLinkIcon className="cursor-pointer" />
+                      </a>
+                    </div>
+                  </div>
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
                       {walletConnected && xSushiBalance
@@ -512,13 +554,28 @@ export default function Stake(props) {
                   </p>
                 </div>
                 <div className="flex items-center ml-8 space-x-4 md:ml-0">
-                  <img
-                    className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
-                    src={LNSSquare}
-                    alt="LNS"
-                    width={64}
-                    height={64}
-                  />
+                  <div className="flex flex-col justify-center">
+                    <img
+                      className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
+                      src={LNSSquare}
+                      alt="LNS"
+                      width={64}
+                      height={64}
+                    />
+                    <div className="flex flex-row items-center mt-1 gap-x-2">
+                      <img
+                        src="https://www.marketcap.cash/metamask.svg"
+                        className="w-5 cursor-pointer"
+                        onClick={() => addToken(lnsProps)}
+                      />
+                      <a
+                        target="_blank"
+                        href={`https://smartscan.cash/address/${LNS.address}`}
+                      >
+                        <ExternalLinkIcon className="cursor-pointer" />
+                      </a>
+                    </div>
+                  </div>
                   <div className="flex flex-col justify-center">
                     <p className="text-sm font-bold md:text-lg text-high-emphesis">
                       {walletConnected && sushiBalance
