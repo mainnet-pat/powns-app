@@ -81,12 +81,12 @@ const Explainer = ({ step, waitPercentComplete, waitTime }) => {
         </div>
         {hasPermission() ? (
           <NotifyButtonDisabled>
-            <Tick style={{ marginRight: 5 }} />
+            <Tick style={{ marginRight: 5, display: 'inline' }} />
             {t('register.notify')}
           </NotifyButtonDisabled>
         ) : (
           <NotifyButton type="hollow-primary" onClick={requestPermission}>
-            <Bell style={{ marginRight: 5 }} />
+            <Bell style={{ marginRight: 5, display: 'inline' }} />
             {t('register.notify')}
           </NotifyButton>
         )}

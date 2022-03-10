@@ -29,6 +29,7 @@ const TickContainerDouble = styled('div')`
 
 const Svg = styled('svg')`
   margin-top: 2px;
+  display: inline;
   path {
     fill: ${activeColourSwitch};
     opacity: ${props => (props.active || props.hover ? '1' : '0')};
