@@ -10,6 +10,9 @@ const CopyContainer = styled('span')`
   &:hover {
     cursor: pointer;
   }
+  svg {
+    display: inline;
+  }
 `
 
 const Copied = styled('span')`
