@@ -14,6 +14,7 @@ const EtherScanLinkContainer = styled('a')`
     transition: 0.1s;
     opacity: 0;
     flex-shrink: 0;
+    display: inline;
   }
 
   &:hover {
