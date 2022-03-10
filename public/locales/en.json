@@ -322,7 +322,7 @@
       "messages": {
         "explanation": "This designates one of your LNS names to represent your smartBCH account and act as your cross-platform web3 username and profile. You can only have one Primary LNS Name per smartBCH account and can change it at any time.",
         "explanation2": "Only LNS names that point to your smartBCH account can be set as your Primary LNS Name.",
-        "noForwardRecordAavilable": "No LNS names have their ETH Address records set to this address.",
+        "noForwardRecordAavilable": "No LNS names have their SMARTBCH Address records set to this address.",
         "notSet": "Primary LNS Name (reverse record): not set",
         "reverseRecordRemoval": "Are you sure you want to delete your Primary LNS Name record?",
         "selectPlaceholder": "Select one of your LNS names",

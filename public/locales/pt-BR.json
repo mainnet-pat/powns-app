@@ -321,7 +321,7 @@
       "messages": {
         "explanation": "Isso designa um de seus nomes LNS para representar sua conta smartBCH e atuar como seu nome e perfil de plataforma cruzada web3. Você só pode ter uma Nome primário LNS por conta smartBCH e pode mudar a qualquer momento.",
         "explanation2": "Apenas nomes LNS que apontam para sua conta smartBCH podem ser definidos como seu nome LNS primário.",
-        "noForwardRecordAavilable": "Nenhum nome de LNS tem seus registros de endereço ETH configurados para este endereço.",
+        "noForwardRecordAavilable": "Nenhum nome de LNS tem seus registros de endereço SMARTBCH configurados para este endereço.",
         "notSet": "Nome LNS primário (registro reverso): não definido",
         "reverseRecordRemoval": "Tem certeza de que deseja excluir seu registro de nome LNS primário?",
         "selectPlaceholder": "Selecione um dos seus nomes LNS",
