@@ -27,6 +27,7 @@ const CTAContainer = styled('div')`
 
 const Pencil = styled(DefaultPencil)`
   margin-right: 5px;
+  display: inline;
 `
 
 const Prompt = styled('span')`
