@@ -110,14 +110,14 @@ export function tryParseAmount(value, currency) {
 }
 
 export default function Stake(props) {
+  if (!isENSReadyReactive()) {
+    return <Loader withWrap large />
+  }
+
   const { trackPageView, trackEvent } = useMatomo()
   React.useEffect(() => {
     trackPageView()
   }, [])
-
-  if (!isENSReadyReactive()) {
-    return <Loader withWrap large />
-  }
 
   const { t } = useTranslation()
   const { state, actions } = useEditable()
@@ -342,7 +342,7 @@ export default function Stake(props) {
             </a>
           </div>
         </div>
-        <div className="hidden px-8 ml-6 md:block w-64">
+        <div className="hidden w-64 px-8 ml-6 md:block">
           <img
             src={xLNSSign}
             alt="xLNS sign"
