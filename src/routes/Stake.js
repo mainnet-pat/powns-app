@@ -96,7 +96,8 @@ const lnsProps = {
   address: LNS.address,
   symbol: LNS.symbol,
   decimals: LNS.decimals,
-  image: 'https://github.com/bchdomains/art/blob/master/assets/lns.png?raw=true'
+  image:
+    'https://raw.githubusercontent.com/mistswapdex/assets/master/blockchains/smartbch/assets/0x0d5d28C1beC2f1Ca184765eEA30416b17D262C25/logo.png'
 }
 
 const xlnsProps = {
@@ -104,7 +105,7 @@ const xlnsProps = {
   symbol: xLNS.symbol,
   decimals: xLNS.decimals,
   image:
-    'https://github.com/bchdomains/art/blob/master/assets/xlns.png?raw=true'
+    'https://raw.githubusercontent.com/mistswapdex/assets/master/blockchains/smartbch/assets/0x829cDc339EeF4dAA9CA0A7018cB991d94c6f821D/logo.png'
 }
 
 // try to parse a user entered amount for a given token
