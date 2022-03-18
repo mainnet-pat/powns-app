@@ -7,9 +7,11 @@ import useNetworkInfo from '../NetworkInformation/useNetworkInfo'
 import { useAvatar } from '../hooks'
 
 const LinkContainer = styled('div')`
-  display: block;
-  align-items: center;
+  display: flex;
+  align-items: flex-start;
   a {
+    display: flex;
+    align-items: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
