@@ -467,7 +467,7 @@ export default function Stake(props) {
                 }
               >
                 {!walletConnected
-                  ? t('stake.connectWallet')
+                  ? t('c.connect')
                   : !input
                   ? t('stake.enterAmount')
                   : insufficientFunds
