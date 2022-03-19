@@ -36,6 +36,7 @@ const Prompt = styled('span')`
 `
 
 const OrangeExclamation = styled(DefaultOrangeExclamation)`
+  display: inline;
   margin-right: 5px;
   height: 12px;
   width: 12px;
