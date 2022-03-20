@@ -1,13 +1,13 @@
 {
   "name": "lns-app",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "private": true,
   "homepage": "https://app.bch.domains",
   "dependencies": {
     "@0xproject/utils": "^0.7.3",
     "@apollo/client": "^3.4.4",
     "@bchdomains/address-encoder": "^0.2.15",
-    "@bchdomains/react-lns-address": "^0.0.32",
+    "@bchdomains/react-lns-address": "^0.0.34",
     "@bchdomains/ui": "^3.3.18",
     "@buidlhub/buidlhub-ens-notifications": "^1.0.3",
     "@datapunt/matomo-tracker-react": "^0.5.1",
