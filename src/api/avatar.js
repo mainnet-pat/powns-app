@@ -2,10 +2,10 @@ import { ethers, getNetworkId, getNetworkProviderUrl } from '@bchdomains/ui'
 
 export default function validateTokenURI(value, addr) {
   const details = value.split('/')
-
   // basic validity checks
   if (value.split('/').length !== 3) return false
-  if (details[0] !== 'eip155:1') return false
+  if (details[0]?.indexOf('eip155') !== 0) return false
+  if (!parseInt(details[0]?.split(':')[1])) return false
   if (!details[2]) return false
 
   const [schema, contractAddress] = details[1].split(':')
@@ -23,7 +23,8 @@ export default function validateTokenURI(value, addr) {
 
   return new Promise(async resolve => {
     try {
-      const network = await getNetworkId()
+      const networkId = details[0]?.split(':')[1]
+      const network = networkId ?? (await getNetworkId())
       const networkProvider = getNetworkProviderUrl(`${network}`)
       const provider = new ethers.providers.JsonRpcProvider(networkProvider)
       // set functions needed to check validity of ownership/NFT compatibility
