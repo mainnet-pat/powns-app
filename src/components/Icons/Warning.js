@@ -15,6 +15,8 @@ class Warning extends Component {
   }
 }
 
-const WarningContainer = styled('svg')``
+const WarningContainer = styled('svg')`
+  display: inline;
+`
 
 export default Warning
