@@ -2,7 +2,7 @@ import { makeVar } from '@apollo/client'
 
 export const clientReactive = makeVar(null)
 
-export const networkIdReactive = makeVar(10001)
+export const networkIdReactive = makeVar(10000)
 
 export const web3ProviderReactive = makeVar(null)
 

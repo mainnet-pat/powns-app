@@ -47,21 +47,29 @@ const SearchForm = styled('form')`
     &::-webkit-input-placeholder {
       /* Chrome/Opera/Safari */
       color: #ccd4da;
+      white-space: pre-line;
+      position: relative;
+      top: -7px;
+      padding-left: 10px;
+      ${mq.medium`
+        top: 0px;
+        padding-left: 0px;
+      `}
     }
   }
 
   button {
     ${p => (p && p.hasSearch ? 'background: #5284ff;' : 'background: #c7d3e3;')}
     color: white;
-    font-size: 22px;
     font-family: Overpass;
     padding: 20px 0;
     height: 90px;
     width: 162px;
     border: none;
-    display: none;
+    display: block;
+    font-size: 18px;
     ${mq.medium`
-      display: block;
+      font-size: 22px;
     `}
 
     &:hover {

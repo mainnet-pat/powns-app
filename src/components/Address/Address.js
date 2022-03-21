@@ -331,8 +331,10 @@ export default function Address({
       {hasNamesExpiringSoon && (
         <Banner>
           <h3>
-            <img alt="exclamation mark" src={warning} />
-            &nbsp; {t('address.namesExpiringSoonBanner.title')}
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+              <img alt="exclamation mark" src={warning} />
+              &nbsp; {t('address.namesExpiringSoonBanner.title')}
+            </span>
             <p>
               <Trans i18nKey="address.namesExpiringSoonBanner.text">
                 One or more names are expiring soon, renew them all in one

@@ -34,7 +34,9 @@ export const networkName = {
   goerli: 'goerli',
   rinkeby: 'rinkeby',
   ropsten: 'ropsten',
-  local: 'local'
+  local: 'local',
+  smartbch: 'smartbch',
+  'smartbh-amber': 'smartbch-amber'
 }
 
 export const supportedAvatarProtocols = [

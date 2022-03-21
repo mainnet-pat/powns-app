@@ -180,6 +180,11 @@ const Search = styled(SearchDefault)`
   }
 
   button {
+    font-size: 18px;
+    ${mq.medium`
+      font-size: 28px;
+    `}
+    display: block;
     border-radius: 0 6px 6px 0;
   }
 `
