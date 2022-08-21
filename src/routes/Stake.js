@@ -78,15 +78,15 @@ const ApprovalState = {
 }
 
 const LNS = new Token(
-  ChainId.SMARTBCH,
-  '0x35b3Ee79E1A7775cE0c11Bd8cd416630E07B0d6f',
+  568,
+  '0x6552223b5d64942Db518dc3717df6ce0221DC7C8',
   18,
   'LNS',
   'Bitcoin Cash Name Service'
 )
 const xLNS = new Token(
-  ChainId.SMARTBCH,
-  '0xBE7E034c86AC2a302f69ef3975e3D14820cC7660',
+  568,
+  '0xa8BC4A896e43CAbdC319d2acfE97bA6F8c18C825',
   18,
   'xLNS',
   'LNSBar'

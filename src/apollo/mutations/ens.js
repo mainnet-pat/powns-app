@@ -26,7 +26,7 @@ export async function setup({
     ensAddress
   }
   const networkId = networkIdReactive()
-  if (enforceReadOnly && networkId < 10000) {
+  if (enforceReadOnly && networkId < 100) {
     option.infura = INFURA_ID
   }
   const {

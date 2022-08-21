@@ -38,6 +38,8 @@ export const isSupportedNetwork = networkId => {
     case 1337:
     case 10000:
     case 10001:
+    case 2000:
+    case 568:
       return true
     default:
       return false

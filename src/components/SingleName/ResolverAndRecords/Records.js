@@ -76,7 +76,7 @@ import { validateRecord } from '../../../utils/records'
 import { asyncThrottle, usePrevious } from '../../../utils/utils'
 import { isEthSubdomain, requestCertificate } from './Certificate'
 
-const COIN_PLACEHOLDER_RECORDS = ['SMARTBCH', 'BCH', 'ETH'] // ...COIN_LIST.slice(0, 3)]
+const COIN_PLACEHOLDER_RECORDS = ['DOGECHAIN', 'DOGE', 'ETH'] // ...COIN_LIST.slice(0, 3)]
 const sortOrder = COIN_PLACEHOLDER_RECORDS.reduce((result, item, index) => {
   result[item] = index
   return result

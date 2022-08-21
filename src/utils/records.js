@@ -24,7 +24,7 @@ export function validateRecord({ key, value, contractFn, addr }) {
       return true
     case 'setAddr(bytes32,uint256,bytes)':
       if (value === '') return false
-      if (key === 'ETH' || key === 'SMARTBCH') {
+      if (key === 'ETH' || key === 'SMARTBCH' || key === 'DOGECHAIN') {
         return addressUtils.isAddress(value)
       }
       if (key.match(/_LEGACY/)) {

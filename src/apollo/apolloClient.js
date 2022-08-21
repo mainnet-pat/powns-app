@@ -23,7 +23,11 @@ const endpoints = {
   '4': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensrinkeby',
   '5': 'https://api.thegraph.com/subgraphs/name/ensdomains/ensgoerli',
   '10000': 'https://graph.bch.domains/subgraphs/name/graphprotocol/ens',
-  '10001': 'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-amber'
+  '10001': 'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-amber',
+  '2000':
+    'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-dogechain',
+  '568':
+    'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-dogechain-testnet'
 }
 
 function getGraphQLAPI() {

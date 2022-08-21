@@ -36,7 +36,9 @@ export const networkName = {
   ropsten: 'ropsten',
   local: 'local',
   smartbch: 'smartbch',
-  'smartbh-amber': 'smartbch-amber'
+  'smartbh-amber': 'smartbch-amber',
+  dogechain: 'dogechain',
+  'dogechain-testnet': 'dogechain-testnet'
 }
 
 export const supportedAvatarProtocols = [
@@ -101,10 +103,16 @@ export async function getEtherScanAddr() {
       return 'https://rinkeby.etherscan.io/'
     case 10000:
     case '10000':
-      return 'https://smartscan.cash/'
+      return 'https://sonar.cash/'
     case 10001:
     case '10001':
-      return 'https://smartscan.cash/'
+      return 'https://testnet.sonar.cash/'
+    case 2000:
+    case '2000':
+      return 'https://explorer.dogechain.dog/'
+    case 568:
+    case '568':
+      return 'https://explorer-testnet.dogechain.dog/'
     default:
       return 'https://etherscan.io/'
   }
@@ -303,8 +311,14 @@ export function prependUrl(url) {
 }
 
 export function metadataURI(_network) {
-  if (['smartbch', 'smartbch-amber'].indexOf(_network)) {
+  if (
+    ['smartbch', 'smartbch-amber', 'dogechain', 'dogechain-testnet'].indexOf(
+      _network
+    )
+  ) {
     return `https://metadata.bch.domains/${_network}`
+  } else if (['dogechain', 'dogechain-testnet'].indexOf(_network)) {
+    return `https://metadata.dogedomains.wf/${_network}`
   } else if (_network === 'localhost') {
     return `http://localhost/${_network}`
   }
@@ -362,7 +376,7 @@ export const switchEthereumChain = async chainId => {
         decimals: 18
       },
       rpcUrls: ['https://smartbch.fountainhead.cash/mainnet'],
-      blockExplorerUrls: ['https://smartscan.cash']
+      blockExplorerUrls: ['https://sonar.cash']
     },
     [10001]: {
       chainId: '0x2711',
@@ -373,7 +387,29 @@ export const switchEthereumChain = async chainId => {
         decimals: 18
       },
       rpcUrls: ['https://moeing.tech:9545'],
-      blockExplorerUrls: ['https://smartscan.cash']
+      blockExplorerUrls: ['https://testnet.sonar.cash']
+    },
+    [2000]: {
+      chainId: '0x07D0',
+      chainName: 'DogeChain',
+      nativeCurrency: {
+        name: 'Doge',
+        symbol: 'DOGE',
+        decimals: 18
+      },
+      rpcUrls: ['https://rpc.dogechain.dog'],
+      blockExplorerUrls: ['https://explorer.dogechain.dog']
+    },
+    [568]: {
+      chainId: '0x0238',
+      chainName: 'DogeChain Testnet',
+      nativeCurrency: {
+        name: 'Doge',
+        symbol: 'DOGE',
+        decimals: 18
+      },
+      rpcUrls: ['https://rpc-testnet.dogechain.dog'],
+      blockExplorerUrls: ['https://explorer-testnet.dogechain.dog']
     }
   }
 

@@ -90,7 +90,9 @@ export const handleSingleTransaction = async (
 
     // use 0x00... for ETH because an empty string throws
     if (
-      (coinRecord.key === 'ETH' || coinRecord.key === 'SMARTBCH') &&
+      (coinRecord.key === 'ETH' ||
+        coinRecord.key === 'SMARTBCH' ||
+        coinRecord.key === 'DOGECHAIN') &&
       coinRecord.value === ''
     ) {
       coinRecord.value = emptyAddress
