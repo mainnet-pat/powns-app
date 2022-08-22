@@ -45,19 +45,19 @@ export const NetworkError = ({ message }) => (
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          switchEthereumChain(10000).then(() => window.location.reload())
+          switchEthereumChain(2000).then(() => window.location.reload())
         }}
       >
-        SmartBCH Mainnet
+        DogeChain Mainnet
       </a>{' '}
       or
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          switchEthereumChain(10001).then(() => window.location.reload())
+          switchEthereumChain(2001).then(() => window.location.reload())
         }}
       >
-        SmartBCH Amber Testnet
+        DogeChain Testnet
       </a>
     </Message>
   </ErrorContainer>

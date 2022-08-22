@@ -144,7 +144,7 @@ function NetworkInformation() {
           )}
           <Account data-testid="account" className="account">
             <span>{displayName}</span>
-            {/* {getBalance && (<div>{new EthVal(getBalance.toString()).toEth().toFixed(3)} BCH</div>)} */}
+            {/* {getBalance && (<div>{new EthVal(getBalance.toString()).toEth().toFixed(3)} wDoge</div>)} */}
           </Account>
           <NetworkStatus>
             {network} {t('c.network')}
