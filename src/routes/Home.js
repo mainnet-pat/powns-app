@@ -13,7 +13,7 @@ import bg from '../assets/background-2.jpg'
 import TextBubbleDefault from '../components/Icons/TextBubble'
 import QuestionMarkDefault from '../components/Icons/QuestionMark'
 import HowToUseDefault from '../components/HowToUse/HowToUse'
-import ENSLogo from '../components/HomePage/images/logo-darkbg-1024x1024.png'
+import ENSLogo from '../components/HomePage/images/logo-full.svg'
 import { aboutPageURL } from '../utils/utils'
 import { connectProvider, disconnectProvider } from '../utils/providerUtils'
 import { gql } from '@apollo/client'
@@ -35,7 +35,9 @@ const HeroTop = styled('div')`
   `}
 `
 
-const NoAccounts = styled(NoAccountsDefault)``
+const NoAccounts = styled(NoAccountsDefault)`
+  color: #333333;
+`
 
 const Network = styled('div')`
   margin-bottom: 5px;
@@ -48,7 +50,7 @@ const Name = styled('span')`
 `
 
 const NetworkStatus = styled('div')`
-  color: white;
+  color: #333333;
   font-weight: 200;
   text-transform: capitalize;
   display: none;
@@ -81,7 +83,7 @@ const Nav = styled('div')`
   `}
   a {
     font-weight: 300;
-    color: white;
+    color: #333333;
   }
 `
 
@@ -107,7 +109,7 @@ const Announcement = styled('div')`
   padding: 0 10px;
   border-bottom: #5284ff solid 3px;
   h3 {
-    color: white;
+    color: #333333;
     font-weight: 400;
     text-align: center;
     padding: 0 20px;
@@ -128,7 +130,7 @@ const HowToUse = styled(HowToUseDefault)`
 `
 
 const Hero = styled('section')`
-  background: url(${bg});
+  background: beige;
   background-size: cover;
   padding: 60px 20px 20px;
   position: relative;
@@ -337,6 +339,7 @@ export default ({ match }) => {
             <NoAccounts
               onClick={isReadOnly ? connectProvider : disconnectProvider}
               buttonText={isReadOnly ? t('c.connect') : t('c.disconnect')}
+              colour="#333333"
             />
           )}
         </NetworkStatus>
