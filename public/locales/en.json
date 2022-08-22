@@ -1,6 +1,6 @@
 {
   "address": {
-    "etherscanButton": "View on Smartscan",
+    "etherscanButton": "View on Explorer",
     "filter": {
       "controller": "Controller",
       "registrant": "Registrant"
@@ -89,7 +89,7 @@
     "steps": {
       "addtext": {
         "text": "Click 'learn more' to read about the process.",
-        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your smartBCH address in the form:"
+        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your DogeChain address in the form:"
       },
       "enable": {
         "text": "Click 'learn more' to read about the process.",
@@ -102,7 +102,7 @@
       },
       "proof": {
         "text1": "The address that appears in the DNS txt record is your same address.",
-        "text2": "If you know you own this domain, change it's TXT record to contain your smartBCH Address and refresh this page to perform the DNSSEC verification again.",
+        "text2": "If you know you own this domain, change it's TXT record to contain your DogeChain Address and refresh this page to perform the DNSSEC verification again.",
         "title1": "You are the owner of this address. Add your domain to the LNS Registry now.",
         "title2": "You don't appear to be the DNS Owner of this domain, but anyone can add this domain to the LNS Registry."
       }
@@ -133,7 +133,7 @@
       "title": "How to use LNS"
     },
     "whatisens": {
-      "body": "The Bitcoin Cash Name Service is a distributed, open, and extensible naming system based on the smartBCH blockchain. LNS eliminates the need to copy or type long addresses.",
+      "body": "The Bitcoin Cash Name Service is a distributed, open, and extensible naming system based on the DogeChain blockchain. LNS eliminates the need to copy or type long addresses.",
       "title": "What it is"
     }
   },
@@ -143,11 +143,11 @@
       "title": "Save favourite names"
     },
     "manage": {
-      "text": "Point domains to your smartBCH addresses, transfer ownership to other people and more.",
+      "text": "Point domains to your DogeChain addresses, transfer ownership to other people and more.",
       "title": "Manage names"
     },
     "register": {
-      "text": "Register .bch names for 0.01BCH/year. Extend your name registration at any time.",
+      "text": "Register .doge names for 100Doge/year. Extend your name registration at any time.",
       "title": "Register names"
     },
     "search": {
@@ -231,7 +231,7 @@
   "reminder": {
     "everywhere": "everywhere",
     "release": {
-      "description": "Register {{name}} at https://app.bch.domains/name/{{name}}/register",
+      "description": "Register {{name}} at https://app.dogedomains.wf/name/{{name}}/register",
       "title": "Register {{name}}"
     },
     "renewal": {
@@ -245,7 +245,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "You have either added a domain without a TLD such as .bch or you have added unsupported characters.",
+      "long": "You have either added a domain without a TLD such as .doge or you have added unsupported characters.",
       "short": "Domain malformed. {{searchTerm}} is not a valid domain."
     },
     "tooShort": {
@@ -296,7 +296,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set your Primary LNS Name record. This allows dapps to find and display your LNS name when you connect to them with your smartBCH account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set your Primary LNS Name record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set your Primary LNS Name record"
       },
       "step2": {
@@ -304,7 +304,7 @@
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your LNS name's Content record. Then it can be resolved by LNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.bch' appended to the end (e.g. lns.bch.is).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your LNS name's Content record. Then it can be resolved by LNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.doge' appended to the end (e.g. lns.doge.wf).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "Learn how to manage your name."
@@ -320,9 +320,9 @@
       "cantEdit": "You can’t edit or add records until you migrate to the new resolver.",
       "closeEdit": "Close Add/Edit Records",
       "messages": {
-        "explanation": "This designates one of your LNS names to represent your smartBCH account and act as your cross-platform web3 username and profile. You can only have one Primary LNS Name per smartBCH account and can change it at any time.",
-        "explanation2": "Only LNS names that point to your smartBCH account can be set as your Primary LNS Name.",
-        "noForwardRecordAavilable": "No LNS names have their SMARTBCH Address records set to this address.",
+        "explanation": "This designates one of your LNS names to represent your DogeChain account and act as your cross-platform web3 username and profile. You can only have one Primary LNS Name per DogeChain account and can change it at any time.",
+        "explanation2": "Only LNS names that point to your DogeChain account can be set as your Primary LNS Name.",
+        "noForwardRecordAavilable": "No LNS names have their DOGECHAIN Address records set to this address.",
         "notSet": "Primary LNS Name (reverse record): not set",
         "reverseRecordRemoval": "Are you sure you want to delete your Primary LNS Name record?",
         "selectPlaceholder": "Select one of your LNS names",
@@ -385,7 +385,7 @@
     "confirmWithdrawal": "Confirm Withdrawal",
     "insufficientBalance": "Insufficient Balance",
     "header": "Earn yield by staking LNS for xLNS",
-    "explanation": "For every domain purchase on bch.domains, the entire BCH revenue is distributed as LNS proportional to your share of staked LNS. When your LNS is staked you receive xLNS in return. Your xLNS is continuously compounding, when you unstake you will receive all the originally deposited LNS and any additional from domain sales.",
+    "explanation": "For every domain purchase on dogedomains.wf, the entire Doge revenue is distributed as LNS proportional to your share of staked LNS. When your LNS is staked you receive xLNS in return. Your xLNS is continuously compounding, when you unstake you will receive all the originally deposited LNS and any additional from domain sales.",
     "buylns": "Purchase LNS: ",
     "max": "MAX",
     "approving": "Approving",
