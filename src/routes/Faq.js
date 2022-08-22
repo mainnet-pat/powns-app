@@ -81,7 +81,7 @@ function Faq() {
       <FaqContainer>
         <Title>FAQ</Title>
         <H2>Before You register</H2>
-        <Section question="Is LNS only for storing a SmartBCH address?">
+        <Section question="Is LNS only for storing a DogeChain address?">
           No, you can store the addresses of over 100 blockchains, a content
           hash of a decentralized website, profile information such as an avatar
           and Twitter handle, and more.
@@ -115,11 +115,11 @@ function Faq() {
         <Section question="How much does it cost to register a .bch name?">
           Currently, registration costs are set at the following prices:
           <ul>
-            <li>5+ character .bch names: 0.01 BCH per year.</li>
-            <li>4 character .bch names: 0.1 BCH per year.</li>
-            <li>3 character .bch names 1 BCH per year.</li>
-            <li>2 character .bch names 10 BCH per year.</li>
-            <li>1 character .bch names 100 BCH per year.</li>
+            <li>5+ character .doge names: 100 DOGE per year.</li>
+            <li>4 character .doge names: 1000 DOGE per year.</li>
+            <li>3 character .doge names: 10000 DOGE per year.</li>
+            <li>2 character .doge names: 100000 DOGE per year.</li>
+            <li>1 character .doge names: 1000000 DOGE per year.</li>
           </ul>
           1, 2, 3 and 4 character names have 'premium' pricing to reflect the
           small number of these names available.
@@ -161,7 +161,7 @@ function Faq() {
 
         <Section question="I am stuck at step 2">
           At times, the counter waits for up to a minute at the end of step 2 to
-          make sure that the SmartBCH blockchain has progressed. If this
+          make sure that the DogeChain blockchain has progressed. If this
           continues for more than 5 min after moving to step 2, please contact
           us on Discord.
           <br />
@@ -179,7 +179,7 @@ function Faq() {
 
         <Section question="I cannot see the names I registered on other apps nor on my wallet">
           As long as you can see your registered name under "My Account" on our
-          site or your SmartBCH address under the name section, your name is
+          site or your DogeChain address under the name section, your name is
           registered successfully.
         </Section>
 
@@ -194,7 +194,7 @@ function Faq() {
         <H2>After you register</H2>
 
         <Section question="What is the difference between the Registrant and Controller?">
-          If your SmartBCH address is set as the Controller you can change the
+          If your DogeChain address is set as the Controller you can change the
           resolver and add/edit records. Some dapps set themselves as the
           Controller so they can update records on your behalf.
           <br />
@@ -212,8 +212,8 @@ function Faq() {
 
         <Section question="What is a Primary LNS Name record?">
           A Primary LNS Name record (formerly Reverse Record) makes your
-          SmartBCH address point to an LNS name. This allows dapps to find and
-          display your LNS name when you connect to them with your SmartBCH
+          DogeChain address point to an LNS name. This allows dapps to find and
+          display your LNS name when you connect to them with your DogeChain
           account. This can only be set by you so it is not set automatically
           upon registration.
           <br />
@@ -235,7 +235,7 @@ function Faq() {
 
         <Section question="How do I transfer my name?">
           For a ".bch" name, transfer both the Registrant and the Controller to
-          the new SmartBCH account. Since ".bch" names are ERC721 compliant
+          the new DogeChain account. Since ".bch" names are ERC721 compliant
           NFTs, you can change the Registrant by simply transferring the NFT
           from any NFT compliant wallet/marketplace as well.
           <br />
@@ -243,8 +243,8 @@ function Faq() {
           does not change the controller nor records, so the recipient may need
           to update them once received. If the recipient is not experienced or
           you prefer your address not to be associated to the transferring
-          names, it may be a good idea for you to set the SmartBCH Address
-          record to their SmartBCH address, set the controller, then transfer
+          names, it may be a good idea for you to set the DogeChain Address
+          record to their DogeChain address, set the controller, then transfer
           the name.
           <br />
           For subdomains, there are no registrants unless the subdomain is
@@ -282,8 +282,8 @@ function Faq() {
           owner can't edit the records but can still re-register the name. After
           the grace period, the name is released for registration by anyone with
           a temporary premium which decreases over a 28 days period. The
-          released name continues to resolve your SmartBCH address until the new
-          owner overwrites it.
+          released name continues to resolve your DogeChain address until the
+          new owner overwrites it.
         </Section>
 
         {/* <Section question="Where can I see the list of names to be released">
@@ -295,8 +295,8 @@ function Faq() {
           .
         </Section> */}
 
-        <Section question="I lost access to the SmartBCH account that owns a name I registered. Can I still extend its registration period?">
-          Any SmartBCH account can pay to extend the registration of any LNS
+        <Section question="I lost access to the DogeChain account that owns a name I registered. Can I still extend its registration period?">
+          Any DogeChain account can pay to extend the registration of any LNS
           name, though doing so from an account that's not the owner will not
           change ownership of the name. Just go to the name's page and click
           "Extend".
