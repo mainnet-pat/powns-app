@@ -362,11 +362,11 @@ export default function Stake(props) {
             {t('stake.buylns')}
             <a
               target="_blank"
-              href={`https://app.mistswap.fi/swap?inputCurrency=&outputCurrency=${
+              href={`https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=${
                 LNS.address
               }`}
             >
-              MistSwap
+              DogMoney
             </a>
           </div>
         </div>
