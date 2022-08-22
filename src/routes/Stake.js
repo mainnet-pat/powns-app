@@ -519,7 +519,9 @@ export default function Stake(props) {
                       />
                       <a
                         target="_blank"
-                        href={`https://smartscan.cash/address/${xLNS.address}`}
+                        href={`https://explorer.dogechain.dog/address/${
+                          xLNS.address
+                        }`}
                       >
                         <ExternalLinkIcon className="cursor-pointer" />
                       </a>
@@ -571,7 +573,9 @@ export default function Stake(props) {
                       />
                       <a
                         target="_blank"
-                        href={`https://smartscan.cash/address/${LNS.address}`}
+                        href={`https://explorer.dogechain.dog/address/${
+                          LNS.address
+                        }`}
                       >
                         <ExternalLinkIcon className="cursor-pointer" />
                       </a>
