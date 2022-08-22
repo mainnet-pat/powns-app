@@ -97,13 +97,13 @@
       "manage": {
         "text1": "Da Sie der Besitzer sind, können Sie jetzt Ihren Namen verwalten. ",
         "text2": "Da Sie nicht der Besitzer sind, können Sie den Namen nur im Manager ansehen.",
-        "title": "Glückwunsch! Sie haben diese DNS-Domain erfolgreich zum LNS-Register hinzugefügt."
+        "title": "Glückwunsch! Sie haben diese DNS-Domain erfolgreich zum ĐNS-Register hinzugefügt."
       },
       "proof": {
         "text1": "Die Adresse, die im DNS-TXT-Eintrag erscheint, ist die gleiche Adresse.",
         "text2": "Wenn Sie diese Domain besitzen, ändern Sie den TXT-Eintrag so, dass er Ihre DogeChain-Adresse enthält, und aktualisieren Sie diese Seite, um die DNSSEC-Verifizierung erneut durchzuführen.",
-        "title1": "Sie sind der Besitzer dieser Adresse. Tragen Sie jetzt Ihre Domain in das LNS-Register ein.",
-        "title2": "Sie scheinen nicht der DNS-Besitzer dieser Domain zu sein, aber jeder kann diese Domain zum LNS-Register hinzufügen."
+        "title1": "Sie sind der Besitzer dieser Adresse. Tragen Sie jetzt Ihre Domain in das ĐNS-Register ein.",
+        "title2": "Sie scheinen nicht der DNS-Besitzer dieser Domain zu sein, aber jeder kann diese Domain zum ĐNS-Register hinzufügen."
       }
     },
     "viewinmanager": "Im Manager anschauen"
@@ -128,12 +128,12 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "Die LNS App ist eine grafische Oberfläche für nicht-technische Nutzer. Es ermöglicht Ihnen, Namen zu suchen, ihre Adressen oder Ressourcen, auf die verwiesen wird, zu verwalten und Subdomains für Namen zu erstellen.",
-      "title": "Wie man LNS benutzt"
+      "body": "Die ĐNS App ist eine grafische Oberfläche für nicht-technische Nutzer. Es ermöglicht Ihnen, Namen zu suchen, ihre Adressen oder Ressourcen, auf die verwiesen wird, zu verwalten und Subdomains für Namen zu erstellen.",
+      "title": "Wie man ĐNS benutzt"
     },
     "whatisens": {
-      "body": "Der DogeChain Name Service ist ein verteiltes, offenes und erweiterbares System zur Namensauflösung, basierend auf der DogeChain Blockchain. Mit LNS muss man keine langen Adressen mehr kopieren oder eintippen.",
-      "title": "Was ist LNS"
+      "body": "Der DogeChain Name Service ist ein verteiltes, offenes und erweiterbares System zur Namensauflösung, basierend auf der DogeChain Blockchain. Mit ĐNS muss man keine langen Adressen mehr kopieren oder eintippen.",
+      "title": "Was ist ĐNS"
     }
   },
   "howtouse": {
@@ -219,7 +219,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*Wenn Sie mit LNS-Namen handeln, akzeptieren Sie diesen Namen nicht!",
+    "donotaccept": "*Wenn Sie mit ĐNS-Namen handeln, akzeptieren Sie diesen Namen nicht!",
     "messages": {
       "controller": "Dieser Name wird durch einen Smart Contract kontrolliert und kann nicht automatisch migriert werden. Bitte deployen Sie Ihren Smart Contract erneut, um den neuen Registrar zu verwenden, bevor Sie den neuen Controller festlegen",
       "default": "Dieser Name muss in das neue Register migriert werden. Nur die Elterndomain dieses Namens ({{parent}}) kann dies tun.",
@@ -234,8 +234,8 @@
       "title": "Register {{name}}"
     },
     "renewal": {
-      "description": "Your LNS name is expiring soon, please renew it",
-      "title": "Renew your LNS domain {{name}}"
+      "description": "Your ĐNS name is expiring soon, please renew it",
+      "title": "Renew your ĐNS domain {{name}}"
     }
   },
   "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ĐNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -303,7 +303,7 @@
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your LNS name's Content record. Then it can be resolved by LNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your ĐNS name's Content record. Then it can be resolved by ĐNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "Erfahren Sie, wie Sie Ihren Namen verwalten können."
@@ -321,10 +321,10 @@
       "messages": {
         "explanation": "The Reverse Resolution translates an address into a name. It allows Dapps to show in their interfaces '{{name}}' rather than the long address '{{account}}'. If you would like to set up your reverse for a different account, please switch accounts in your dapp browser",
         "explanation2": "You can only select names you set this DogeChain Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
+        "noForwardRecordAavilable": "You either do not own any ĐNS names, or your ĐNS names have no DOGECHAIN records set to this address.",
         "notSet": "Reverse record: not set",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
-        "selectPlaceholder": "Select your LNS name",
+        "selectPlaceholder": "Select your ĐNS name",
         "setTo": "Reverse record: Set to ",
         "setToDifferent": "Reverse record: Set to a different name:"
       },

@@ -33,7 +33,7 @@
     "Controller": "コントローラー",
     "Expiration Date": "有効期限",
     "Resolver": "リゾルバ",
-    "about": "LNSとは",
+    "about": "ĐNSとは",
     "addresses": "Addresses",
     "cancel": "キャンセル",
     "cannotclaimDns": "You cannot claim names under .{{ name }} on this site.",
@@ -48,7 +48,7 @@
     "learnmore": "詳細",
     "learnmoreenglishonly": "詳細 (English Only)",
     "migrate": "移行",
-    "mynames": "マイLNS",
+    "mynames": "マイĐNS",
     "network": "ネットワーク",
     "otheraddresses": "その他のアドレス",
     "parent": "ペアレント",
@@ -95,13 +95,13 @@
       "manage": {
         "text1": "あなたは所有者ですので、ここで名前の管理が可能です。",
         "text2": "あなたは所有者ではありませんので、管理画面で名前の閲覧のみ可能です。",
-        "title": "おめでとうございます！このDNSドメインがLNSレジストリに追加されました。"
+        "title": "おめでとうございます！このDNSドメインがĐNSレジストリに追加されました。"
       },
       "proof": {
         "text1": "DNSのTXTレコードに表示されるアドレスは、あなたのものと同じアドレスです。",
         "text2": "あなたがこのドメインの所有である場合は、TXTレコードにあなたのイーサリアムアドレスが含まれているように変更し、このページを更新してDNSSECの検証を再度実行してください。",
-        "title1": "あなたはこのアドレスの所有者です。LNSレジストリにドメインを追加してください。",
-        "title2": "あなたはこのドメインのDNS所有者ではないようです。しかし、誰でもこのドメインをLNSレジストリに追加することができます。"
+        "title1": "あなたはこのアドレスの所有者です。ĐNSレジストリにドメインを追加してください。",
+        "title2": "あなたはこのドメインのDNS所有者ではないようです。しかし、誰でもこのドメインをĐNSレジストリに追加することができます。"
       }
     },
     "viewinmanager": "管理画面で確認"
@@ -126,12 +126,12 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "LNSアプリは、非技術者向けのグラフィカル・ユーザー・インターフェースです。名前の検索、アドレスやリソースの管理、サブドメインの作成などが可能です。",
-      "title": "LNSの使い方"
+      "body": "ĐNSアプリは、非技術者向けのグラフィカル・ユーザー・インターフェースです。名前の検索、アドレスやリソースの管理、サブドメインの作成などが可能です。",
+      "title": "ĐNSの使い方"
     },
     "whatisens": {
-      "body": "イーサリアム・ネーム・サービスは、イーサリアム・ブロックチェーンをベースにした分散型のオープンで拡張性の高いネーミングシステムです。LNSは、長いアドレスをコピーしたりタイプしたりする必要がありません。",
-      "title": "LNSとは"
+      "body": "イーサリアム・ネーム・サービスは、イーサリアム・ブロックチェーンをベースにした分散型のオープンで拡張性の高いネーミングシステムです。ĐNSは、長いアドレスをコピーしたりタイプしたりする必要がありません。",
+      "title": "ĐNSとは"
     }
   },
   "howtouse": {
@@ -217,7 +217,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*LNSの名前をトレードする場合は、この名前を受け入れないでください！",
+    "donotaccept": "*ĐNSの名前をトレードする場合は、この名前を受け入れないでください！",
     "messages": {
       "controller": "この名前はコントラクトで管理されているため、自動的に移行することはできません。新しいコントローラーを設定する前に、新しいレジストリを使用するようにコントラクトを再デプロイしてください。",
       "default": "この名前は新しいレジストリに移行する必要があります。この名前({{parent}})のペアレントのみがこれを行えます。",
@@ -232,8 +232,8 @@
       "title": "Register {{name}}"
     },
     "renewal": {
-      "description": "Your LNS name is expiring soon, please renew it",
-      "title": "Renew your LNS domain {{name}}"
+      "description": "Your ĐNS name is expiring soon, please renew it",
+      "title": "Renew your ĐNS domain {{name}}"
     }
   },
   "search": {
@@ -293,7 +293,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ĐNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -301,7 +301,7 @@
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your LNS name's Content record. Then it can be resolved by LNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your ĐNS name's Content record. Then it can be resolved by ĐNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "名前の管理についてもっと知る"
@@ -319,10 +319,10 @@
       "messages": {
         "explanation": "The Reverse Resolution translates an address into a name. It allows Dapps to show in their interfaces '{{name}}' rather than the long address '{{account}}'. If you would like to set up your reverse for a different account, please switch accounts in your dapp browser",
         "explanation2": "You can only select names you set this DogeChain Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
+        "noForwardRecordAavilable": "You either do not own any ĐNS names, or your ĐNS names have no DOGECHAIN records set to this address.",
         "notSet": "Reverse record: not set",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
-        "selectPlaceholder": "Select your LNS name",
+        "selectPlaceholder": "Select your ĐNS name",
         "setTo": "Reverse record: Set to ",
         "setToDifferent": "Reverse record: Set to a different name:"
       },

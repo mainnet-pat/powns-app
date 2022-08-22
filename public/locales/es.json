@@ -97,13 +97,13 @@
       "manage": {
         "text1": "Como eres el propietario, puedes manejar tu nombre ahora.",
         "text2": "Como no eres el propietario, sólo puedes ver el nombre en el gestionador.",
-        "title": "¡Felicidades! Has añadido el dominio DNS al registro de LNS correctamente."
+        "title": "¡Felicidades! Has añadido el dominio DNS al registro de ĐNS correctamente."
       },
       "proof": {
         "text1": "La dirección que aparece en registro de texto DNS es tu misma dirección.",
         "text2": "Si conoces este dominio, cambia su registro TXT para que contenga tu dirección de DogeChain, y actualiza esta página para ejecutar la verificación DNSSEC de nuevo.",
         "title1": "Eres el propietario de este dominio ",
-        "title2": "Parece que no eres el propietario este dominio DNS, pero cualquiera puede añadirlo al registro de LNS."
+        "title2": "Parece que no eres el propietario este dominio DNS, pero cualquiera puede añadirlo al registro de ĐNS."
       }
     },
     "viewinmanager": "Ver en el gestionador."
@@ -128,11 +128,11 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "La aplicación LNS es una interfaz gráfica de usuario para usuarios no-técnicos. Te permite buscar cualquier nombre, gestionar sus direcciones o los recursos a los que direcciona, o crear subdominios para cada uno.",
-      "title": "Cómo utilizar LNS"
+      "body": "La aplicación ĐNS es una interfaz gráfica de usuario para usuarios no-técnicos. Te permite buscar cualquier nombre, gestionar sus direcciones o los recursos a los que direcciona, o crear subdominios para cada uno.",
+      "title": "Cómo utilizar ĐNS"
     },
     "whatisens": {
-      "body": "El Servicio de Nombres de DogeChain  es un sistema de nombres distribuido, abierto y extensible basado en la cadena de bloques de DogeChain. El LNS elimina la necesidad de copiar o escribir direcciones largas.",
+      "body": "El Servicio de Nombres de DogeChain  es un sistema de nombres distribuido, abierto y extensible basado en la cadena de bloques de DogeChain. El ĐNS elimina la necesidad de copiar o escribir direcciones largas.",
       "title": "Lo que es"
     }
   },
@@ -219,7 +219,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*Si comercias con nombres de LNS, no acepten este nombre!",
+    "donotaccept": "*Si comercias con nombres de ĐNS, no acepten este nombre!",
     "messages": {
       "controller": "Este nombre está controlado por un contrato y no puede ser migrado automáticamente. Por favor, redefine tu contrato para usar el nuevo registro antes de establecer el nuevo controlador",
       "default": "Este nombre necesita ser migrado al nuevo Registro. Sólo el padre de este nombre ({{ parent}}) puede hacerlo.",
@@ -234,8 +234,8 @@
       "title": "Register {{name}}"
     },
     "renewal": {
-      "description": "Your LNS name is expiring soon, please renew it",
-      "title": "Renew your LNS domain {{name}}"
+      "description": "Your ĐNS name is expiring soon, please renew it",
+      "title": "Renew your ĐNS domain {{name}}"
     }
   },
   "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ĐNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -303,7 +303,7 @@
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your LNS name's Content record. Then it can be resolved by LNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your ĐNS name's Content record. Then it can be resolved by ĐNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "Learn how to manage your name."
@@ -321,10 +321,10 @@
       "messages": {
         "explanation": "La resolución reversa traduce una dirección a un nombre. Permite a las Dapps mostrar '{{name}}' en lugar de la dirección larga '{{account}}'. Si quieres configurar la resolución inversa para una cuenta distinta, por favor cambia tu cuenta en tu navegador de dapps.",
         "explanation2": "You can only select names you set this DogeChain Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
+        "noForwardRecordAavilable": "You either do not own any ĐNS names, or your ĐNS names have no DOGECHAIN records set to this address.",
         "notSet": "Registro reverso: no configurado.",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
-        "selectPlaceholder": "Select your LNS name",
+        "selectPlaceholder": "Select your ĐNS name",
         "setTo": "Registro reverso: Configurado a",
         "setToDifferent": "Registro reverso: Configurar a otro nombre:"
       },
