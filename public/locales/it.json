@@ -97,13 +97,13 @@
       "manage": {
         "text1": "In qualità di titolare ora puoi gestire il tuo dominio. ",
         "text2": "Poichè non sei il titolare, puoi solamente visualizzare il dominio.",
-        "title": "Congratulazioni! Hai aggiunto con successo il domminio DNS al Registro LNS."
+        "title": "Congratulazioni! Hai aggiunto con successo il domminio DNS al Registro ĐNS."
       },
       "proof": {
         "text1": "L'indirizzo che appare nel record txt DNS è il tuo stesso indirizzo.",
         "text2": "Se sai di essere il proprietario di questo dominio, cambia il record TXT di modo che contenga il tuo Indirizzo DogeChain e aggiorna questa pagina per effettuare la verifica DNSSEC nuovamente.",
-        "title1": "Sei il titolare di questo indirizzo. Aggoungi ora il tuo dominio al Registro LNS.",
-        "title2": "Non risulti essere il titolare DNS di questo dominio, ad ogni modo puoi aggiungere questo dominio al Registro LNS."
+        "title1": "Sei il titolare di questo indirizzo. Aggoungi ora il tuo dominio al Registro ĐNS.",
+        "title2": "Non risulti essere il titolare DNS di questo dominio, ad ogni modo puoi aggiungere questo dominio al Registro ĐNS."
       }
     },
     "viewinmanager": "Visualizza nel Manager"
@@ -128,11 +128,11 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "L'applicazione LNS è un'interfaccia grafica per utenti non tecnici. Ti permette di cercare i nomi di dominio, gestire gli indirizzi o le risorse a cui puntano e di creare sottodomini per ogni nome.",
-      "title": "Come usare LNS"
+      "body": "L'applicazione ĐNS è un'interfaccia grafica per utenti non tecnici. Ti permette di cercare i nomi di dominio, gestire gli indirizzi o le risorse a cui puntano e di creare sottodomini per ogni nome.",
+      "title": "Come usare ĐNS"
     },
     "whatisens": {
-      "body": "DogeChain Name Service è un sistema di gestione di dominio aperto ed estensibile costruito sulla blockchain DogeChain. LNS elimina la necessità di copiare o digitare lunghi indirizzi esadecimali.",
+      "body": "DogeChain Name Service è un sistema di gestione di dominio aperto ed estensibile costruito sulla blockchain DogeChain. ĐNS elimina la necessità di copiare o digitare lunghi indirizzi esadecimali.",
       "title": "Che cos'è"
     }
   },
@@ -219,7 +219,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*Se fai compravendita di domini LNS, non accettare questo nome!",
+    "donotaccept": "*Se fai compravendita di domini ĐNS, non accettare questo nome!",
     "messages": {
       "controller": "Questo nome di dominio è controllato da uno smart contract e non può essere migrato automaticamente. Perfavore rilascia nuovamente il tuo contract per poter usare il nuovo registro prima di impostare il nuovo controller",
       "default": "Questo nome di domino deve essere migrato sul nuovo Registro. Solo il dominio principale ({{parent}}) può effettuare questa operazione.",
@@ -234,8 +234,8 @@
       "title": "Registra {{name}}"
     },
     "renewal": {
-      "description": "Il tuo nome LNS è in scadenza, perfavore provvedi al rinnovo",
-      "title": "Rinnova il tuo dominio LNS {{name}}"
+      "description": "Il tuo nome ĐNS è in scadenza, perfavore provvedi al rinnovo",
+      "title": "Rinnova il tuo dominio ĐNS {{name}}"
     }
   },
   "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Una volta registrato il tuo dominio, Vai alla pagina 'Mio Account' e imposta un record di risoluzione. Questo consente alle dapps di trovare e visualizzare il tuo nome LNS quandi ti connetti a loro con il tuo account DogeChain. ",
+        "text": "Una volta registrato il tuo dominio, Vai alla pagina 'Mio Account' e imposta un record di risoluzione. Questo consente alle dapps di trovare e visualizzare il tuo nome ĐNS quandi ti connetti a loro con il tuo account DogeChain. ",
         "title": "1. Imposta record di risoluzione"
       },
       "step2": {
@@ -303,7 +303,7 @@
         "title": "2. Imposta altri record"
       },
       "step3": {
-        "text": "Puoi ospitare i tuoi file statici html/css/images su IPFS e inserire l'hash sul Content record del dominio LNS. Dopo potrà essere risolto dai browser che supportano LNS (es. Opera), dalle estensioni browser (Metamask), o da qualsiasi browser con estensione '.is' alla fine (es. lns.bch.is).",
+        "text": "Puoi ospitare i tuoi file statici html/css/images su IPFS e inserire l'hash sul Content record del dominio ĐNS. Dopo potrà essere risolto dai browser che supportano ĐNS (es. Opera), dalle estensioni browser (Metamask), o da qualsiasi browser con estensione '.is' alla fine (es. lns.bch.is).",
         "title": "3. Imposta un content hash di un sito web decentralizzato"
       },
       "title": "Impara come gestire il tuo dominio."
@@ -321,10 +321,10 @@
       "messages": {
         "explanation": "La Risoluzione inversa traduce un indirizzo in un nome dominio. Questo consente alle Dapps di visualizzare '{{name}}' nelle loro interfacce al posto dell'indirizzo completo '{{account}}'. Se vuoi impostare un tuo risolutore per un account differente, perfavore cambia account nel tuo browser dapp",
         "explanation2": "Puoi selezionare solo i nomi con cui hai impostato questo Indirizzo DogeChain.",
-        "noForwardRecordAavilable": "Non possiedi alcun nome LNS oppure i tuoi domini LNS non hanno record DOGECHAIN impostati su questo indirizzo.",
+        "noForwardRecordAavilable": "Non possiedi alcun nome ĐNS oppure i tuoi domini ĐNS non hanno record DOGECHAIN impostati su questo indirizzo.",
         "notSet": "Record risoluzione: non impostato",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
-        "selectPlaceholder": "Seleziona il tuo dominio LNS",
+        "selectPlaceholder": "Seleziona il tuo dominio ĐNS",
         "setTo": "Record risoluzione: Impostato su ",
         "setToDifferent": "Record risoluzione: Imposta su nome differente:"
       },

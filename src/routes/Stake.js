@@ -21,6 +21,7 @@ import { useEditable } from '../components/hooks'
 import PendingTx from '../components/PendingTx'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { ReactComponent as ExternalLinkIcon } from '../components/Icons/externalLink.svg'
+import { BigNumber } from '@ethersproject/bignumber'
 
 const buttonStyle =
   'flex justify-center items-center w-full h-14 rounded font-bold md:font-medium md:text-lg mt-5 text-sm focus:outline-none focus:ring'
@@ -77,33 +78,33 @@ const ApprovalState = {
   APPROVED: 'APPROVED'
 }
 
-const LNS = new Token(
-  568,
+const DNS = new Token(
+  2000,
   '0xCf5f4bB66c80dc3c7113a07e069732682DfDD370',
   18,
   'ĐNS',
   'DogeChain Name Service'
 )
-const xLNS = new Token(
-  568,
+const xDNS = new Token(
+  2000,
   '0xaE5c40E5e8EF84dD811e3EE049Ab7c02DC19D8C6',
   18,
   'xĐNS',
   'ĐNSBar'
 )
 
-const lnsProps = {
-  address: LNS.address,
-  symbol: LNS.symbol,
-  decimals: LNS.decimals,
+const dnsProps = {
+  address: DNS.address,
+  symbol: DNS.symbol,
+  decimals: DNS.decimals,
   image:
     'https://raw.githubusercontent.com/mistswapdex/assets/master/blockchains/smartbch/assets/0x35b3Ee79E1A7775cE0c11Bd8cd416630E07B0d6f/logo.png'
 }
 
-const xlnsProps = {
-  address: xLNS.address,
-  symbol: xLNS.symbol,
-  decimals: xLNS.decimals,
+const xdnsProps = {
+  address: xDNS.address,
+  symbol: xDNS.symbol,
+  decimals: xDNS.decimals,
   image:
     'https://raw.githubusercontent.com/mistswapdex/assets/master/blockchains/smartbch/assets/0xBE7E034c86AC2a302f69ef3975e3D14820cC7660/logo.png'
 }
@@ -150,10 +151,10 @@ export default function Stake(props) {
     account !== ethers.constants.AddressZero && !isReadOnly
 
   const [sushiBalance, setSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(LNS, 0)
+    CurrencyAmount.fromRawAmount(DNS, 0)
   )
   const [xSushiBalance, setXSushiBalance] = useState(
-    CurrencyAmount.fromRawAmount(xLNS, 0)
+    CurrencyAmount.fromRawAmount(xDNS, 0)
   )
 
   const [activeTab, setActiveTab] = useState(0)
@@ -180,8 +181,8 @@ export default function Stake(props) {
 
       const provider = await getProvider()
 
-      const tokenContract = new ethers.Contract(LNS.address, abi, provider)
-      const barContract = new ethers.Contract(xLNS.address, abi, provider)
+      const tokenContract = new ethers.Contract(DNS.address, abi, provider)
+      const barContract = new ethers.Contract(xDNS.address, abi, provider)
 
       const [
         totalSushi,
@@ -190,7 +191,7 @@ export default function Stake(props) {
         userXSushi,
         sushiBarAllowance
       ] = await Promise.all([
-        tokenContract.balanceOf(xLNS.address),
+        tokenContract.balanceOf(xDNS.address),
         barContract.totalSupply(),
         walletConnected
           ? tokenContract.balanceOf(account)
@@ -199,15 +200,17 @@ export default function Stake(props) {
           ? barContract.balanceOf(account)
           : ethers.constants.Zero,
         walletConnected
-          ? tokenContract.allowance(account, xLNS.address)
+          ? tokenContract.allowance(account, xDNS.address)
           : ethers.constants.Zero
       ])
-      const ratio = totalSushi.mul(1e12).div(totalXSushi)
+      const ratio = totalXSushi.eq(0)
+        ? BigNumber.from(1e12)
+        : totalSushi.mul(1e12).div(totalXSushi)
       setxSushiPerSushi(ratio.toNumber() / 1e12)
 
-      setSushiBalance(CurrencyAmount.fromRawAmount(LNS, userSushi.toString()))
+      setSushiBalance(CurrencyAmount.fromRawAmount(DNS, userSushi.toString()))
       setXSushiBalance(
-        CurrencyAmount.fromRawAmount(xLNS, userXSushi.toString())
+        CurrencyAmount.fromRawAmount(xDNS, userXSushi.toString())
       )
 
       if (sushiBarAllowance.eq(0)) {
@@ -227,12 +230,12 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(LNS.address, abi, provider).connect(
+    const contract = new ethers.Contract(DNS.address, abi, provider).connect(
       signer
     )
 
     const txHash = await sendTx(() =>
-      contract.approve(xLNS.address, ethers.constants.MaxUint256)
+      contract.approve(xDNS.address, ethers.constants.MaxUint256)
     )
     startPending(txHash)
     setApprovalState(ApprovalState.PENDING)
@@ -246,7 +249,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(xLNS.address, abi, provider).connect(
+    const contract = new ethers.Contract(xDNS.address, abi, provider).connect(
       signer
     )
 
@@ -264,7 +267,7 @@ export default function Stake(props) {
     const provider = await getProvider()
     const signer = await getSigner()
 
-    const contract = new ethers.Contract(xLNS.address, abi, provider).connect(
+    const contract = new ethers.Contract(xDNS.address, abi, provider).connect(
       signer
     )
 
@@ -363,7 +366,7 @@ export default function Stake(props) {
             <a
               target="_blank"
               href={`https://app.dogmoney.money/swap?inputCurrency=&outputCurrency=${
-                LNS.address
+                DNS.address
               }`}
             >
               DogMoney
@@ -373,7 +376,7 @@ export default function Stake(props) {
         <div className="hidden w-64 px-8 ml-6 md:block">
           <img
             src={xLNSSign}
-            alt="xLNS sign"
+            alt="xDNS sign"
             width="100%"
             height="100%"
             layout="responsive"
@@ -515,12 +518,12 @@ export default function Stake(props) {
                       <img
                         src="https://www.marketcap.cash/metamask.svg"
                         className="w-5 cursor-pointer"
-                        onClick={() => addToken(xlnsProps)}
+                        onClick={() => addToken(xdnsProps)}
                       />
                       <a
                         target="_blank"
                         href={`https://explorer.dogechain.dog/address/${
-                          xĐNS.address
+                          xDNS.address
                         }`}
                       >
                         <ExternalLinkIcon className="cursor-pointer" />
@@ -569,12 +572,12 @@ export default function Stake(props) {
                       <img
                         src="https://www.marketcap.cash/metamask.svg"
                         className="w-5 cursor-pointer"
-                        onClick={() => addToken(lnsProps)}
+                        onClick={() => addToken(dnsProps)}
                       />
                       <a
                         target="_blank"
                         href={`https://explorer.dogechain.dog/address/${
-                          LNS.address
+                          DNS.address
                         }`}
                       >
                         <ExternalLinkIcon className="cursor-pointer" />
