@@ -26,7 +26,7 @@ export function getConfig(service) {
 }
 
 export function getDev() {
-  if (window.location.href.includes('https://app.bch.domains')) {
+  if (window.location.href.includes('https://app.dogedomains.wf')) {
     return false
   } else {
     return true

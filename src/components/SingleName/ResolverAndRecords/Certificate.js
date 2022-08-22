@@ -1,12 +1,12 @@
 import { topLevelDomainSupported } from '@bchdomains/ui'
 
-const TLD = 'is'
+const TLD = 'wf'
 function createFetchUrl(name) {
-  return `https://bch.${TLD}/names/${name}.${TLD}`
+  return `https://doge.${TLD}/names/${name}.${TLD}`
 }
 
 function whitelisted() {
-  return ['app.bch.domains', 'lns.bch', 'lns.bch.is'].includes(
+  return ['app.dogedomains.wf', 'dns.doge', 'dns.doge.wf'].includes(
     window.location.host
   )
 }

@@ -217,7 +217,7 @@ export function isShortName(term) {
 export const aboutPageURL = () => {
   const lang = window.localStorage.getItem('language') || ''
 
-  return `https://bch.domains/${lang === 'en' ? '' : lang}`
+  return `https://dogedomains.wf/${lang === 'en' ? '' : lang}`
 }
 
 export function isRecordEmpty(value) {
