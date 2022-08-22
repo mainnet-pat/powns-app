@@ -386,7 +386,7 @@
     "insufficientBalance": "Insufficient Balance",
     "header": "Earn yield by staking ĐNS for xĐNS",
     "explanation": "For every domain purchase on dogedomains.wf, the entire Doge revenue is distributed as ĐNS proportional to your share of staked ĐNS. When your ĐNS is staked you receive xĐNS in return. Your xĐNS is continuously compounding, when you unstake you will receive all the originally deposited ĐNS and any additional from domain sales.",
-    "buylns": "Purchase ĐNS: ",
+    "buylns": "Purchase ĐNS (soon): ",
     "max": "MAX",
     "approving": "Approving",
     "approve": "Approve"
