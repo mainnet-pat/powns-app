@@ -54,7 +54,7 @@ export const NetworkError = ({ message }) => (
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          switchEthereumChain(2001).then(() => window.location.reload())
+          switchEthereumChain(568).then(() => window.location.reload())
         }}
       >
         DogeChain Testnet
