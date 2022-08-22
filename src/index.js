@@ -15,7 +15,7 @@ setup(false)
 window.addEventListener('load', async () => {
   const instance = createInstance({
     urlBase: 'https://matomo.mistswap.fi',
-    siteId: 4
+    siteId: 9
   })
   const client = clientReactive(setupClient(networkIdReactive()))
   ReactDOM.render(
