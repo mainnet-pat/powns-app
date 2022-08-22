@@ -21,6 +21,7 @@ import { useEditable } from '../components/hooks'
 import PendingTx from '../components/PendingTx'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { ReactComponent as ExternalLinkIcon } from '../components/Icons/externalLink.svg'
+import { BigNumber } from '@ethersproject/bignumber'
 
 const buttonStyle =
   'flex justify-center items-center w-full h-14 rounded font-bold md:font-medium md:text-lg mt-5 text-sm focus:outline-none focus:ring'
@@ -202,7 +203,9 @@ export default function Stake(props) {
           ? tokenContract.allowance(account, xLNS.address)
           : ethers.constants.Zero
       ])
-      const ratio = totalSushi.mul(1e12).div(totalXSushi)
+      const ratio = totalXSushi.eq(0)
+        ? BigNumber.from(1e12)
+        : totalSushi.mul(1e12).div(totalXSushi)
       setxSushiPerSushi(ratio.toNumber() / 1e12)
 
       setSushiBalance(CurrencyAmount.fromRawAmount(LNS, userSushi.toString()))
@@ -520,7 +523,7 @@ export default function Stake(props) {
                       <a
                         target="_blank"
                         href={`https://explorer.dogechain.dog/address/${
-                          xĐNS.address
+                          xLNS.address
                         }`}
                       >
                         <ExternalLinkIcon className="cursor-pointer" />
@@ -533,7 +536,7 @@ export default function Stake(props) {
                         ? xSushiBalance.toSignificant(8)
                         : '-'}
                     </p>
-                    <p className="text-sm md:text-base text-primary">xĐNS</p>
+                    <p className="text-sm md:text-base text-primary">xLNS</p>
                     {walletConnected &&
                       xSushiBalance.greaterThan(0) &&
                       xSushiPerSushi && (
