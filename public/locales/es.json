@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Da click en 'Aprender más' para leer sobre el proceso.",
-        "title": "Establece un registro de texto en un dominio y presiona actualizar. El registro de texto debería tener tu dirección de smartBCH en la forma:"
+        "title": "Establece un registro de texto en un dominio y presiona actualizar. El registro de texto debería tener tu dirección de DogeChain en la forma:"
       },
       "enable": {
         "text": "Da click en 'Aprender más' para leer sobre el proceso.",
@@ -101,7 +101,7 @@
       },
       "proof": {
         "text1": "La dirección que aparece en registro de texto DNS es tu misma dirección.",
-        "text2": "Si conoces este dominio, cambia su registro TXT para que contenga tu dirección de smartBCH, y actualiza esta página para ejecutar la verificación DNSSEC de nuevo.",
+        "text2": "Si conoces este dominio, cambia su registro TXT para que contenga tu dirección de DogeChain, y actualiza esta página para ejecutar la verificación DNSSEC de nuevo.",
         "title1": "Eres el propietario de este dominio ",
         "title2": "Parece que no eres el propietario este dominio DNS, pero cualquiera puede añadirlo al registro de LNS."
       }
@@ -132,7 +132,7 @@
       "title": "Cómo utilizar LNS"
     },
     "whatisens": {
-      "body": "El Servicio de Nombres de smartBCH  es un sistema de nombres distribuido, abierto y extensible basado en la cadena de bloques de smartBCH. El LNS elimina la necesidad de copiar o escribir direcciones largas.",
+      "body": "El Servicio de Nombres de DogeChain  es un sistema de nombres distribuido, abierto y extensible basado en la cadena de bloques de DogeChain. El LNS elimina la necesidad de copiar o escribir direcciones largas.",
       "title": "Lo que es"
     }
   },
@@ -146,7 +146,7 @@
       "title": "Gestiona nombres"
     },
     "register": {
-      "text": "Registra los nombres .bch por 0.01BCH al año. Renueva o cancela el registro de tu nombre en cualquier momento.",
+      "text": "Registra los nombres .bch por 100wDOGE al año. Renueva o cancela el registro de tu nombre en cualquier momento.",
       "title": "Registra nombres"
     },
     "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your smartBCH account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -320,8 +320,8 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "La resolución reversa traduce una dirección a un nombre. Permite a las Dapps mostrar '{{name}}' en lugar de la dirección larga '{{account}}'. Si quieres configurar la resolución inversa para una cuenta distinta, por favor cambia tu cuenta en tu navegador de dapps.",
-        "explanation2": "You can only select names you set this smartBCH Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no SMARTBCH records set to this address.",
+        "explanation2": "You can only select names you set this DogeChain Address as.",
+        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
         "notSet": "Registro reverso: no configurado.",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
         "selectPlaceholder": "Select your LNS name",

@@ -33,7 +33,7 @@ const option = {
       package: () => import('walletlink'),
       packageFactory: true,
       options: {
-        appName: 'Bitcoin Cash name service',
+        appName: 'DogeChain name service',
         jsonRpcUrl: `https://mainnet.infura.io/v3/${INFURA_ID}`
       }
     },

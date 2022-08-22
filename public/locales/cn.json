@@ -128,7 +128,7 @@
       "title": "如何使用 LNS"
     },
     "whatisens": {
-      "body": "比特币现金域名服务（Bitcoin Cash Name Service）是一个基于以太坊区块链的分布式、开放和可扩展的域名系统。LNS 域名让人们不用再复制或输入冗长的区块链地址。通俗地说，LNS 就是区块链中的域名系统。",
+      "body": "比特币现金域名服务（DogeChain Name Service）是一个基于以太坊区块链的分布式、开放和可扩展的域名系统。LNS 域名让人们不用再复制或输入冗长的区块链地址。通俗地说，LNS 就是区块链中的域名系统。",
       "title": "LNS 是什么"
     }
   },
@@ -142,7 +142,7 @@
       "title": "管理域名"
     },
     "register": {
-      "text": "以每年 0.01BCH 的价格注册 .bch 域名，随时更新或弃用你的域名",
+      "text": "以每年 100wDOGE 的价格注册 .bch 域名，随时更新或弃用你的域名",
       "title": "注册域名"
     },
     "search": {
@@ -317,7 +317,7 @@
       "messages": {
         "explanation": "反向解析将地址转换为域名。它能让 dapp 在其界面上显示 “{{name}}”，而不是 “{{account}}” 这个冗长的地址。如果您想为另一个账户设置反向解析，请先在 dapp 浏览器中切换帐户。",
         "explanation2": "您只能选择已经解析至这个以太坊地址的域名。",
-        "noForwardRecordAavilable": "您尚未拥有 LNS 域名，或者您 LNS 域名的 SMARTBCH 记录没有设置为此地址。",
+        "noForwardRecordAavilable": "您尚未拥有 LNS 域名，或者您 LNS 域名的 DOGECHAIN 记录没有设置为此地址。",
         "notSet": "反向记录：未设置",
         "reverseRecordRemoval": "您确定要删除反向解析记录？",
         "selectPlaceholder": "选择您的 LNS 域名",

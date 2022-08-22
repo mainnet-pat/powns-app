@@ -82,7 +82,7 @@ const LNS = new Token(
   '0x6552223b5d64942Db518dc3717df6ce0221DC7C8',
   18,
   'LNS',
-  'Bitcoin Cash Name Service'
+  'DogeChain Name Service'
 )
 const xLNS = new Token(
   568,

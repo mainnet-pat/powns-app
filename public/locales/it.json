@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Clicca 'approfondisci' per leggere ulteriori informazioni sul processo.",
-        "title": "Imposta un record di testo nel tuo provider di dominio, quindi fai clic su Aggiorna. Il record di testo dovrebbe contenere il tuo indirizzo smartBCH nel modulo:"
+        "title": "Imposta un record di testo nel tuo provider di dominio, quindi fai clic su Aggiorna. Il record di testo dovrebbe contenere il tuo indirizzo DogeChain nel modulo:"
       },
       "enable": {
         "text": "Clicca 'approfondisci' per leggere ulteriori informazioni sul processo.",
@@ -101,7 +101,7 @@
       },
       "proof": {
         "text1": "L'indirizzo che appare nel record txt DNS è il tuo stesso indirizzo.",
-        "text2": "Se sai di essere il proprietario di questo dominio, cambia il record TXT di modo che contenga il tuo Indirizzo smartBCH e aggiorna questa pagina per effettuare la verifica DNSSEC nuovamente.",
+        "text2": "Se sai di essere il proprietario di questo dominio, cambia il record TXT di modo che contenga il tuo Indirizzo DogeChain e aggiorna questa pagina per effettuare la verifica DNSSEC nuovamente.",
         "title1": "Sei il titolare di questo indirizzo. Aggoungi ora il tuo dominio al Registro LNS.",
         "title2": "Non risulti essere il titolare DNS di questo dominio, ad ogni modo puoi aggiungere questo dominio al Registro LNS."
       }
@@ -132,7 +132,7 @@
       "title": "Come usare LNS"
     },
     "whatisens": {
-      "body": "Bitcoin Cash Name Service è un sistema di gestione di dominio aperto ed estensibile costruito sulla blockchain smartBCH. LNS elimina la necessità di copiare o digitare lunghi indirizzi esadecimali.",
+      "body": "DogeChain Name Service è un sistema di gestione di dominio aperto ed estensibile costruito sulla blockchain DogeChain. LNS elimina la necessità di copiare o digitare lunghi indirizzi esadecimali.",
       "title": "Che cos'è"
     }
   },
@@ -146,7 +146,7 @@
       "title": "Gestisci domini"
     },
     "register": {
-      "text": "Registra domini .bch per 0.01BCH/anno. Rinnova o annulla una registrazione di dominio in qualsiasi momento.",
+      "text": "Registra domini .bch per 100wDOGE/anno. Rinnova o annulla una registrazione di dominio in qualsiasi momento.",
       "title": "Registra nomi di dominio"
     },
     "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Una volta registrato il tuo dominio, Vai alla pagina 'Mio Account' e imposta un record di risoluzione. Questo consente alle dapps di trovare e visualizzare il tuo nome LNS quandi ti connetti a loro con il tuo account smartBCH. ",
+        "text": "Una volta registrato il tuo dominio, Vai alla pagina 'Mio Account' e imposta un record di risoluzione. Questo consente alle dapps di trovare e visualizzare il tuo nome LNS quandi ti connetti a loro con il tuo account DogeChain. ",
         "title": "1. Imposta record di risoluzione"
       },
       "step2": {
@@ -320,8 +320,8 @@
       "closeEdit": "Chiudi Aggiungi / Modifica Record",
       "messages": {
         "explanation": "La Risoluzione inversa traduce un indirizzo in un nome dominio. Questo consente alle Dapps di visualizzare '{{name}}' nelle loro interfacce al posto dell'indirizzo completo '{{account}}'. Se vuoi impostare un tuo risolutore per un account differente, perfavore cambia account nel tuo browser dapp",
-        "explanation2": "Puoi selezionare solo i nomi con cui hai impostato questo Indirizzo smartBCH.",
-        "noForwardRecordAavilable": "Non possiedi alcun nome LNS oppure i tuoi domini LNS non hanno record SMARTBCH impostati su questo indirizzo.",
+        "explanation2": "Puoi selezionare solo i nomi con cui hai impostato questo Indirizzo DogeChain.",
+        "noForwardRecordAavilable": "Non possiedi alcun nome LNS oppure i tuoi domini LNS non hanno record DOGECHAIN impostati su questo indirizzo.",
         "notSet": "Record risoluzione: non impostato",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
         "selectPlaceholder": "Seleziona il tuo dominio LNS",

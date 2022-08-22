@@ -371,7 +371,7 @@ export const switchEthereumChain = async chainId => {
       chainId: '0x2710',
       chainName: 'SmartBCH',
       nativeCurrency: {
-        name: 'Bitcoin Cash',
+        name: 'DogeChain',
         symbol: 'BCH',
         decimals: 18
       },
@@ -382,7 +382,7 @@ export const switchEthereumChain = async chainId => {
       chainId: '0x2711',
       chainName: 'SmartBCH Amber Testnet',
       nativeCurrency: {
-        name: 'Bitcoin Cash',
+        name: 'DogeChain',
         symbol: 'BCH',
         decimals: 18
       },

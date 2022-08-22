@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Cliquez sur 'en apprendre plus' pour en lire davantage à propos du processus.",
-        "title": "Mettez en place un enregistrement Texte (TXT) sur votre nom de domaine (via votre registrar ou bureau d'enregistrement), puis cliquez sur 'actualiser'. L'enregistrement Texte doit contenir votre adresse smartBCH sous cette forme :"
+        "title": "Mettez en place un enregistrement Texte (TXT) sur votre nom de domaine (via votre registrar ou bureau d'enregistrement), puis cliquez sur 'actualiser'. L'enregistrement Texte doit contenir votre adresse DogeChain sous cette forme :"
       },
       "enable": {
         "text": "Cliquez sur 'en apprendre plus' pour en lire davantage à propos du processus.",
@@ -101,7 +101,7 @@
       },
       "proof": {
         "text1": "L'adresse qui apparaît dans l'enregistrement TXT est votre même adresse.",
-        "text2": "Si vous êtes propriétaire de ce domaine, modifiez son enregistrement TXT pour qu'il contienne votre adresse smartBCH, puis actualisez cette page pour effectuer à nouveau la vérification DNSSEC.",
+        "text2": "Si vous êtes propriétaire de ce domaine, modifiez son enregistrement TXT pour qu'il contienne votre adresse DogeChain, puis actualisez cette page pour effectuer à nouveau la vérification DNSSEC.",
         "title1": "Vous êtes le propriétaire de cette adresse. Ajoutez votre domaine au registre LNS dès maintenant.",
         "title2": "Vous n'êtes pas être le propriétaire DNS de ce domaine, donc n'importe qui peut ajouter ce domaine au registre LNS."
       }
@@ -132,7 +132,7 @@
       "title": "Comment utiliser LNS"
     },
     "whatisens": {
-      "body": "Bitcoin Cash Name Service est un système de nommage distribué, ouvert et extensible basé sur la blockchain smartBCH. LNS élimine le besoin de copier ou taper de longues adresses smartBCH. ",
+      "body": "DogeChain Name Service est un système de nommage distribué, ouvert et extensible basé sur la blockchain DogeChain. LNS élimine le besoin de copier ou taper de longues adresses DogeChain. ",
       "title": "Ce que c'est"
     }
   },
@@ -146,7 +146,7 @@
       "title": "Gérer les noms"
     },
     "register": {
-      "text": "Enregistrez des noms .bch pour 0.01BCH / an. Renouvelez ou annulez votre inscription à tout moment.",
+      "text": "Enregistrez des noms .bch pour 100wDOGE / an. Renouvelez ou annulez votre inscription à tout moment.",
       "title": "Enregistrer des noms"
     },
     "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your smartBCH account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -320,8 +320,8 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "La résolution inverse traduit une adresse en un nom. Il permet aux Dapps d'afficher dans leurs interfaces '{{name}}' plutôt que l'adresse longue '{{account}}'. Si vous souhaitez configurer votre reverse pour un autre compte, veuillez changer de compte dans votre navigateur.",
-        "explanation2": "You can only select names you set this smartBCH Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no SMARTBCH records set to this address.",
+        "explanation2": "You can only select names you set this DogeChain Address as.",
+        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
         "notSet": "Enregistrement inverse : non définit",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
         "selectPlaceholder": "Select your LNS name",

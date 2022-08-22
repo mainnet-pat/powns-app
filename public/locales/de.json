@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Klicken Sie auf 'mehr erfahren', um etwas über den Prozess zu lesen.",
-        "title": "Erstellen Sie einen Text-Eintrag bei Ihrem Domain-Registrar und klicken Sie dann auf Aktualisieren. Der Text-Eintrag sollte Ihre smartBCH-Adresse in folgendem Format enthalten:"
+        "title": "Erstellen Sie einen Text-Eintrag bei Ihrem Domain-Registrar und klicken Sie dann auf Aktualisieren. Der Text-Eintrag sollte Ihre DogeChain-Adresse in folgendem Format enthalten:"
       },
       "enable": {
         "text": "Klicken Sie auf 'mehr erfahren', um etwas über den Prozess zu lesen.",
@@ -101,7 +101,7 @@
       },
       "proof": {
         "text1": "Die Adresse, die im DNS-TXT-Eintrag erscheint, ist die gleiche Adresse.",
-        "text2": "Wenn Sie diese Domain besitzen, ändern Sie den TXT-Eintrag so, dass er Ihre smartBCH-Adresse enthält, und aktualisieren Sie diese Seite, um die DNSSEC-Verifizierung erneut durchzuführen.",
+        "text2": "Wenn Sie diese Domain besitzen, ändern Sie den TXT-Eintrag so, dass er Ihre DogeChain-Adresse enthält, und aktualisieren Sie diese Seite, um die DNSSEC-Verifizierung erneut durchzuführen.",
         "title1": "Sie sind der Besitzer dieser Adresse. Tragen Sie jetzt Ihre Domain in das LNS-Register ein.",
         "title2": "Sie scheinen nicht der DNS-Besitzer dieser Domain zu sein, aber jeder kann diese Domain zum LNS-Register hinzufügen."
       }
@@ -132,7 +132,7 @@
       "title": "Wie man LNS benutzt"
     },
     "whatisens": {
-      "body": "Der Bitcoin Cash Name Service ist ein verteiltes, offenes und erweiterbares System zur Namensauflösung, basierend auf der smartBCH Blockchain. Mit LNS muss man keine langen Adressen mehr kopieren oder eintippen.",
+      "body": "Der DogeChain Name Service ist ein verteiltes, offenes und erweiterbares System zur Namensauflösung, basierend auf der DogeChain Blockchain. Mit LNS muss man keine langen Adressen mehr kopieren oder eintippen.",
       "title": "Was ist LNS"
     }
   },
@@ -142,11 +142,11 @@
       "title": "Bevorzugte Namen speichern"
     },
     "manage": {
-      "text": "Zeigen Sie mit Domains auf Ihre smartBCH-Adressen, übertragen Sie den Besitz an andere Personen und vieles mehr.",
+      "text": "Zeigen Sie mit Domains auf Ihre DogeChain-Adressen, übertragen Sie den Besitz an andere Personen und vieles mehr.",
       "title": "Namen verwalten"
     },
     "register": {
-      "text": "Registrieren Sie .bch-Namen für 0.01BCH/Jahr. Sie können Ihre Namensregistrierung jederzeit verlängern oder beenden.",
+      "text": "Registrieren Sie .bch-Namen für 100wDOGE/Jahr. Sie können Ihre Namensregistrierung jederzeit verlängern oder beenden.",
       "title": "Namen registrieren"
     },
     "search": {
@@ -295,7 +295,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your smartBCH account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your LNS name when you connect to them with your DogeChain account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -320,8 +320,8 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "The Reverse Resolution translates an address into a name. It allows Dapps to show in their interfaces '{{name}}' rather than the long address '{{account}}'. If you would like to set up your reverse for a different account, please switch accounts in your dapp browser",
-        "explanation2": "You can only select names you set this smartBCH Address as.",
-        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no SMARTBCH records set to this address.",
+        "explanation2": "You can only select names you set this DogeChain Address as.",
+        "noForwardRecordAavilable": "You either do not own any LNS names, or your LNS names have no DOGECHAIN records set to this address.",
         "notSet": "Reverse record: not set",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
         "selectPlaceholder": "Select your LNS name",
