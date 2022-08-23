@@ -121,17 +121,19 @@ function normaliseAddress(address) {
 }
 
 function decryptNames(domains) {
-  return domains.map(d => {
-    const name = decryptName(d.domain.name)
-    return {
-      ...d,
-      domain: {
-        ...d.domain,
-        name: name,
-        labelName: checkIsDecrypted(name[0]) ? name.split('.')[0] : null
+  return domains
+    .filter(d => d.domain)
+    .map(d => {
+      const name = decryptName(d.domain.name)
+      return {
+        ...d,
+        domain: {
+          ...d.domain,
+          name: name,
+          labelName: checkIsDecrypted(name[0]) ? name.split('.')[0] : null
+        }
       }
-    }
-  })
+    })
 }
 
 function useDomains({
