@@ -25,9 +25,9 @@ const endpoints = {
   '10000': 'https://graph.bch.domains/subgraphs/name/graphprotocol/ens',
   '10001': 'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-amber',
   '2000':
-    'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-dogechain',
+    'https://graph.dogedomains.wf/subgraphs/name/graphprotocol/ens-dogechain',
   '568':
-    'https://graph.bch.domains/subgraphs/name/graphprotocol/ens-dogechain-testnet'
+    'https://graph.dogedomains.wf/subgraphs/name/graphprotocol/ens-dogechain-testnet'
 }
 
 function getGraphQLAPI() {

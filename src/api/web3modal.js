@@ -23,7 +23,7 @@ const option = {
         rpc: {
           10000: 'https://smartbch.fountainhead.cash/mainnet',
           10001: 'https://moeing.tech:9545',
-          2000: 'https://rpc.dogechain.dog',
+          2000: 'https://rpc.dogmoney.money/public/full',
           568: 'https://rpc-testnet.dogechain.dog'
         }
       }

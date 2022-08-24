@@ -397,7 +397,7 @@ export const switchEthereumChain = async chainId => {
         symbol: 'DOGE',
         decimals: 18
       },
-      rpcUrls: ['https://rpc.dogechain.dog'],
+      rpcUrls: ['https://rpc.dogmoney.money/public/full'],
       blockExplorerUrls: ['https://explorer.dogechain.dog']
     },
     [568]: {
