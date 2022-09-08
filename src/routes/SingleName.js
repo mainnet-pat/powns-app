@@ -14,6 +14,7 @@ import {
   DAOBannerContent
 } from '../components/Banner/DAOBanner'
 import { topLevelDomainReactive } from 'apollo/reactiveVars'
+import { cache } from 'apollo/apolloClient'
 
 const SINGLE_NAME = gql`
   query singleNameQuery @client {
@@ -88,6 +89,7 @@ function SingleName({
         const nameArray = name.split('.').reverse()
         const topLevelDomain = nameArray[0]
         topLevelDomainReactive(topLevelDomain)
+        cache.reset()
       }
       return (
         <>

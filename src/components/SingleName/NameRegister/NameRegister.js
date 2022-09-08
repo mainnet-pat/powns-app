@@ -10,6 +10,8 @@ import {
   GET_MINIMUM_COMMITMENT_AGE,
   GET_MAXIMUM_COMMITMENT_AGE,
   GET_RENT_PRICE,
+  GET_PRICE_BREAKDOWN,
+  GET_TOKEN_INFOS,
   WAIT_BLOCK_TIMESTAMP,
   GET_BALANCE
 } from 'graphql/queries'
@@ -174,22 +176,45 @@ const NameRegister = ({
   )
   const parsedYears = parseFloat(years)
   const duration = calculateDuration(years)
-  const { data: { getRentPrice } = {}, loading: rentPriceLoading } = useQuery(
-    GET_RENT_PRICE,
-    {
-      variables: {
-        duration,
-        label: domain.label,
-        commitmentTimerRunning
-      }
+
+  const {
+    data: { getPriceBreakdown: priceBreakdown } = {},
+    loading: priceBreakdownLoading
+  } = useQuery(GET_PRICE_BREAKDOWN, {
+    variables: {
+      duration,
+      label: domain.label
     }
-  )
+  })
+
+  const rentPriceLoading = priceBreakdownLoading
+  const getRentPrice = priceBreakdown?.discountedPrice
+
+  const {
+    data: { getTokenInfos: tokenInfos } = {},
+    loading: tokenInfosLoading
+  } = useQuery(GET_TOKEN_INFOS, {
+    variables: {
+      addresses: priceBreakdown?.collections ?? []
+    }
+  })
+
+  const discount =
+    100 -
+    priceBreakdown?.discountedPrice
+      .mul(100)
+      .div(priceBreakdown?.basePrice)
+      .toNumber()
+
   let hasSufficientBalance
   if (!blockCreatedAt && checkCommitment > 0) {
     setBlockCreatedAt(checkCommitment * 1000)
   }
   if (getBalance && getRentPrice) {
     hasSufficientBalance = getBalance.gt(getRentPrice)
+  }
+  if (priceBreakdown?.canRegisterName === false) {
+    hasSufficientBalance = false
   }
   if (blockCreatedAt && !waitUntil) {
     setWaitUntil(blockCreatedAt + waitTime * 1000)
@@ -252,23 +277,84 @@ const NameRegister = ({
       setInvalid(true)
     }
   }
+
   return (
     <NameRegisterContainer>
       {step === 'PRICE_DECISION' && (
-        <Pricer
-          name={domain.label}
-          duration={duration}
-          years={years}
-          setYears={setYears}
-          ethUsdPriceLoading={ethUsdPriceLoading}
-          ethUsdPremiumPrice={currentPremium}
-          ethUsdPrice={ethUsdPrice}
-          gasPrice={gasPrice}
-          loading={rentPriceLoading}
-          price={getRentPrice}
-          underPremium={underPremium}
-          displayGas={true}
-        />
+        <>
+          {priceBreakdown?.collections.length > 0 && (
+            <>
+              {priceBreakdown.canRegisterName === false ? (
+                <div className="mb-3 p-4 bg-yellow-200 rounded-lg">
+                  <div className="text-lg">{`.${
+                    domain.tld
+                  } TLD requires you to hold at least ${
+                    priceBreakdown.requiredNftAmount
+                  } NFTs from following projects in your wallet:`}</div>
+                  {(tokenInfos ?? []).map(info => (
+                    <a
+                      key={info.address}
+                      className="ml-3 text-sm"
+                      href={`https://explorer.dogmoney.money/address/${
+                        info.address
+                      }`}
+                      target="_blank"
+                    >{`* ${info.name} (${info.symbol})`}</a>
+                  ))}
+                  <div>
+                    {`You are holding ${
+                      priceBreakdown.nftAmount == 0
+                        ? 'none'
+                        : `only ${priceBreakdown.nftAmount}`
+                    } and can not register names`}
+                  </div>
+                </div>
+              ) : (
+                <div className="mb-3 p-4 bg-green-200 rounded-lg">
+                  <div className="text-lg">{`.${
+                    domain.tld
+                  } TLD is running a discount promo campaign!`}</div>
+                  <div>{`Hold at least one NFT in your wallet from the following projects to be eligible for discount:`}</div>
+                  {(tokenInfos ?? []).map(info => (
+                    <a
+                      key={info.address}
+                      className="ml-3 text-sm"
+                      href={`https://explorer.dogmoney.money/address/${
+                        info.address
+                      }`}
+                      target="_blank"
+                    >{`* ${info.name} (${info.symbol})`}</a>
+                  ))}
+                  {priceBreakdown?.isEligibleForDiscount === true ? (
+                    <div>
+                      {`You are holding ${
+                        priceBreakdown.nftAmount
+                      } NFTs and eligible for ${discount}% discount`}
+                    </div>
+                  ) : (
+                    <div>
+                      {`You are holding none and will not receive a discount`}
+                    </div>
+                  )}
+                </div>
+              )}
+            </>
+          )}
+          <Pricer
+            name={domain.label}
+            duration={duration}
+            years={years}
+            setYears={setYears}
+            ethUsdPriceLoading={ethUsdPriceLoading}
+            ethUsdPremiumPrice={currentPremium}
+            ethUsdPrice={ethUsdPrice}
+            gasPrice={gasPrice}
+            loading={rentPriceLoading}
+            price={getRentPrice}
+            underPremium={underPremium}
+            displayGas={true}
+          />
+        </>
       )}
       {showPremiumWarning ? (
         <PremiumWarning>

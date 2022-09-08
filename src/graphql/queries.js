@@ -149,6 +149,16 @@ export const GET_SUBDOMAINS_FROM_SUBGRAPH = gql`
   }
 `
 
+export const GET_DOMAINS_FROM_SUBRAPH = gql`
+  query getDomains($name: String!) {
+    domains(where: { name_contains: $name }) {
+      id
+      labelName
+      name
+    }
+  }
+`
+
 export const GET_ETH_RECORD_AVAILABLE_NAMES_FROM_SUBGRAPH = gql`
   query getNamesFromSubgraph($address: String!) {
     domains(first: 1000, where: { resolvedAddress: $address }) {
@@ -269,7 +279,26 @@ export const GET_DOMAINS_SUBGRAPH = gql`
   }
 `
 
+/* Token Info */
+export const GET_TOKEN_INFO = gql`
+  query getTokenInfo($address: String) {
+    getTokenInfo(address: $address)
+  }
+`
+
+export const GET_TOKEN_INFOS = gql`
+  query getTokenInfos($addresses: String) {
+    getTokenInfos(addresses: $addresses)
+  }
+`
+
 /* Permanent Registrar */
+
+export const GET_PRICE_BREAKDOWN = gql`
+  query getPriceBreakdown($label: String, $duration: Number) {
+    getPriceBreakdown(label: $label, duration: $duration)
+  }
+`
 
 export const GET_RENT_PRICE = gql`
   query getRentPrice($label: String, $duration: Number) {
