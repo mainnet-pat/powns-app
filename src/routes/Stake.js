@@ -80,14 +80,14 @@ const ApprovalState = {
 
 const DNS = new Token(
   2000,
-  '0xe729ffC468e309F8d68bE26026C7A442D84caf2D',
+  '0xE6bBD3B28C14bf325b91203De60aF2458DBFc5b6',
   18,
   'ĐNS',
   'Đoge Name Service'
 )
 const xDNS = new Token(
   2000,
-  '0x88245a5f5F5251dd24Ac1bd85f05661a8B60E5F8',
+  '0x83342Af9494D250bC7E2C5ac08138D6b59BaBF21',
   18,
   'xĐNS',
   'ĐNSBar'
@@ -98,7 +98,7 @@ const dnsProps = {
   symbol: DNS.symbol,
   decimals: DNS.decimals,
   image:
-    'https://raw.githubusercontent.com/dogmoneyswap/assets/master/blockchains/dogechain/assets/0xe729ffC468e309F8d68bE26026C7A442D84caf2D/logo.png'
+    'https://raw.githubusercontent.com/dogmoneyswap/assets/master/blockchains/dogechain/assets/0xE6bBD3B28C14bf325b91203De60aF2458DBFc5b6/logo.png'
 }
 
 const xdnsProps = {
@@ -106,7 +106,7 @@ const xdnsProps = {
   symbol: xDNS.symbol,
   decimals: xDNS.decimals,
   image:
-    'https://raw.githubusercontent.com/dogmoneyswap/assets/master/blockchains/dogechain/assets/0x88245a5f5F5251dd24Ac1bd85f05661a8B60E5F8/logo.png'
+    'https://raw.githubusercontent.com/dogmoneyswap/assets/master/blockchains/dogechain/assets/0x83342Af9494D250bC7E2C5ac08138D6b59BaBF21/logo.png'
 }
 
 // try to parse a user entered amount for a given token
