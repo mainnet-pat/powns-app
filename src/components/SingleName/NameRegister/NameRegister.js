@@ -258,7 +258,7 @@ const NameRegister = ({
         <>
           <div className="mb-3 p-4 bg-green-200 rounded-lg">
             <div className="text-lg">{`To celebrate the launch of DNS token, we are running a special discount promo campaign!`}</div>
-            <div className="text-lg">{`All domains receive a 10% discount until Sep 9th 2022, 12:30 PM UTC`}</div>
+            <div className="text-lg">{`All domains receive a very special 20% discount for only one hour until Sep 9th 2022, 12:30 PM UTC`}</div>
           </div>
           <Pricer
             name={domain.label}
