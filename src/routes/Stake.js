@@ -522,7 +522,7 @@ export default function Stake(props) {
                       />
                       <a
                         target="_blank"
-                        href={`https://explorer.dogechain.dog/address/${
+                        href={`https://explorer.dogmoney.money/address/${
                           xDNS.address
                         }`}
                       >
@@ -576,7 +576,7 @@ export default function Stake(props) {
                       />
                       <a
                         target="_blank"
-                        href={`https://explorer.dogechain.dog/address/${
+                        href={`https://explorer.dogmoney.money/address/${
                           DNS.address
                         }`}
                       >

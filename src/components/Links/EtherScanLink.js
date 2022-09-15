@@ -40,7 +40,7 @@ const EtherScanLink = ({ children, address, className }) => {
       data-testid="ether-scan-link-container"
       target="_blank"
       rel="noopener"
-      href={`https://explorer.dogechain.dog/address/${address}`}
+      href={`https://explorer.dogmoney.money/address/${address}`}
       className={className}
     >
       {children}

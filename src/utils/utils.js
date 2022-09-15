@@ -109,7 +109,7 @@ export async function getEtherScanAddr() {
       return 'https://testnet.sonar.cash/'
     case 2000:
     case '2000':
-      return 'https://explorer.dogechain.dog/'
+      return 'https://explorer.dogmoney.money/'
     case 568:
     case '568':
       return 'https://explorer-testnet.dogechain.dog/'
@@ -397,8 +397,8 @@ export const switchEthereumChain = async chainId => {
         symbol: 'DOGE',
         decimals: 18
       },
-      rpcUrls: ['https://rpc.dogmoney.money/public/full'],
-      blockExplorerUrls: ['https://explorer.dogechain.dog']
+      rpcUrls: ['https://rpc.yodeswap.dog'],
+      blockExplorerUrls: ['https://explorer.dogmoney.money']
     },
     [568]: {
       chainId: '0x0238',
