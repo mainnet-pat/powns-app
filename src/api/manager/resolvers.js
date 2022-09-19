@@ -175,11 +175,13 @@ export const handleMultipleTransactions = async (
 }
 
 async function getRegistrarEntry(name) {
-  const registrar = await getRegistrar()
   const nameArray = name.split('.')
   if (nameArray.length > 3 || !topLevelDomainSupported(nameArray[1])) {
     return {}
   }
+
+  const tld = nameArray.slice(-1).pop()
+  const registrar = await getRegistrar(tld)
 
   const entry = await registrar.getEntry(nameArray[0])
   const {
@@ -200,6 +202,7 @@ async function getRegistrarEntry(name) {
   } = entry
 
   return {
+    tld: tld,
     name: `${name}`,
     state: modeNames[state],
     stateError: null, // This is only used for dnssec errors

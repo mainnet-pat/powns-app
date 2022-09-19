@@ -13,7 +13,7 @@ import { networkIdReactive } from './reactiveVars'
 
 let client
 
-const cache = new InMemoryCache({
+export const cache = new InMemoryCache({
   typePolicies
 })
 

@@ -9,6 +9,7 @@ import DomainInfo from '../components/SearchName/DomainInfo'
 import { validateName, parseSearchTerm } from '../utils/utils'
 import SearchErrors from '../components/SearchErrors/SearchErrors'
 import { useHistory } from 'react-router-dom'
+import { GET_DOMAINS_FROM_SUBRAPH } from '../graphql/queries'
 
 const RESULTS_CONTAINER = gql`
   query getResultsContainer {
@@ -23,38 +24,61 @@ import {
 
 const useCheckValidity = (_searchTerm, isENSReady) => {
   const [errors, setErrors] = useState([])
-  const [parsed, setParsed] = useState(null)
+  const [parsed, setParsed] = useState([])
+
+  let { data: { domains } = {} } = useQuery(GET_DOMAINS_FROM_SUBRAPH, {
+    variables: {
+      name: _searchTerm
+    },
+    fetchPolicy: 'no-cache'
+  })
+  const filteredDomains = domains?.filter(val => val?.name?.indexOf('[') == -1)
 
   useEffect(() => {
     const checkValidity = async () => {
-      let _parsed, searchTerm
+      let _parsed = []
+      let searchTerms = []
+      let _errors = []
       setErrors([])
 
       if (_searchTerm.split('.').length === 1) {
-        searchTerm = _searchTerm + '.doge'
+        searchTerms.push(_searchTerm + '.doge')
+        searchTerms.push(_searchTerm + '.dc')
       } else {
-        searchTerm = _searchTerm
+        searchTerms.push(_searchTerm)
+      }
+      searchTerms = [
+        ...searchTerms,
+        ...(filteredDomains || []).map(val => val.name)
+      ].filter((value, index, array) => array.indexOf(value) === index)
+
+      for (let term of searchTerms) {
+        const type = await parseSearchTerm(term)
+        if (!['unsupported', 'invalid', 'short'].includes(type)) {
+          _parsed.push(validateName(term))
+        } else {
+          _parsed.push(term)
+        }
+        document.title = `ĐNS Search: ${searchTerms}`
+
+        if (type === 'unsupported') {
+          _errors.push('unsupported')
+        } else if (type === 'short') {
+          _errors.push('tooShort')
+        } else if (type === 'invalid') {
+          _errors.push('domainMalformed')
+        } else {
+          _errors.push('')
+        }
       }
 
-      const type = await parseSearchTerm(searchTerm)
-      if (!['unsupported', 'invalid', 'short'].includes(type)) {
-        _parsed = validateName(searchTerm)
-        setParsed(_parsed)
-      }
-      document.title = `ĐNS Search: ${searchTerm}`
-
-      if (type === 'unsupported') {
-        setErrors(['unsupported'])
-      } else if (type === 'short') {
-        setErrors(['tooShort'])
-      } else if (type === 'invalid') {
-        setErrors(['domainMalformed'])
-      }
+      setParsed(_parsed)
+      setErrors(_errors)
     }
     if (isENSReady) {
       checkValidity()
     }
-  }, [_searchTerm, isENSReady])
+  }, [_searchTerm, isENSReady, domains])
 
   return { errors, parsed }
 }
@@ -87,8 +111,11 @@ const ResultsContainer = ({ searchDomain, match }) => {
         <SearchErrors errors={errors} searchTerm={searchTerm} />
       </>
     )
-  } else if (errors.length > 0) {
-    return <SearchErrors errors={errors} searchTerm={searchTerm} />
+  } else if (errors.filter(error => !!error).length > 0) {
+    const uniques = errors
+      .filter(error => !!error)
+      .filter((value, index, arr) => arr.indexOf(value) === index)
+    return <SearchErrors errors={uniques} searchTerm={searchTerm} />
   }
   if (parsed) {
     return (
@@ -99,7 +126,9 @@ const ResultsContainer = ({ searchDomain, match }) => {
         <H2>
           <Trans i18nKey="singleName.search.title">Names</Trans>
         </H2>
-        <DomainInfo searchTerm={parsed} />
+        {parsed.map(term => (
+          <DomainInfo searchTerm={term} />
+        ))}
       </>
     )
   } else {

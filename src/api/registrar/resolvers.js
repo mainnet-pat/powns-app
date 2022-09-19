@@ -4,11 +4,24 @@ import getENS, { getRegistrar } from 'apollo/mutations/ens'
 
 import modeNames from '../modes'
 import { sendHelper } from '../resolverUtils'
+import { getTokenInfo as getTokenInfoImpl } from 'api/tokenInfo'
 
 const defaults = {}
 
 const resolvers = {
   Query: {
+    async getTokenInfo(_, { address }) {
+      return getTokenInfoImpl(address)
+    },
+    async getTokenInfos(_, { addresses }) {
+      return await Promise.all(
+        addresses.map(address => getTokenInfoImpl(address))
+      )
+    },
+    async getPriceBreakdown(_, { label, duration }) {
+      const registrar = await getRegistrar()
+      return registrar.getPriceBreakdown(label, duration)
+    },
     async getRentPrice(_, { label, duration }) {
       const registrar = await getRegistrar()
       return registrar.getRentPrice(label, duration)

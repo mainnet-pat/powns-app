@@ -41,9 +41,10 @@ export async function setup({
   return { ens, registrar, providerObject }
 }
 
-export async function getRegistrar() {
-  const topLevelDomain = topLevelDomainReactive()
-
+export async function getRegistrar(topLevelDomain = null) {
+  if (!topLevelDomain) {
+    topLevelDomain = topLevelDomainReactive()
+  }
   if (
     registrar.topLevelDomain !== topLevelDomain &&
     ensRegistryAddress !== undefined
