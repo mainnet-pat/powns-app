@@ -35,7 +35,8 @@ const DomainLink = styled(Link)`
   grid-template-columns: 250px auto 50px;
   grid-gap: 10px;
   width: 100%;
-  background-color: ${props => (props.warning ? 'hsla(37,91%,55%,0.1)' : '')};
+  background-color: ${props =>
+    props.warning === 'true' ? 'hsla(37,91%,55%,0.1)' : ''};
   color: #2b2b2b;
   font-size: 22px;
   font-weight: 100;
@@ -175,7 +176,7 @@ export default function ChildDomainItem({
           <DomainLink
             showBlockies={showBlockies}
             data-testid={`${name}`}
-            warning={isMigrated === false ? true : false}
+            warning={isMigrated === false ? 'true' : 'false'}
             isInvalid={hasInvalidCharacter}
             key={name}
             to={`/name/${name}`}

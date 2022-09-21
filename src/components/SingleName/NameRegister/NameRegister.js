@@ -261,6 +261,25 @@ const NameRegister = ({
     }
   }
 
+  const makeDiscountTable = a => {
+    let map = {},
+      last = 0,
+      first = 0
+    a.forEach((val, i) => {
+      if (last != val.toNumber()) {
+        first = i
+      }
+      last = val.toNumber()
+      map[last] = first + 1
+    })
+
+    return Object.entries(map)
+      .map(([k, v], i) => {
+        return `${i == 0 ? '1' : v} or more NFTs - ${Number(k) / 10}%`
+      })
+      .join('; ')
+  }
+
   const handlePremium = target => {
     const { value } = target
     const parsedValue = value.replace('$', '')
@@ -282,64 +301,69 @@ const NameRegister = ({
     <NameRegisterContainer>
       {step === 'PRICE_DECISION' && (
         <>
-          {priceBreakdown?.collections.length > 0 && (
-            <>
-              {priceBreakdown.canRegisterName === false ? (
-                <div className="mb-3 p-4 bg-yellow-200 rounded-lg">
-                  <div className="text-lg">{`.${
-                    domain.tld
-                  } TLD requires you to hold at least ${
-                    priceBreakdown.requiredNftAmount
-                  } NFTs from following projects in your wallet:`}</div>
-                  {(tokenInfos ?? []).map(info => (
-                    <a
-                      key={info.address}
-                      className="ml-3 text-sm"
-                      href={`https://explorer.dogmoney.money/address/${
-                        info.address
-                      }`}
-                      target="_blank"
-                    >{`* ${info.name} (${info.symbol})`}</a>
-                  ))}
-                  <div>
-                    {`You are holding ${
-                      priceBreakdown.nftAmount == 0
-                        ? 'none'
-                        : `only ${priceBreakdown.nftAmount}`
-                    } and can not register names`}
-                  </div>
-                </div>
-              ) : (
-                <div className="mb-3 p-4 bg-green-200 rounded-lg">
-                  <div className="text-lg">{`.${
-                    domain.tld
-                  } TLD is running a discount promo campaign!`}</div>
-                  <div>{`Hold at least one NFT in your wallet from the following projects to be eligible for discount:`}</div>
-                  {(tokenInfos ?? []).map(info => (
-                    <a
-                      key={info.address}
-                      className="ml-3 text-sm"
-                      href={`https://explorer.dogmoney.money/address/${
-                        info.address
-                      }`}
-                      target="_blank"
-                    >{`* ${info.name} (${info.symbol})`}</a>
-                  ))}
-                  {priceBreakdown?.isEligibleForDiscount === true ? (
+          {priceBreakdown?.collections.length > 0 &&
+            priceBreakdown?.discounts.length > 0 && (
+              <>
+                {priceBreakdown.canRegisterName === false ? (
+                  <div className="mb-3 p-4 bg-yellow-200 rounded-lg">
+                    <div className="text-lg">{`.${
+                      domain.tld
+                    } TLD requires you to hold at least ${
+                      priceBreakdown.requiredNftAmount
+                    } NFTs from following projects in your wallet:`}</div>
+                    {(tokenInfos ?? []).map(info => (
+                      <a
+                        key={info.address}
+                        className="ml-3 text-sm"
+                        href={`https://explorer.dogmoney.money/address/${
+                          info.address
+                        }`}
+                        target="_blank"
+                      >{`* ${info.name} (${info.symbol})`}</a>
+                    ))}
                     <div>
                       {`You are holding ${
-                        priceBreakdown.nftAmount
-                      } NFTs and eligible for ${discount}% discount`}
+                        priceBreakdown.nftAmount == 0
+                          ? 'none'
+                          : `only ${priceBreakdown.nftAmount}`
+                      } and can not register names`}
                     </div>
-                  ) : (
+                  </div>
+                ) : (
+                  <div className="mb-3 p-4 bg-green-200 rounded-lg">
+                    <div className="text-lg">{`.${
+                      domain.tld
+                    } TLD is running a discount promo campaign!`}</div>
+                    <div>{`Hold at least one NFT in your wallet from the following projects to be eligible for discount:`}</div>
+                    {(tokenInfos ?? []).map(info => (
+                      <a
+                        key={info.address}
+                        className="ml-3 text-sm"
+                        href={`https://explorer.dogmoney.money/address/${
+                          info.address
+                        }`}
+                        target="_blank"
+                      >{`* ${info.name} (${info.symbol})`}</a>
+                    ))}
                     <div>
-                      {`You are holding none and will not receive a discount`}
+                      Discount rules:{' '}
+                      {makeDiscountTable(priceBreakdown.discounts)}
                     </div>
-                  )}
-                </div>
-              )}
-            </>
-          )}
+                    {priceBreakdown?.isEligibleForDiscount === true ? (
+                      <div>
+                        {`You are holding ${
+                          priceBreakdown.nftAmount
+                        } NFTs and eligible for ${discount}% discount`}
+                      </div>
+                    ) : (
+                      <div>
+                        {`You are holding none and will not receive a discount`}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
+            )}
           <Pricer
             name={domain.label}
             duration={duration}

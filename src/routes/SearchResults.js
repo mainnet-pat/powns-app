@@ -21,8 +21,16 @@ import {
   NonMainPageBannerContainer,
   DAOBannerContent
 } from '../components/Banner/DAOBanner'
+import { networkIdReactive } from 'apollo/reactiveVars'
 
-const useCheckValidity = (_searchTerm, isENSReady) => {
+const useCheckValidity = (_searchTerm, isENSReady, chainId) => {
+  const topLevelDomainsSupported = {
+    568: ['doge', 'dc'],
+    2000: ['doge'],
+    10000: ['bch'],
+    10001: ['bch']
+  }[chainId]
+
   const [errors, setErrors] = useState([])
   const [parsed, setParsed] = useState([])
 
@@ -42,8 +50,9 @@ const useCheckValidity = (_searchTerm, isENSReady) => {
       setErrors([])
 
       if (_searchTerm.split('.').length === 1) {
-        searchTerms.push(_searchTerm + '.doge')
-        searchTerms.push(_searchTerm + '.dc')
+        topLevelDomainsSupported.forEach(tld => {
+          searchTerms.push(`${_searchTerm}.${tld}`)
+        })
       } else {
         searchTerms.push(_searchTerm)
       }
@@ -78,7 +87,7 @@ const useCheckValidity = (_searchTerm, isENSReady) => {
     if (isENSReady) {
       checkValidity()
     }
-  }, [_searchTerm, isENSReady, domains])
+  }, [_searchTerm, isENSReady, domains, chainId])
 
   return { errors, parsed }
 }
@@ -99,7 +108,8 @@ const ResultsContainer = ({ searchDomain, match }) => {
     history.push(`/search/${lowered}`)
   }
 
-  const { errors, parsed } = useCheckValidity(searchTerm, isENSReady)
+  const chainId = networkIdReactive()
+  const { errors, parsed } = useCheckValidity(searchTerm, isENSReady, chainId)
 
   if (!isENSReady) {
     return <div>Loading</div>
