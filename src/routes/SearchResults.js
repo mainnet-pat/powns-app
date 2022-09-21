@@ -40,7 +40,9 @@ const useCheckValidity = (_searchTerm, isENSReady, chainId) => {
     },
     fetchPolicy: 'no-cache'
   })
-  const filteredDomains = domains?.filter(val => val?.name?.indexOf('[') == -1)
+  const filteredDomains = domains?.filter(
+    val => val?.name?.indexOf('[') == -1 && val?.name?.indexOf('.dc') == -1
+  )
 
   useEffect(() => {
     const checkValidity = async () => {
