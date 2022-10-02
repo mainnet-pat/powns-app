@@ -69,6 +69,7 @@ function getCTA({
   ethUsdPrice,
   account
 }) {
+  console.log(readOnly, isAboveMinDuration, hasSufficientBalance)
   const CTAs = {
     PRICE_DECISION: (
       <Mutation
@@ -99,29 +100,36 @@ function getCTA({
               </>
             )
           ) : readOnly ? (
-            <Tooltip
-              text="<p>You are not connected to a web3 browser. Please connect to a web3 browser and try again</p>"
-              position="top"
-              border={true}
-              offset={{ left: -30, top: 10 }}
-            >
-              {({ showTooltip, hideTooltip }) => {
-                return (
-                  <Button
-                    data-testid="request-register-button"
-                    type="disabled"
-                    onMouseOver={() => {
-                      showTooltip()
-                    }}
-                    onMouseLeave={() => {
-                      hideTooltip()
-                    }}
-                  >
-                    {t('register.buttons.request')}
-                  </Button>
-                )
-              }}
-            </Tooltip>
+            <>
+              <Prompt>
+                <OrangeExclamation />
+                You are not connected to a web3 browser. Please connect to a
+                web3 browser and try again
+              </Prompt>
+              <Tooltip
+                text="<p>You are not connected to a web3 browser. Please connect to a web3 browser and try again</p>"
+                position="top"
+                border={true}
+                offset={{ left: -30, top: 10 }}
+              >
+                {({ showTooltip, hideTooltip }) => {
+                  return (
+                    <Button
+                      data-testid="request-register-button"
+                      type="disabled"
+                      onMouseOver={() => {
+                        showTooltip()
+                      }}
+                      onMouseLeave={() => {
+                        hideTooltip()
+                      }}
+                    >
+                      {t('register.buttons.request')}
+                    </Button>
+                  )
+                }}
+              </Tooltip>
+            </>
           ) : (
             <Button data-testid="request-register-button" type="disabled">
               {t('register.buttons.request')}

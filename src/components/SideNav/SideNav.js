@@ -54,8 +54,8 @@ const SideNavContainer = styled('nav')`
       ${mq.medium`top: 200px`}
     `
       : `
-      top: 100px;
-      ${mq.medium`top: 100px`}
+      top: 60px;
+      ${mq.medium`top: 60px`}
     `}
 `
 

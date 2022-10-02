@@ -11,6 +11,7 @@ import SubDomains from './SubDomains'
 import dnssecmodes from '../../api/dnssecmodes'
 import DetailsContainer from './DetailsContainer'
 import { topLevelDomainSupported } from '@bchdomains/ui'
+import useNetworkInfo from 'components/NetworkInformation/useNetworkInfo'
 
 function NameDetails({
   domain,
@@ -22,6 +23,8 @@ function NameDetails({
   tab,
   pathname
 }) {
+  const { isReadOnly } = useNetworkInfo()
+
   const [loading, setLoading] = useState(undefined)
   const {
     data: { isMigrated } = {},
@@ -136,7 +139,7 @@ function NameDetails({
             domain={domain}
             refetch={refetch}
             refetchIsMigrated={refetchIsMigrated}
-            readOnly={isEmptyAddress(account)}
+            readOnly={isReadOnly}
           />
         )}
       />
