@@ -164,7 +164,7 @@ function SideNav({ match, isMenuOpen, toggleMenu }) {
             </NavLink>
           </li>
         ) : null}
-        <li>
+        {/* <li>
           <NavLink
             onClick={toggleMenu}
             active={url === '/stake' ? 1 : 0}
@@ -173,7 +173,7 @@ function SideNav({ match, isMenuOpen, toggleMenu }) {
             <Stake active={url === '/stake'} />
             <span>{t('c.stake')}</span>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             onClick={toggleMenu}

@@ -57,12 +57,12 @@ const Renew = lazy(() =>
   )
 )
 
-const Stake = lazy(() =>
-  import(
-    /* webpackChunkName: "Stake", webpackPrefetch:true */
-    './routes/Stake'
-  )
-)
+// const Stake = lazy(() =>
+//   import(
+//     /* webpackChunkName: "Stake", webpackPrefetch:true */
+//     './routes/Stake'
+//   )
+// )
 
 // import Home from './routes/Home'
 // import SearchResults from './routes/SearchResults'
@@ -125,7 +125,7 @@ const App = () => {
         <Route path="/address/:address/:domainType" component={Address} />
         <Route path="/address/:address" component={Address} />
         <Route path="/renew" component={Renew} />
-        <Route path="/stake" component={Stake} />
+        {/* <Route path="/stake" component={Stake} /> */}
         <Route path="*" component={Error404} />
       </Switch>
     </Router>
