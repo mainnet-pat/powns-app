@@ -42,7 +42,7 @@ export default async function getEtherPrice() {
     )
     const json = await response.json()
 
-    const price = json?.['dogecoin']?.usd || 0
+    const price = json?.['ethereum-pow-iou']?.usd || 0
 
     return price
   } catch (e) {

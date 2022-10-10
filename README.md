@@ -1,6 +1,6 @@
-# ĐNS Application
+# POWNS Application
 
-ĐNS Application
+POWNS Application
 
 ## Installation
 
@@ -224,9 +224,9 @@ This should open up cypress. To run the tests click on 'Run n integration tests'
 
 ---
 
-The main package for the E2E tests is `bchdomains/mock`, which exposes a script that will prepopulate ganache with ĐNS so you have everything setup to run Cypress on.
+The main package for the E2E tests is `bchdomains/mock`, which exposes a script that will prepopulate ganache with POWNS so you have everything setup to run Cypress on.
 
-The ĐNS app has end to end tests with Cypress. To run them you need to start ganache, run the seed script, run the app and then run cypress. This should start chrome and the Cypress GUI. Each time the test run, the script needs to be re-run and the app restarted for it to work.
+The POWNS app has end to end tests with Cypress. To run them you need to start ganache, run the seed script, run the app and then run cypress. This should start chrome and the Cypress GUI. Each time the test run, the script needs to be re-run and the app restarted for it to work.
 
 ```bash
 ganache-cli
@@ -297,7 +297,7 @@ cd graph-node/docker
 docker-compose up
 ```
 
-### Deploy ĐNS contracts and update subgraph.yml
+### Deploy POWNS contracts and update subgraph.yml
 
 ```
 cd lns-app
@@ -305,9 +305,9 @@ yarn preTest
 yarn subgraph
 ```
 
-`subgraph` job updates ĐNS contract addresses and updates environment from `mainnet` to `dev`
+`subgraph` job updates POWNS contract addresses and updates environment from `mainnet` to `dev`
 
-### Deploy ĐNS subgraph
+### Deploy POWNS subgraph
 
 ### Generate deployment code
 

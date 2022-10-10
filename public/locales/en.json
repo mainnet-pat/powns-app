@@ -385,7 +385,7 @@
     "confirmWithdrawal": "Confirm Withdrawal",
     "insufficientBalance": "Insufficient Balance",
     "header": "Earn yield by staking POWNS for xPOWNS",
-    "explanation": "For every domain purchase on dogedomains.wf, the entire Doge revenue is distributed as POWNS proportional to your share of staked POWNS. When your POWNS is staked you receive xPOWNS in return. Your xPOWNS is continuously compounding, when you unstake you will receive all the originally deposited POWNS and any additional from domain sales.",
+    "explanation": "For every domain purchase on powns.domains, the entire ETHW revenue is distributed as POWNS proportional to your share of staked POWNS. When your POWNS is staked you receive xPOWNS in return. Your xPOWNS is continuously compounding, when you unstake you will receive all the originally deposited POWNS and any additional from domain sales.",
     "buylns": "Purchase POWNS: ",
     "max": "MAX",
     "approving": "Approving",

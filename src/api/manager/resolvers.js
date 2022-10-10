@@ -92,7 +92,8 @@ export const handleSingleTransaction = async (
     if (
       (coinRecord.key === 'ETH' ||
         coinRecord.key === 'SMARTBCH' ||
-        coinRecord.key === 'DOGECHAIN') &&
+        coinRecord.key === 'DOGECHAIN' ||
+        coinRecord.key === 'ETHPOW') &&
       coinRecord.value === ''
     ) {
       coinRecord.value = emptyAddress

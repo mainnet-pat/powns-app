@@ -69,7 +69,7 @@ const useCheckValidity = (_searchTerm, isENSReady, chainId) => {
         } else {
           _parsed.push(term)
         }
-        document.title = `ĐNS Search: ${searchTerms}`
+        document.title = `POWNS Search: ${searchTerms}`
 
         if (type === 'unsupported') {
           _errors.push('unsupported')

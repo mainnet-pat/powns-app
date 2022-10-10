@@ -2,7 +2,7 @@ import { topLevelDomainSupported } from '@bchdomains/ui'
 
 const TLD = 'wf'
 function createFetchUrl(name) {
-  return `https://doge.${TLD}/names/${name}.${TLD}`
+  return `https://ethw.${TLD}/names/${name}.${TLD}`
 }
 
 function whitelisted() {

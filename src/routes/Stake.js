@@ -82,15 +82,15 @@ const DNS = new Token(
   2000,
   '0xE6bBD3B28C14bf325b91203De60aF2458DBFc5b6',
   18,
-  'ĐNS',
+  'POWNS',
   'Đoge Name Service'
 )
 const xDNS = new Token(
   2000,
   '0x83342Af9494D250bC7E2C5ac08138D6b59BaBF21',
   18,
-  'xĐNS',
-  'ĐNSBar'
+  'xPOWNS',
+  'POWNSBar'
 )
 
 const dnsProps = {
@@ -410,11 +410,11 @@ export default function Stake(props) {
           <div className="flex items-center justify-between w-full mt-6">
             <p className="font-bold text-large md:text-2xl text-high-emphesis">
               {activeTab === 0
-                ? `${t('stake.filter.stake')} ĐNS`
+                ? `${t('stake.filter.stake')} POWNS`
                 : t('stake.filter.unstake')}
             </p>
             <div className="border-gradient-r-pink-red-light-brown-dark-pink-red border-transparent border-solid border rounded-3xl px-4 md:px-3.5 py-1.5 md:py-0.5 text-high-emphesis text-xs font-medium md:text-base md:font-normal">
-              {`1 xĐNS = ${xSushiPerSushi.toFixed(4)} ĐNS`}
+              {`1 xPOWNS = ${xSushiPerSushi.toFixed(4)} POWNS`}
             </div>
           </div>
 
@@ -425,7 +425,7 @@ export default function Stake(props) {
               className={`w-full h-10 px-3 md:px-5 rounded bg-dark-800 text-sm md:text-lg font-bold text-dark-800 whitespace-nowrap${
                 inputError ? ' pl-9 md:pl-12' : ''
               }`}
-              placeholder={activeTab === 0 ? 'ĐNS' : 'xĐNS'}
+              placeholder={activeTab === 0 ? 'POWNS' : 'xPOWNS'}
             />
             <Button
               type={'hollow-primary'}
@@ -510,7 +510,7 @@ export default function Stake(props) {
                     <img
                       className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
                       src={xLNSSquare}
-                      alt="xĐNS"
+                      alt="xPOWNS"
                       width={64}
                       height={64}
                     />
@@ -536,7 +536,7 @@ export default function Stake(props) {
                         ? xSushiBalance.toSignificant(8)
                         : '-'}
                     </p>
-                    <p className="text-sm md:text-base text-primary">xĐNS</p>
+                    <p className="text-sm md:text-base text-primary">xPOWNS</p>
                     {walletConnected &&
                       xSushiBalance.greaterThan(0) &&
                       xSushiPerSushi && (
@@ -546,7 +546,7 @@ export default function Stake(props) {
                             .multiply(Math.round(xSushiPerSushi * 1e8))
                             .divide(1e8)
                             .toSignificant(8)}{' '}
-                          ĐNS
+                          POWNS
                         </p>
                       )}
                   </div>
@@ -564,7 +564,7 @@ export default function Stake(props) {
                     <img
                       className="max-w-10 md:max-w-16 -ml-1 mr-1 md:mr-2 -mb-1.5 rounded"
                       src={LNSSquare}
-                      alt="ĐNS"
+                      alt="POWNS"
                       width={64}
                       height={64}
                     />
@@ -590,7 +590,7 @@ export default function Stake(props) {
                         ? sushiBalance.toSignificant(8)
                         : '-'}
                     </p>
-                    <p className="text-sm md:text-base text-primary">ĐNS</p>
+                    <p className="text-sm md:text-base text-primary">POWNS</p>
                   </div>
                 </div>
               </div>

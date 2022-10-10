@@ -88,7 +88,7 @@
     "steps": {
       "addtext": {
         "text": "Clique em 'Saiba mais' para ler sobre o processo.",
-        "title": "Configure uma entrada de texto no seu registro de domínio e clique em recarregar. A entrada de texto deve ser chamada '_ens' e seu endereço DogeChain deve conter no formulário:"
+        "title": "Configure uma entrada de texto no seu registro de domínio e clique em recarregar. A entrada de texto deve ser chamada '_ens' e seu endereço Ethereum POW deve conter no formulário:"
       },
       "enable": {
         "text": "Clique em 'Saiba mais' para ler sobre o processo.",
@@ -97,13 +97,13 @@
       "manage": {
         "text1": "Como você é o proprietário, agora você pode gerenciar seu nome.",
         "text2": "Como você não é o propietário, você pode ver o nome no gerenciador.",
-        "title": "Parabéns! Você adicionou com sucesso esse domínio de DNS ao Registro do ĐNS."
+        "title": "Parabéns! Você adicionou com sucesso esse domínio de DNS ao Registro do POWNS."
       },
       "proof": {
         "text1": "O endereço que aparece na entrada de texto do DNS é o seu mesmo endereço.",
-        "text2": "Se você é o proprietário desse domínio, modifique sua entrada TXT com seu Endereço DogeChain e recarregue a página para realizar a verficação DNSSEC novamente.",
-        "title1": "Você é o proprietário desse endereço. Agora você pode adicionar seu domínio no Registro ĐNS.",
-        "title2": "Você não parece ser o proprietário do DNS desse domínio, mas qualquer um pode adicionar esse domínio no Registro ĐNS."
+        "text2": "Se você é o proprietário desse domínio, modifique sua entrada TXT com seu Endereço Ethereum POW e recarregue a página para realizar a verficação DNSSEC novamente.",
+        "title1": "Você é o proprietário desse endereço. Agora você pode adicionar seu domínio no Registro POWNS.",
+        "title2": "Você não parece ser o proprietário do DNS desse domínio, mas qualquer um pode adicionar esse domínio no Registro POWNS."
       }
     },
     "viewinmanager": "Ver no gerenciador"
@@ -128,11 +128,11 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "O Aplicativo ĐNS é uma Interface Grafíca para Usuários que não são tecnicos. Permitindo você buscar qualquer nome, gerenciar seus endereços ou recursos para os quais apontar e criar subdminíos de cada nome.",
-      "title": "Como usar ĐNS"
+      "body": "O Aplicativo POWNS é uma Interface Grafíca para Usuários que não são tecnicos. Permitindo você buscar qualquer nome, gerenciar seus endereços ou recursos para os quais apontar e criar subdminíos de cada nome.",
+      "title": "Como usar POWNS"
     },
     "whatisens": {
-      "body": "O DogeChain Name Service(ĐNS) é um sistema de nomenclatura distribuído, aberto e estensível baseado no blockchain DogeChain. O ĐNS elimina a necessidade de copiar ou digitar endereços longos.",
+      "body": "O Ethereum POW Name Service(POWNS) é um sistema de nomenclatura distribuído, aberto e estensível baseado no blockchain Ethereum POW. O POWNS elimina a necessidade de copiar ou digitar endereços longos.",
       "title": "O que é isso"
     }
   },
@@ -142,11 +142,11 @@
       "title": "Salve nomes favoritos"
     },
     "manage": {
-      "text": "Aponte dominíons para seus endereços DogeChain, trasfira propriedade para outras pessoas e mais.",
+      "text": "Aponte dominíons para seus endereços Ethereum POW, trasfira propriedade para outras pessoas e mais.",
       "title": "Gerencie nomes"
     },
     "register": {
-      "text": "Registre .bch nomes por 100wDOGE/ano. Estenda seus nomes registrados a qualquer momento.",
+      "text": "Registre .bch nomes por 100ETHW/ano. Estenda seus nomes registrados a qualquer momento.",
       "title": "Nomes de Registro"
     },
     "search": {
@@ -178,7 +178,7 @@
       "manage": "Gerenciar nome",
       "register": "Registro",
       "request": "Pedido para registar",
-      "setreverserecord": "Definir como nome ĐNS primário",
+      "setreverserecord": "Definir como nome POWNS primário",
       "warning": "Clique em registrar para avançar ate à 3ª etapa"
     },
     "favourite": "* Adicione o nome aos favoritos para fácil acesso caso você feche o navegado.",
@@ -219,7 +219,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*Se você negocia nomes ĐNS, não aceite este nome!",
+    "donotaccept": "*Se você negocia nomes POWNS, não aceite este nome!",
     "messages": {
       "controller": "Esse nome é controlado por um contrar e não pode ser migrado automaticamente. Por favor reimplante seu contrato para usar um novo registro antes de definir um novo contraolador",
       "default": "Esse nome precisa ser migrado para o novo Registro. Apenas os nomes pais (({{parent}) podem fazer isso.",
@@ -234,8 +234,8 @@
       "title": "Registro {{name}}"
     },
     "renewal": {
-      "description": "Seu nome ĐNS vai exprirar em breve, por favor estenda seu registro",
-      "title": "Estenda o registro do seu dominio {{name}} ĐNS"
+      "description": "Seu nome POWNS vai exprirar em breve, por favor estenda seu registro",
+      "title": "Estenda o registro do seu dominio {{name}} POWNS"
     }
   },
   "search": {
@@ -295,15 +295,15 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Uma vez seu nome registrado, vá para página de 'Minha Conta' e defina o seu nome ĐNS primário. Isso permite que os dapps e exibam seu nome ĐNS quando você se conectar a eles com sua conta DogeChain.",
-        "title": "1. Defina seu registro de nome ĐNS primário"
+        "text": "Uma vez seu nome registrado, vá para página de 'Minha Conta' e defina o seu nome POWNS primário. Isso permite que os dapps e exibam seu nome POWNS quando você se conectar a eles com sua conta Ethereum POW.",
+        "title": "1. Defina seu registro de nome POWNS primário"
       },
       "step2": {
         "text": "Você pode definir endereços de diferentes cripitomoedas, informações de perfil, como avatar, twitter e mais.",
         "title": "2. Defina outros registros"
       },
       "step3": {
-        "text": "Você pode hospedar seu html/css/images estáticos no IPFS e colocar o hash no registro de conteúdo do seu nome ĐNS. Em seguida, ele pode ser resolvido por navegadores compatíveis com ĐNS (por exemplo, Opera), extensões de navegador (Metamask) ou qualquer navegador com '.is' anexado ao final (por exemplo, lns.bch.is)",
+        "text": "Você pode hospedar seu html/css/images estáticos no IPFS e colocar o hash no registro de conteúdo do seu nome POWNS. Em seguida, ele pode ser resolvido por navegadores compatíveis com POWNS (por exemplo, Opera), extensões de navegador (Metamask) ou qualquer navegador com '.is' anexado ao final (por exemplo, lns.bch.is)",
         "title": "3. Definir um hash de conteúdo de um site descentralizado."
       },
       "title": "Aprenda como administrar seu nome."
@@ -319,14 +319,14 @@
       "cantEdit": "Você não pode editar ou adicionar registros até migrar para o novo resolvedor.",
       "closeEdit": "Feche adicionar/editar registros",
       "messages": {
-        "explanation": "Isso designa um de seus nomes ĐNS para representar sua conta DogeChain e atuar como seu nome e perfil de plataforma cruzada web3. Você só pode ter uma Nome primário ĐNS por conta DogeChain e pode mudar a qualquer momento.",
-        "explanation2": "Apenas nomes ĐNS que apontam para sua conta DogeChain podem ser definidos como seu nome ĐNS primário.",
-        "noForwardRecordAavilable": "Nenhum nome de ĐNS tem seus registros de endereço DOGECHAIN configurados para este endereço.",
-        "notSet": "Nome ĐNS primário (registro reverso): não definido",
-        "reverseRecordRemoval": "Tem certeza de que deseja excluir seu registro de nome ĐNS primário?",
-        "selectPlaceholder": "Selecione um dos seus nomes ĐNS",
-        "setTo": "Nome ĐNS primário (registro reverso):",
-        "setToDifferent": "Nome ĐNS primário (registro reverso): Defina para um nome diferente:"
+        "explanation": "Isso designa um de seus nomes POWNS para representar sua conta Ethereum POW e atuar como seu nome e perfil de plataforma cruzada web3. Você só pode ter uma Nome primário POWNS por conta Ethereum POW e pode mudar a qualquer momento.",
+        "explanation2": "Apenas nomes POWNS que apontam para sua conta Ethereum POW podem ser definidos como seu nome POWNS primário.",
+        "noForwardRecordAavilable": "Nenhum nome de POWNS tem seus registros de endereço Ethereum POW configurados para este endereço.",
+        "notSet": "Nome POWNS primário (registro reverso): não definido",
+        "reverseRecordRemoval": "Tem certeza de que deseja excluir seu registro de nome POWNS primário?",
+        "selectPlaceholder": "Selecione um dos seus nomes POWNS",
+        "setTo": "Nome POWNS primário (registro reverso):",
+        "setToDifferent": "Nome POWNS primário (registro reverso): Defina para um nome diferente:"
       },
       "openEdit": "Adicionar/Editar Entradas",
       "title": "Entrada"

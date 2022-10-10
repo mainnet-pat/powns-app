@@ -125,7 +125,7 @@ function Favourites() {
 
   const { t } = useTranslation()
   useEffect(() => {
-    document.title = 'ĐNS Favourites'
+    document.title = 'POWNS Favourites'
   }, [])
 
   let [years, setYears] = useState(1)
@@ -139,7 +139,7 @@ function Favourites() {
     GET_FAVOURITES
   )
   useEffect(() => {
-    document.title = 'ĐNS Favourites'
+    document.title = 'POWNS Favourites'
   }, [])
 
   const { data: { subDomainFavourites } = [] } = useQuery(

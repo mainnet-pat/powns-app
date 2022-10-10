@@ -219,7 +219,7 @@ export function isShortName(term) {
 export const aboutPageURL = () => {
   const lang = window.localStorage.getItem('language') || ''
 
-  return `https://dogedomains.wf/${lang === 'en' ? '' : lang}`
+  return `https://powns.domains/${lang === 'en' ? '' : lang}`
 }
 
 export function isRecordEmpty(value) {
@@ -318,7 +318,7 @@ export function metadataURI(_network) {
   } else if (['dogechain', 'dogechain-testnet'].indexOf(_network)) {
     return `https://metadata.dogedomains.wf/${_network}`
   } else if (['ethpow'].indexOf(_network)) {
-    return `https://metadata.powns.domains/${_network}`
+    return `https://metadata.bch.domains/${_network}`
   } else if (_network === 'localhost') {
     return `http://localhost/${_network}`
   }
@@ -371,7 +371,7 @@ export const switchEthereumChain = async chainId => {
       chainId: '0x2710',
       chainName: 'SmartBCH',
       nativeCurrency: {
-        name: 'DogeChain',
+        name: 'SmartBCH',
         symbol: 'BCH',
         decimals: 18
       },

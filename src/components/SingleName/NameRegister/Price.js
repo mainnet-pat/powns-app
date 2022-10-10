@@ -70,7 +70,7 @@ const Price = ({
   return (
     <PriceContainer>
       <Value>
-        {ethPrice} DOGE
+        {ethPrice} ETHW
         {ethVal && ethUsdPrice && (
           <USD>
             {withPremium}${usdPremium}

@@ -45,12 +45,12 @@ export const NetworkError = ({ message }) => (
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          switchEthereumChain(2000).then(() => window.location.reload())
+          switchEthereumChain(10001).then(() => window.location.reload())
         }}
       >
-        DogeChain Mainnet
+        Ethereum POW Mainnet
       </a>{' '}
-      or
+      {/* or
       <a
         style={{ cursor: 'pointer' }}
         onClick={() => {
@@ -58,7 +58,7 @@ export const NetworkError = ({ message }) => (
         }}
       >
         DogeChain Testnet
-      </a>
+      </a> */}
     </Message>
   </ErrorContainer>
 )

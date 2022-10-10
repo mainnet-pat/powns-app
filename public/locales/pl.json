@@ -90,7 +90,7 @@
     "steps": {
       "addtext": {
         "text": "Kliknij \"dowiedz się więcej\", aby przeczytać o procesie.",
-        "title": "\nSkonfiguruj rekord tekstowy w rejestratorze domeny, a następnie kliknij Odśwież. Rekord tekstowy powinien zawierać Twój adres DogeChain w postaci:"
+        "title": "\nSkonfiguruj rekord tekstowy w rejestratorze domeny, a następnie kliknij Odśwież. Rekord tekstowy powinien zawierać Twój adres Ethereum POW w postaci:"
       },
       "enable": {
         "text": "Kliknij \"dowiedz się więcej\", aby przeczytać o procesie.",
@@ -99,13 +99,13 @@
       "manage": {
         "text1": "Odkąd jesteś właścicielem, możesz zarządzać swoimi nazwami.",
         "text2": "Ponieważ nie jesteś właścicielem, możesz tylko wyświetlać nazwy w rejestratorze.",
-        "title": "Gratulacje! Udało ci się dodać domenę DNS do Rejestru ĐNS"
+        "title": "Gratulacje! Udało ci się dodać domenę DNS do Rejestru POWNS"
       },
       "proof": {
         "text1": "\nAdres, który pojawia się w rekordzie txt DNS, to ten sam adres.",
-        "text2": "Jeśli wiesz, że posiadasz tę domenę, zmień jej rekord TXT, aby zawierał Adres DogeChain i odśwież stronę, aby ponownie przeprowadzić weryfikację DNSSEC.",
-        "title1": "Jesteś właścicielem tego adresu. Dodaj teraz swoją domenę do Rejestru ĐNS.",
-        "title2": "Nie jesteś właścicielem DNS tej domeny, lecz każdy może dodać domenę do Rejestru ĐNS."
+        "text2": "Jeśli wiesz, że posiadasz tę domenę, zmień jej rekord TXT, aby zawierał Adres Ethereum POW i odśwież stronę, aby ponownie przeprowadzić weryfikację DNSSEC.",
+        "title1": "Jesteś właścicielem tego adresu. Dodaj teraz swoją domenę do Rejestru POWNS.",
+        "title2": "Nie jesteś właścicielem DNS tej domeny, lecz każdy może dodać domenę do Rejestru POWNS."
       }
     },
     "viewinmanager": "Zobacz w Menedżerze"
@@ -130,11 +130,11 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "Aplikacja ĐNS to graficzny interfejs użytkownika dla użytkowników nietechnicznych. Umożliwia wyszukiwanie dowolnej nazwy, zarządzanie jej adresami lub zasobami, na które wskazuje, i tworzenie subdomen dla każdej nazwy.",
-      "title": "Jak używać ĐNS"
+      "body": "Aplikacja POWNS to graficzny interfejs użytkownika dla użytkowników nietechnicznych. Umożliwia wyszukiwanie dowolnej nazwy, zarządzanie jej adresami lub zasobami, na które wskazuje, i tworzenie subdomen dla każdej nazwy.",
+      "title": "Jak używać POWNS"
     },
     "whatisens": {
-      "body": "The DogeChain Name Service to rozproszony, otwarty i rozszerzalny system nazewnictwa oparty na blockchainie DogeChain. ĐNS eliminuje potrzebę kopiowania lub wpisywania długich adresów.",
+      "body": "The Ethereum POW Name Service to rozproszony, otwarty i rozszerzalny system nazewnictwa oparty na blockchainie Ethereum POW. POWNS eliminuje potrzebę kopiowania lub wpisywania długich adresów.",
       "title": "Co to jest"
     }
   },
@@ -148,7 +148,7 @@
       "title": "Zarządzaj nazwami"
     },
     "register": {
-      "text": "Zarejestruj nazwę .bch za 100wDOGE/rok. Odnów lub anuluj twoją rejestrację nazwy w dowolnym momencie.",
+      "text": "Zarejestruj nazwę .bch za 100ETHW/rok. Odnów lub anuluj twoją rejestrację nazwy w dowolnym momencie.",
       "title": "Zarejestruj nazwy"
     },
     "search": {
@@ -221,7 +221,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "* Jeśli hadlujesz nazwami ĐNS, nie akcpetuj tej nazwy!",
+    "donotaccept": "* Jeśli hadlujesz nazwami POWNS, nie akcpetuj tej nazwy!",
     "messages": {
       "controller": "Ta nazwa jest kontrolowana przez kontrakt i nie może być przeniesiona automatycznie. Przed ustawieniem nowego kontrolera ponownie zdeponuj kontrakt, aby używać nowego rejestru.",
       "default": "Tę nazwę należy przenieść do nowego rejestru. Tylko rodzic tej nazwy ({{parent}}) może to zrobić.",
@@ -236,8 +236,8 @@
       "title": "Register {{name}}"
     },
     "renewal": {
-      "description": "Your ĐNS name is expiring soon, please renew it",
-      "title": "Renew your ĐNS domain {{name}}"
+      "description": "Your POWNS name is expiring soon, please renew it",
+      "title": "Renew your POWNS domain {{name}}"
     }
   },
   "search": {
@@ -297,7 +297,7 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your ĐNS name when you connect to them with your DogeChain account. ",
+        "text": "Once you register your name, Go to 'My Account' page and set a reverse record. This allows dapps to find and display your POWNS name when you connect to them with your Ethereum POW account. ",
         "title": "1. Set a reverse record"
       },
       "step2": {
@@ -305,7 +305,7 @@
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your ĐNS name's Content record. Then it can be resolved by ĐNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your POWNS name's Content record. Then it can be resolved by POWNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.is' appended to the end (e.g. lns.bch.is).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "Learn how to manage your name."
@@ -322,11 +322,11 @@
       "closeEdit": "Close Add/Edit Records",
       "messages": {
         "explanation": "Reverse Resolution tłumaczy adres na nazwę. Pozwala Dapps na wyświetlanie w ich interfejsach '{{name}}' zamiast długiego adresu '{{konto}}'. Jeśli chcesz skonfigurować swój rewers dla innego konta, przełącz konta w przeglądarce dapp.",
-        "explanation2": "You can only select names you set this DogeChain Address as.",
-        "noForwardRecordAavilable": "You either do not own any ĐNS names, or your ĐNS names have no DOGECHAIN records set to this address.",
+        "explanation2": "You can only select names you set this Ethereum POW Address as.",
+        "noForwardRecordAavilable": "You either do not own any POWNS names, or your POWNS names have no Ethereum POW records set to this address.",
         "notSet": "Rekord Reverse: nie ustawiono",
         "reverseRecordRemoval": "Are you sure you want to delete the reverse record?",
-        "selectPlaceholder": "Select your ĐNS name",
+        "selectPlaceholder": "Select your POWNS name",
         "setTo": "Rekord Reverse: Ustaw na",
         "setToDifferent": "Rekord Reverse: Ustaw na inną nazwę:"
       },

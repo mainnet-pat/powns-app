@@ -11,7 +11,7 @@ const EthRegistrar = () => {
 
   return (
     <div>
-      <h2>Doge Domain Registrar</h2>
+      <h2>ETHW Domain Registrar</h2>
       <CheckAvailability />
       <DomainInfo />
     </div>
