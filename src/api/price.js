@@ -38,7 +38,7 @@ export default async function getEtherPrice() {
     )
     // const price = (await ethUsdContract.latestAnswer()).toNumber() / 100000000
     const response = await fetch(
-      'https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd'
+      'https://api.coingecko.com/api/v3/simple/price?ids=ethereum-pow-iou&vs_currencies=usd'
     )
     const json = await response.json()
 

@@ -6,7 +6,7 @@ function createFetchUrl(name) {
 }
 
 function whitelisted() {
-  return ['app.dogedomains.wf', 'dns.doge', 'dns.doge.wf'].includes(
+  return ['app.powns.domains', 'powns.is', 'powns.powns.is'].includes(
     window.location.host
   )
 }

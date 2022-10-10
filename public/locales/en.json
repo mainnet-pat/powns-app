@@ -89,7 +89,7 @@
     "steps": {
       "addtext": {
         "text": "Click 'learn more' to read about the process.",
-        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your DogeChain address in the form:"
+        "title": "Set up a text record in your domain registrar then click refresh. The text record should be called '_ens' and should contain your Ethereum POW address in the form:"
       },
       "enable": {
         "text": "Click 'learn more' to read about the process.",
@@ -98,13 +98,13 @@
       "manage": {
         "text1": "Since you are the owner, you can manage your name now. ",
         "text2": "Since you are not the owner, you can only view the name in the manager.",
-        "title": "Congratulations! You have successfully added this DNS domain to the ĐNS Registry."
+        "title": "Congratulations! You have successfully added this DNS domain to the POWNS Registry."
       },
       "proof": {
         "text1": "The address that appears in the DNS txt record is your same address.",
-        "text2": "If you know you own this domain, change it's TXT record to contain your DogeChain Address and refresh this page to perform the DNSSEC verification again.",
-        "title1": "You are the owner of this address. Add your domain to the ĐNS Registry now.",
-        "title2": "You don't appear to be the DNS Owner of this domain, but anyone can add this domain to the ĐNS Registry."
+        "text2": "If you know you own this domain, change it's TXT record to contain your Ethereum POW Address and refresh this page to perform the DNSSEC verification again.",
+        "title1": "You are the owner of this address. Add your domain to the POWNS Registry now.",
+        "title2": "You don't appear to be the DNS Owner of this domain, but anyone can add this domain to the POWNS Registry."
       }
     },
     "viewinmanager": "View in Manager"
@@ -129,11 +129,11 @@
     "announcements": {
     },
     "howtouse": {
-      "body": "The ĐNS App is a Graphical User Interface for non-technical users. It allows you to search any name, manage their addresses or resources it points to and create subdomains for each name.",
-      "title": "How to use ĐNS"
+      "body": "The POWNS App is a Graphical User Interface for non-technical users. It allows you to search any name, manage their addresses or resources it points to and create subdomains for each name.",
+      "title": "How to use POWNS"
     },
     "whatisens": {
-      "body": "The DogeChain Name Service is a distributed, open, and extensible naming system based on the DogeChain blockchain. ĐNS eliminates the need to copy or type long addresses.",
+      "body": "The Ethereum POW Name Service is a distributed, open, and extensible naming system based on the Ethereum POW blockchain. POWNS eliminates the need to copy or type long addresses.",
       "title": "What it is"
     }
   },
@@ -143,11 +143,11 @@
       "title": "Save favourite names"
     },
     "manage": {
-      "text": "Point domains to your DogeChain addresses, transfer ownership to other people and more.",
+      "text": "Point domains to your Ethereum POW addresses, transfer ownership to other people and more.",
       "title": "Manage names"
     },
     "register": {
-      "text": "Register .doge names for 100Doge/year. Extend your name registration at any time.",
+      "text": "Register .ethw names for 1 ETHW/year. Extend your name registration at any time.",
       "title": "Register names"
     },
     "search": {
@@ -179,7 +179,7 @@
       "manage": "Manage name",
       "register": "Register",
       "request": "Request to register",
-      "setreverserecord": "Set as Primary ĐNS Name",
+      "setreverserecord": "Set as Primary POWNS Name",
       "warning": "Click register to move to the 3rd step"
     },
     "favourite": "* Favorite the name for easy access in case you close out of your browser.",
@@ -220,7 +220,7 @@
     ]
   },
   "registrymigration": {
-    "donotaccept": "*If you trade ĐNS names, do not accept this name!",
+    "donotaccept": "*If you trade POWNS names, do not accept this name!",
     "messages": {
       "controller": "This name is controlled by a contract and can't be migrated automatically. Please redeploy your contract to use the new registry before setting the new controller",
       "default": "This name needs to be migrated to the new Registry. Only the parent of this name ({{parent}}) can do this.",
@@ -231,12 +231,12 @@
   "reminder": {
     "everywhere": "everywhere",
     "release": {
-      "description": "Register {{name}} at https://app.dogedomains.wf/name/{{name}}/register",
+      "description": "Register {{name}} at https://app.ethw.wf/name/{{name}}/register",
       "title": "Register {{name}}"
     },
     "renewal": {
-      "description": "Your ĐNS name is expiring soon, please extend its registration",
-      "title": "Extend the registration of your ĐNS domain {{name}}"
+      "description": "Your POWNS name is expiring soon, please extend its registration",
+      "title": "Extend the registration of your POWNS domain {{name}}"
     }
   },
   "search": {
@@ -245,7 +245,7 @@
   },
   "searchErrors": {
     "domainMalformed": {
-      "long": "You have either added a domain without a TLD such as .doge or you have added unsupported characters.",
+      "long": "You have either added a domain without a TLD such as .ethw or you have added unsupported characters.",
       "short": "Domain malformed. {{searchTerm}} is not a valid domain."
     },
     "tooShort": {
@@ -296,15 +296,15 @@
     },
     "learnmore": {
       "step1": {
-        "text": "Once you register your name, Go to 'My Account' page and set your Primary ĐNS Name record. This allows dapps to find and display your ĐNS name when you connect to them with your DogeChain account. ",
-        "title": "1. Set your Primary ĐNS Name record"
+        "text": "Once you register your name, Go to 'My Account' page and set your Primary POWNS Name record. This allows dapps to find and display your POWNS name when you connect to them with your Ethereum POW account. ",
+        "title": "1. Set your Primary POWNS Name record"
       },
       "step2": {
         "text": "You can set the addresses of many different cryptocurrencies, profile information such as an avatar, Twitter handle, and more",
         "title": "2. Set other records"
       },
       "step3": {
-        "text": "You can host your static html/css/images on IPFS and put the hash in your ĐNS name's Content record. Then it can be resolved by ĐNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.doge' appended to the end (e.g. lns.doge.wf).",
+        "text": "You can host your static html/css/images on IPFS and put the hash in your POWNS name's Content record. Then it can be resolved by POWNS-aware browsers (e.g. Opera), browser extensions (Metamask), or any browser with '.ethw' appended to the end (e.g. lns.ethw.wf).",
         "title": "3. Set a content hash of a decentralized website"
       },
       "title": "Learn how to manage your name."
@@ -320,14 +320,14 @@
       "cantEdit": "You can’t edit or add records until you migrate to the new resolver.",
       "closeEdit": "Close Add/Edit Records",
       "messages": {
-        "explanation": "This designates one of your ĐNS names to represent your DogeChain account and act as your cross-platform web3 username and profile. You can only have one Primary ĐNS Name per DogeChain account and can change it at any time.",
-        "explanation2": "Only ĐNS names that point to your DogeChain account can be set as your Primary ĐNS Name.",
-        "noForwardRecordAavilable": "No ĐNS names have their DOGECHAIN Address records set to this address.",
-        "notSet": "Primary ĐNS Name (reverse record): not set",
-        "reverseRecordRemoval": "Are you sure you want to delete your Primary ĐNS Name record?",
-        "selectPlaceholder": "Select one of your ĐNS names",
-        "setTo": "Primary ĐNS Name (reverse record): ",
-        "setToDifferent": "Primary ĐNS Name (reverse record): Set to a different name:"
+        "explanation": "This designates one of your POWNS names to represent your Ethereum POW account and act as your cross-platform web3 username and profile. You can only have one Primary POWNS Name per Ethereum POW account and can change it at any time.",
+        "explanation2": "Only POWNS names that point to your Ethereum POW account can be set as your Primary POWNS Name.",
+        "noForwardRecordAavilable": "No POWNS names have their Ethereum POW Address records set to this address.",
+        "notSet": "Primary POWNS Name (reverse record): not set",
+        "reverseRecordRemoval": "Are you sure you want to delete your Primary POWNS Name record?",
+        "selectPlaceholder": "Select one of your POWNS names",
+        "setTo": "Primary POWNS Name (reverse record): ",
+        "setToDifferent": "Primary POWNS Name (reverse record): Set to a different name:"
       },
       "openEdit": "Add/Edit Records",
       "title": "Records"
@@ -384,9 +384,9 @@
     "confirmStaking": "Confirm Staking",
     "confirmWithdrawal": "Confirm Withdrawal",
     "insufficientBalance": "Insufficient Balance",
-    "header": "Earn yield by staking ĐNS for xĐNS",
-    "explanation": "For every domain purchase on dogedomains.wf, the entire Doge revenue is distributed as ĐNS proportional to your share of staked ĐNS. When your ĐNS is staked you receive xĐNS in return. Your xĐNS is continuously compounding, when you unstake you will receive all the originally deposited ĐNS and any additional from domain sales.",
-    "buylns": "Purchase ĐNS: ",
+    "header": "Earn yield by staking POWNS for xPOWNS",
+    "explanation": "For every domain purchase on dogedomains.wf, the entire Doge revenue is distributed as POWNS proportional to your share of staked POWNS. When your POWNS is staked you receive xPOWNS in return. Your xPOWNS is continuously compounding, when you unstake you will receive all the originally deposited POWNS and any additional from domain sales.",
+    "buylns": "Purchase POWNS: ",
     "max": "MAX",
     "approving": "Approving",
     "approve": "Approve"

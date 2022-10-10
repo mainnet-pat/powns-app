@@ -28,7 +28,8 @@ const useCheckValidity = (_searchTerm, isENSReady, chainId) => {
     568: ['doge', 'dc'],
     2000: ['doge', 'dc'],
     10000: ['bch'],
-    10001: ['bch']
+    // 10001: ['bch'],
+    10001: ['ethw']
   }[chainId]
 
   const [errors, setErrors] = useState([])

@@ -6,9 +6,9 @@
   "dependencies": {
     "@0xproject/utils": "^0.7.3",
     "@apollo/client": "^3.4.4",
-    "@bchdomains/address-encoder": "^0.2.17",
+    "@bchdomains/address-encoder": "^0.2.18",
     "@bchdomains/react-lns-address": "^0.0.34",
-    "@bchdomains/ui": "^3.3.29",
+    "@bchdomains/ui": "^3.3.30",
     "@buidlhub/buidlhub-ens-notifications": "^1.0.3",
     "@datapunt/matomo-tracker-react": "^0.5.1",
     "@emotion/core": "^10.0.9",

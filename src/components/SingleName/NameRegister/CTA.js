@@ -209,7 +209,7 @@ function getCTA({
           css={css`
             margin-right: 20px;
           `}
-          name={`${label}.doge`}
+          name={`${label}.ethw`}
           startDatetime={moment()
             .utc()
             .local()
@@ -219,7 +219,7 @@ function getCTA({
         <LeftLink
           onClick={async () => {
             await Promise.all([refetch(), refetchIsMigrated()])
-            history.push(`/name/${label}.doge`)
+            history.push(`/name/${label}.ethw`)
           }}
           data-testid="manage-name-button"
         >

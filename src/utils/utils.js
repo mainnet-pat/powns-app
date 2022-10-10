@@ -38,7 +38,8 @@ export const networkName = {
   smartbch: 'smartbch',
   'smartbh-amber': 'smartbch-amber',
   dogechain: 'dogechain',
-  'dogechain-testnet': 'dogechain-testnet'
+  'dogechain-testnet': 'dogechain-testnet',
+  ethpow: 'ethpow'
 }
 
 export const supportedAvatarProtocols = [
@@ -106,7 +107,8 @@ export async function getEtherScanAddr() {
       return 'https://sonar.cash/'
     case 10001:
     case '10001':
-      return 'https://testnet.sonar.cash/'
+      // return 'https://testnet.sonar.cash/'
+      return 'https://mainnet.ethwscan.com/'
     case 2000:
     case '2000':
       return 'https://explorer.dogmoney.money/'
@@ -311,14 +313,12 @@ export function prependUrl(url) {
 }
 
 export function metadataURI(_network) {
-  if (
-    ['smartbch', 'smartbch-amber', 'dogechain', 'dogechain-testnet'].indexOf(
-      _network
-    )
-  ) {
+  if (['smartbch', 'smartbch-amber'].indexOf(_network)) {
     return `https://metadata.bch.domains/${_network}`
   } else if (['dogechain', 'dogechain-testnet'].indexOf(_network)) {
     return `https://metadata.dogedomains.wf/${_network}`
+  } else if (['ethpow'].indexOf(_network)) {
+    return `https://metadata.powns.domains/${_network}`
   } else if (_network === 'localhost') {
     return `http://localhost/${_network}`
   }
@@ -378,16 +378,27 @@ export const switchEthereumChain = async chainId => {
       rpcUrls: ['https://smartbch.fountainhead.cash/mainnet'],
       blockExplorerUrls: ['https://sonar.cash']
     },
+    // [10001]: {
+    //   chainId: '0x2711',
+    //   chainName: 'SmartBCH Amber Testnet',
+    //   nativeCurrency: {
+    //     name: 'DogeChain',
+    //     symbol: 'BCH',
+    //     decimals: 18
+    //   },
+    //   rpcUrls: ['https://moeing.tech:9545'],
+    //   blockExplorerUrls: ['https://testnet.sonar.cash']
+    // },
     [10001]: {
       chainId: '0x2711',
-      chainName: 'SmartBCH Amber Testnet',
+      chainName: 'Ethereum POW',
       nativeCurrency: {
-        name: 'DogeChain',
-        symbol: 'BCH',
+        name: 'Ethereum POW',
+        symbol: 'ETHW',
         decimals: 18
       },
-      rpcUrls: ['https://moeing.tech:9545'],
-      blockExplorerUrls: ['https://testnet.sonar.cash']
+      rpcUrls: ['https://mainnet.ethereumpow.org'],
+      blockExplorerUrls: ['https://mainnet.ethwscan.com']
     },
     [2000]: {
       chainId: '0x07D0',
